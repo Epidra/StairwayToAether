@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "stairway:block/slabs_stone_cobble_moss_bottom" },
+        "type=top":    { "model": "stairway:block/slabs_stone_cobble_moss_top" },
+        "type=double": { "model": "block/mossy_cobblestone" }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "stairway:block/slabs_stone_brick_cracked_bottom" },
+        "type=top":    { "model": "stairway:block/slabs_stone_brick_cracked_top" },
+        "type=double": { "model": "block/cracked_stone_bricks" }
+    }
+}

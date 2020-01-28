@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_obsidian",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_obsidian_stone",
+    "count": 6
+  }
+}

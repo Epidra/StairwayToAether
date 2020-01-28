@@ -1,0 +1,9 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "minecraft:granite"
+  },
+  "result": "minecraft:polished_granite",
+  "experience": 0.15,
+  "cookingtime": 200
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "block_stone_brick",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_stone_smooth"
+    }
+  },
+  "result": {
+    "item": "minecraft:stone_bricks",
+    "count": 4
+  }
+}

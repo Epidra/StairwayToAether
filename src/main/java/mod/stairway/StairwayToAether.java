@@ -1,0 +1,94 @@
+package mod.stairway;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
+
+@Mod("stairway")
+public class StairwayToAether {
+
+    /** Log Manager Instance */
+    public static final Logger LOGGER = LogManager.getLogger();
+    /** The Mod ID */
+    public static final String MODID = "stairway";
+
+
+
+    //----------------------------------------CONSTRUCTOR----------------------------------------//
+
+    /** Default Constructor */
+    public StairwayToAether() {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::harvestBlock);
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+
+
+    //----------------------------------------SETUP_EVENTS----------------------------------------//
+
+    /** Server Side Setup Event */
+    private void setup(final FMLCommonSetupEvent event){
+        StairKeeper.loadConfig(Paths.get("config", MODID + ".toml"));
+    }
+
+    /** Register Event */
+    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
+            StairKeeper.registerStuff();
+        }
+
+    }
+
+    @SubscribeEvent
+    public void harvestBlock(final BlockEvent.HarvestDropsEvent event){
+        //if(StairKeeper.config_extended_granite.get()){
+        if(event.getState().getBlock() == Blocks.GRANITE){
+            event.getDrops().clear();
+            event.getDrops().add(new ItemStack(StairKeeper.BLOCK_GRANITE_COBBLE));
+            return;
+        }
+        //}
+
+        //if(StairKeeper.config_extended_diorite.get()){
+        if(event.getState().getBlock() == Blocks.DIORITE){
+            event.getDrops().clear();
+            event.getDrops().add(new ItemStack(StairKeeper.BLOCK_DIORITE_COBBLE));
+        }
+        //}
+
+        //if(StairKeeper.config_extended_andesite.get()){
+        if(event.getState().getBlock() == Blocks.ANDESITE){
+            event.getDrops().clear();
+            event.getDrops().add(new ItemStack(StairKeeper.BLOCK_ANDESITE_COBBLE));
+        }
+        //}
+
+        //if(StairKeeper.config_extended_end.get()){
+        if(event.getState().getBlock() == Blocks.END_STONE){
+            event.getDrops().clear();
+            event.getDrops().add(new ItemStack(StairKeeper.BLOCK_END_COBBLE));
+        }
+        //}
+    }
+
+}

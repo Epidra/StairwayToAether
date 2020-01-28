@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "stairway:block/slabs_concrete_yellow_bottom" },
+        "type=top":    { "model": "stairway:block/slabs_concrete_yellow_top" },
+        "type=double": { "model": "block/yellow_concrete" }
+    }
+}

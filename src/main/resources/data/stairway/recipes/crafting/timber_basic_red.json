@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_basic",
+  "pattern": [
+    "XXX",
+    "XXX",
+	"XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:red_terracotta"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_basic_red",
+    "count": 9
+  }
+}

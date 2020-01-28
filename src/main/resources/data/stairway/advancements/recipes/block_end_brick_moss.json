@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_end_brick_moss"
+    ]
+  },
+  "criteria": {
+    "has_end": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:end_stone_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:block_end_brick_moss"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_end",
+      "has_the_recipe"
+    ]
+  ]
+}

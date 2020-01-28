@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end":  "stairway:blocks/obsidian_carved_top",
+        "side": "stairway:blocks/obsidian_carved_side"
+    }
+}

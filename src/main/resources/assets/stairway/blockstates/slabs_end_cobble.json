@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "stairway:block/slabs_end_cobble_bottom" },
+        "type=top":    { "model": "stairway:block/slabs_end_cobble_top" },
+        "type=double": { "model": "stairway:block/block_end_cobble" }
+    }
+}

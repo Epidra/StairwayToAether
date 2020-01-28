@@ -1,0 +1,22 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom":   "block/polished_diorite",
+        "top":      "block/polished_diorite",
+        "side":     "block/polished_diorite",
+        "particle": "block/polished_diorite"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 8, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

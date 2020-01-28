@@ -1,0 +1,22 @@
+{
+    "parent": "block/upper_slab",
+    "textures": {
+        "bottom":   "block/mossy_cobblestone",
+        "top":      "block/mossy_cobblestone",
+        "side":     "block/mossy_cobblestone",
+        "particle": "block/mossy_cobblestone"
+    },
+    "elements": [
+        {   "from": [ 0, 8, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

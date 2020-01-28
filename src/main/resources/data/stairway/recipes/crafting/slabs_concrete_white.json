@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_concrete",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_concrete_white",
+    "count": 6
+  }
+}

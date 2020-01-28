@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "stairway:block/slabs_rednether_brick_bottom" },
+        "type=top":    { "model": "stairway:block/slabs_rednether_brick_top" },
+        "type=double": { "model": "block/red_nether_bricks" }
+    }
+}

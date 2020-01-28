@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "axis=y,inverted=true":     { "model": "stairway:block/block_chain_gold1" },
+        "axis=z,inverted=true":     { "model": "stairway:block/block_chain_gold1", "x": 90 },
+        "axis=x,inverted=true":     { "model": "stairway:block/block_chain_gold1", "x": 90, "y": 90 },
+        "axis=y,inverted=false":    { "model": "stairway:block/block_chain_gold2"  },
+        "axis=z,inverted=false":    { "model": "stairway:block/block_chain_gold2", "x": 90 },
+        "axis=x,inverted=false":    { "model": "stairway:block/block_chain_gold2", "x": 90, "y": 90 }
+    }
+}

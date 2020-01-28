@@ -1,0 +1,22 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom":   "block/prismarine",
+        "top":      "block/prismarine",
+        "side":     "block/prismarine",
+        "particle": "block/prismarine"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 8, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

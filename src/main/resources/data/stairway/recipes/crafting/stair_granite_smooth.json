@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "stair_granite",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:polished_granite"
+    }
+  },
+  "result": {
+    "item": "stairway:stair_granite_smooth",
+    "count": 4
+  }
+}

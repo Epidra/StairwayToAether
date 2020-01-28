@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_basic_cyan"
+    ]
+  },
+  "criteria": {
+    "has_cyan_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:cyan_terracotta"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:timber_basic_cyan"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_stained_hardened_clay",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "inverted=true":  { "model": "stairway:block/block_light_white1" },
+        "inverted=false": { "model": "stairway:block/block_light_white0" }
+    }
+}

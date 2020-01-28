@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_diorite_brick_moss"
+    }
+  },
+  "result": {
+    "item": "stairway:pilar_diorite_brick_moss",
+    "count": 3
+  }
+}

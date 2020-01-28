@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_end_smooth"
+    }
+  },
+  "result": {
+    "item": "stairway:pilar_end_smooth",
+    "count": 3
+  }
+}

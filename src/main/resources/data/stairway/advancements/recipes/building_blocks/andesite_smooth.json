@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_andesite_brick1"
+    ]
+  },
+  "criteria": {
+    "has_andesite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:polished_andesite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite"
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_andesite",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_andesite_cobble_moss"
+    }
+  },
+  "result": {
+    "item": "stairway:walls_andesite_cobble_moss",
+    "count": 6
+  }
+}

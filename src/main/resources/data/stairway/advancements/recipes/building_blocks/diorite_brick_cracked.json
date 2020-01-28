@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_diorite_brick2",
+      "stairway:slabs_diorite_brick_cracked",
+      "stairway:stair_diorite_brick_cracked",
+      "stairway:slabs_diorite_brick_cracked_stonecutter",
+      "stairway:stair_diorite_brick_cracked_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_diorite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "stairway:block_diorite_brick_cracked"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite"
+    ]
+  ]
+}

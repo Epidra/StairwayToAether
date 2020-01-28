@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_concrete",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cyan_concrete"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_concrete_cyan",
+    "count": 6
+  }
+}

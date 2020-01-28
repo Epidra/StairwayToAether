@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:pilar_stone_stone_cracked",
+      "stairway:pilar_stone_stone_cracked_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stone"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone"
+    ]
+  ]
+}

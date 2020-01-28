@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_granite_smooth",
+      "stairway:walls_granite_smooth_stonecutter",
+      "stairway:pilar_granite_smooth",
+      "stairway:pilar_granite_smooth_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_granite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:polished_granite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite"
+    ]
+  ]
+}

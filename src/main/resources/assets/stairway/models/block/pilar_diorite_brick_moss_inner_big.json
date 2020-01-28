@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_inner_big",
+    "textures": {
+        "top":     "stairway:blocks/diorite_brick_moss",
+        "side":    "stairway:blocks/diorite_brick_moss",
+        "bottom":  "stairway:blocks/diorite_brick_moss",
+        "paticle": "stairway:blocks/diorite_brick_moss"
+    }
+}

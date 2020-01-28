@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_basic_magenta",
+      "stairway:timber_cross_magenta",
+      "stairway:timber_diag_left_magenta",
+      "stairway:timber_diag_right_magenta",
+      "stairway:timber_horizontal_magenta",
+      "stairway:timber_plus_magenta",
+      "stairway:timber_vertical_magenta"
+    ]
+  },
+  "criteria": {
+    "has_magenta_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:magenta_terracotta"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_magenta_stained_hardened_clay"
+    ]
+  ]
+}

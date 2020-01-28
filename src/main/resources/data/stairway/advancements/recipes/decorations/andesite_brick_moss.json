@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_andesite_brick_moss",
+      "stairway:walls_andesite_brick_moss_stonecutter",
+      "stairway:pilar_andesite_brick_moss",
+      "stairway:pilar_andesite_brick_moss_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_andesite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "stairway:block_andesite_brick_moss"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite"
+    ]
+  ]
+}

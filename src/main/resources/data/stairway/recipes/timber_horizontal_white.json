@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_horizontal",
+  "pattern": [
+    "XXX",
+    "III",
+	"XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "stairway:timber_white"
+    },
+	"I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_horizontal_white",
+    "count": 6
+  }
+}

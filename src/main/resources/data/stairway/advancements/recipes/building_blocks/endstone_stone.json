@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_end_smooth",
+      "stairway:slabs_end_stone",
+      "stairway:stair_end_stone",
+      "stairway:slabs_end_stone_stonecutter",
+      "stairway:stair_end_stone_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_end": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:end_stone"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_end"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_concrete_lightblue",
+      "stairway:walls_concrete_lightblue_stonecutter",
+      "stairway:pilar_concrete_lightblue",
+      "stairway:pilar_concrete_lightblue_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_concrete": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:light_blue_concrete"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_concrete"
+    ]
+  ]
+}

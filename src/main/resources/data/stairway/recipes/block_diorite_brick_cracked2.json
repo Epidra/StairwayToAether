@@ -1,0 +1,9 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "stairway:block_diorite_brick_moss"
+  },
+  "result": "stairway:block_diorite_brick_cracked",
+  "experience": 0.15,
+  "cookingtime": 200
+}

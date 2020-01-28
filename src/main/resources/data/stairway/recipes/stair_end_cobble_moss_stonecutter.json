@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "stairway:block_end_cobble_moss"
+  },
+  "result": "stairway:stair_end_cobble_moss",
+  "count": 1
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_andesite_cobble"
+    }
+  },
+  "result": {
+    "item": "stairway:pilar_andesite_cobble",
+    "count": 3
+  }
+}

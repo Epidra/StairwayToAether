@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_basic_cyan",
+      "stairway:timber_cross_cyan",
+      "stairway:timber_diag_left_cyan",
+      "stairway:timber_diag_right_cyan",
+      "stairway:timber_horizontal_cyan",
+      "stairway:timber_plus_cyan",
+      "stairway:timber_vertical_cyan"
+    ]
+  },
+  "criteria": {
+    "has_cyan_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:cyan_terracotta"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_stained_hardened_clay"
+    ]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_inner_big",
+    "textures": {
+        "top":     "stairway:blocks/end_smooth",
+        "side":    "stairway:blocks/end_smooth",
+        "bottom":  "stairway:blocks/end_smooth",
+        "paticle": "stairway:blocks/end_smooth"
+    }
+}

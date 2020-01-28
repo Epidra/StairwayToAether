@@ -1,0 +1,22 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "stairway:blocks/end_brick_moss",
+        "top":    "stairway:blocks/end_brick_moss",
+        "side":   "stairway:blocks/end_brick_moss",
+        "particle": "stairway:blocks/end_brick_moss"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 8, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

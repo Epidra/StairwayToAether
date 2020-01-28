@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_basic",
+  "pattern": [
+    "XXX",
+    "XXX",
+	"XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "stairway:timber_black"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_basic_black",
+    "count": 9
+  }
+}

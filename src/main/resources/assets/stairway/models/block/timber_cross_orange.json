@@ -1,0 +1,7 @@
+{
+    "parent": "stairway:template/timber_cross",
+    "textures": {
+        "clay":     "minecraft:block/orange_terracotta",
+        "particle": "minecraft:block/orange_terracotta"
+    }
+}

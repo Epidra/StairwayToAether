@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_small",
+    "textures": {
+        "top":     "stairway:blocks/end_cobble_moss",
+        "side":    "stairway:blocks/end_cobble_moss",
+        "bottom":  "stairway:blocks/end_cobble_moss",
+        "paticle": "stairway:blocks/end_cobble_moss"
+    }
+}

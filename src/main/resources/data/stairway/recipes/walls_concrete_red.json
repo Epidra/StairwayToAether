@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_concrete",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:red_concrete"
+    }
+  },
+  "result": {
+    "item": "stairway:walls_concrete_red",
+    "count": 6
+  }
+}

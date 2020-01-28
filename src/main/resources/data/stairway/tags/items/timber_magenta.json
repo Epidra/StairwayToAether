@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:magenta_terracotta",
+    "stairway:timber_basic_magenta",
+    "stairway:timber_diag_left_magenta",
+    "stairway:timber_diag_right_magenta",
+    "stairway:timber_horizontal_magenta",
+    "stairway:timber_vertical_magenta",
+    "stairway:timber_cross_magenta",
+    "stairway:timber_plus_magenta"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_basic_black",
+      "stairway:timber_cross_black",
+      "stairway:timber_diag_left_black",
+      "stairway:timber_diag_right_black",
+      "stairway:timber_horizontal_black",
+      "stairway:timber_plus_black",
+      "stairway:timber_vertical_black"
+    ]
+  },
+  "criteria": {
+    "has_black_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:black_terracotta"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_black_stained_hardened_clay"
+    ]
+  ]
+}

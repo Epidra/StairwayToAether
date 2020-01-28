@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_basic_lime",
+      "stairway:timber_cross_lime",
+      "stairway:timber_diag_left_lime",
+      "stairway:timber_diag_right_lime",
+      "stairway:timber_horizontal_lime",
+      "stairway:timber_plus_lime",
+      "stairway:timber_vertical_lime"
+    ]
+  },
+  "criteria": {
+    "has_lime_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:lime_terracotta"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lime_stained_hardened_clay"
+    ]
+  ]
+}

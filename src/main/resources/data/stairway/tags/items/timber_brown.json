@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:brown_terracotta",
+    "stairway:timber_basic_brown",
+    "stairway:timber_diag_left_brown",
+    "stairway:timber_diag_right_brown",
+    "stairway:timber_horizontal_brown",
+    "stairway:timber_vertical_brown",
+    "stairway:timber_cross_brown",
+    "stairway:timber_plus_brown"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "stairway:block_andesite_brick_cracked"
+  },
+  "result": "stairway:walls_andesite_brick_cracked",
+  "count": 1
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_inner_small",
+    "textures": {
+        "top":     "minecraft:block/dark_prismarine",
+        "side":    "minecraft:block/dark_prismarine",
+        "bottom":  "minecraft:block/dark_prismarine",
+        "paticle": "minecraft:block/dark_prismarine"
+    }
+}

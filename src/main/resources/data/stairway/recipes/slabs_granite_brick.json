@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_granite",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_granite_brick"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_granite_brick",
+    "count": 6
+  }
+}

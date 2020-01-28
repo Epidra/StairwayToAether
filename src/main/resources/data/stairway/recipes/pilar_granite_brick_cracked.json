@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_granite_brick_cracked"
+    }
+  },
+  "result": {
+    "item": "stairway:pilar_granite_brick_cracked",
+    "count": 3
+  }
+}

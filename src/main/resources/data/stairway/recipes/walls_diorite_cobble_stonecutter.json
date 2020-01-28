@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "stairway:block_diorite_cobble"
+  },
+  "result": "stairway:walls_diorite_cobble",
+  "count": 1
+}

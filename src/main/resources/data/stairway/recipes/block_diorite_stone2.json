@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "block_diorite_stone",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_diorite_cobble_moss"
+    }
+  },
+  "result": {
+    "item": "minecraft:diorite",
+    "count": 4
+  }
+}

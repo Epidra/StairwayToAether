@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_basic_pink",
+      "stairway:timber_cross_pink",
+      "stairway:timber_diag_left_pink",
+      "stairway:timber_diag_right_pink",
+      "stairway:timber_horizontal_pink",
+      "stairway:timber_plus_pink",
+      "stairway:timber_vertical_pink"
+    ]
+  },
+  "criteria": {
+    "has_pink_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:pink_terracotta"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pink_stained_hardened_clay"
+    ]
+  ]
+}

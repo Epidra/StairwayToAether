@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+      "item": "minecraft:diorite"
+  },
+  "result": "stairway:pilar_diorite_stone",
+    "count": 1
+}

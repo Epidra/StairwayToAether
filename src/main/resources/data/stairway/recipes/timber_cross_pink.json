@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_cross",
+  "pattern": [
+    "IXI",
+    "XIX",
+	"IXI"
+  ],
+  "key": {
+    "X": {
+      "tag": "stairway:timber_pink"
+    },
+	"I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_cross_pink",
+    "count": 4
+  }
+}

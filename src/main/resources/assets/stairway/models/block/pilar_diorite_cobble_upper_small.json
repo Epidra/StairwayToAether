@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_upper_small",
+    "textures": {
+        "top":     "stairway:blocks/diorite_cobble",
+        "side":    "stairway:blocks/diorite_cobble",
+        "bottom":  "stairway:blocks/diorite_cobble",
+        "paticle": "stairway:blocks/diorite_cobble"
+    }
+}

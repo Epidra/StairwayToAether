@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "stairway:blocks/andesite_brick",
+        "top":    "stairway:blocks/andesite_brick",
+        "side":   "stairway:blocks/andesite_brick"
+    }
+}

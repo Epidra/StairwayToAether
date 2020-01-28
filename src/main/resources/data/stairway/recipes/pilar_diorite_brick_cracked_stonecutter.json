@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+      "item": "stairway:block_diorite_brick_cracked"
+  },
+  "result": "stairway:pilar_diorite_brick_cracked",
+    "count": 1
+}

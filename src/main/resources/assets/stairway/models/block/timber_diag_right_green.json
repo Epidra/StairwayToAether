@@ -1,0 +1,7 @@
+{
+    "parent": "stairway:template/timber_diag_right",
+    "textures": {
+        "clay":     "minecraft:block/green_terracotta",
+        "particle": "minecraft:block/green_terracotta"
+    }
+}

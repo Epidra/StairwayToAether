@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_big",
+    "textures": {
+        "top":     "stairway:blocks/end_brick_cracked",
+        "side":    "stairway:blocks/end_brick_cracked",
+        "bottom":  "stairway:blocks/end_brick_cracked",
+        "paticle": "stairway:blocks/end_brick_cracked"
+    }
+}

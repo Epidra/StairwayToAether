@@ -1,0 +1,163 @@
+{
+    "variants": {
+        "rotation=15,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_a", "y":   0 },
+        "rotation=15,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_a", "y":  90 },
+        "rotation=15,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_a", "y": 180 },
+        "rotation=15,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_a", "y": 270 },
+        
+        "rotation=14,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_a", "y":   0 },
+        "rotation=14,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_a", "y":  90 },
+        "rotation=14,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_a", "y": 180 },
+        "rotation=14,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_a", "y": 270 },
+        
+        "rotation=13,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_b", "y":   0 },
+        "rotation=13,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_b", "y":  90 },
+        "rotation=13,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_b", "y": 180 },
+        "rotation=13,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_b", "y": 270 },
+        
+        "rotation=12,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_c", "y":   0 },
+        "rotation=12,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_c", "y":  90 },
+        "rotation=12,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_c", "y": 180 },
+        "rotation=12,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_c", "y": 270 },
+        
+        "rotation=11,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_e", "y":   0 },
+        "rotation=11,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_e", "y":  90 },
+        "rotation=11,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_e", "y": 180 },
+        "rotation=11,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_e", "y": 270 },
+        
+        "rotation=10,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_f", "y":   0 },
+        "rotation=10,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_f", "y":  90 },
+        "rotation=10,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_f", "y": 180 },
+        "rotation=10,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_f", "y": 270 },
+        
+        "rotation=9,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_d", "y":   0 },
+        "rotation=9,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_d", "y":  90 },
+        "rotation=9,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_d", "y": 180 },
+        "rotation=9,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_d", "y": 270 },
+        
+        "rotation=8,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_g", "y": 180 },
+        "rotation=8,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_g", "y": 270 },
+        "rotation=8,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_g", "y":   0 },
+        "rotation=8,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_g", "y":  90 },
+        
+        "rotation=7,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_i", "y": 270 },
+        "rotation=7,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_i", "y":   0 },
+        "rotation=7,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_i", "y":  90 },
+        "rotation=7,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_i", "y": 180 },
+        
+        "rotation=6,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_j", "y": 270 },
+        "rotation=6,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_j", "y":   0 },
+        "rotation=6,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_j", "y":  90 },
+        "rotation=6,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_j", "y": 180 },
+        
+        "rotation=5,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_h", "y": 180 },
+        "rotation=5,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_h", "y": 270 },
+        "rotation=5,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_h", "y":   0 },
+        "rotation=5,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_h", "y":  90 },
+        
+        "rotation=4,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_k", "y": 270 },
+        "rotation=4,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_k", "y":   0 },
+        "rotation=4,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_k", "y":  90 },
+        "rotation=4,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_k", "y": 180 },
+        
+        "rotation=3,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_n", "y":   0 },
+        "rotation=3,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_n", "y":  90 },
+        "rotation=3,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_n", "y": 180 },
+        "rotation=3,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_n", "y": 270 },
+        
+        "rotation=2,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_l", "y":  90 },
+        "rotation=2,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_l", "y": 180 },
+        "rotation=2,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_l", "y": 270 },
+        "rotation=2,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_l", "y":   0 },
+        
+        "rotation=1,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_m", "y":   0 },
+        "rotation=1,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_m", "y":  90 },
+        "rotation=1,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_m", "y": 180 },
+        "rotation=1,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_m", "y": 270 },
+        
+        "rotation=0,facing=north,waterlogged=false": { "model": "stairway:block/scaffolding_o", "y":   0 },
+        "rotation=0,facing=east,waterlogged=false":  { "model": "stairway:block/scaffolding_o", "y":  90 },
+        "rotation=0,facing=south,waterlogged=false": { "model": "stairway:block/scaffolding_o", "y": 180 },
+        "rotation=0,facing=west,waterlogged=false":  { "model": "stairway:block/scaffolding_o", "y": 270 },
+
+        "rotation=15,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_a", "y":   0 },
+        "rotation=15,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_a", "y":  90 },
+        "rotation=15,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_a", "y": 180 },
+        "rotation=15,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_a", "y": 270 },
+
+        "rotation=14,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_a", "y":   0 },
+        "rotation=14,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_a", "y":  90 },
+        "rotation=14,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_a", "y": 180 },
+        "rotation=14,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_a", "y": 270 },
+
+        "rotation=13,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_b", "y":   0 },
+        "rotation=13,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_b", "y":  90 },
+        "rotation=13,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_b", "y": 180 },
+        "rotation=13,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_b", "y": 270 },
+
+        "rotation=12,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_c", "y":   0 },
+        "rotation=12,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_c", "y":  90 },
+        "rotation=12,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_c", "y": 180 },
+        "rotation=12,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_c", "y": 270 },
+
+        "rotation=11,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_e", "y":   0 },
+        "rotation=11,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_e", "y":  90 },
+        "rotation=11,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_e", "y": 180 },
+        "rotation=11,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_e", "y": 270 },
+
+        "rotation=10,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_f", "y":   0 },
+        "rotation=10,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_f", "y":  90 },
+        "rotation=10,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_f", "y": 180 },
+        "rotation=10,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_f", "y": 270 },
+
+        "rotation=9,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_d", "y":   0 },
+        "rotation=9,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_d", "y":  90 },
+        "rotation=9,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_d", "y": 180 },
+        "rotation=9,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_d", "y": 270 },
+
+        "rotation=8,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_g", "y": 180 },
+        "rotation=8,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_g", "y": 270 },
+        "rotation=8,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_g", "y":   0 },
+        "rotation=8,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_g", "y":  90 },
+
+        "rotation=7,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_i", "y": 270 },
+        "rotation=7,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_i", "y":   0 },
+        "rotation=7,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_i", "y":  90 },
+        "rotation=7,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_i", "y": 180 },
+
+        "rotation=6,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_j", "y": 270 },
+        "rotation=6,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_j", "y":   0 },
+        "rotation=6,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_j", "y":  90 },
+        "rotation=6,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_j", "y": 180 },
+
+        "rotation=5,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_h", "y": 180 },
+        "rotation=5,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_h", "y": 270 },
+        "rotation=5,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_h", "y":   0 },
+        "rotation=5,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_h", "y":  90 },
+
+        "rotation=4,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_k", "y": 270 },
+        "rotation=4,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_k", "y":   0 },
+        "rotation=4,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_k", "y":  90 },
+        "rotation=4,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_k", "y": 180 },
+
+        "rotation=3,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_n", "y":   0 },
+        "rotation=3,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_n", "y":  90 },
+        "rotation=3,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_n", "y": 180 },
+        "rotation=3,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_n", "y": 270 },
+
+        "rotation=2,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_l", "y":  90 },
+        "rotation=2,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_l", "y": 180 },
+        "rotation=2,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_l", "y": 270 },
+        "rotation=2,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_l", "y":   0 },
+
+        "rotation=1,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_m", "y":   0 },
+        "rotation=1,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_m", "y":  90 },
+        "rotation=1,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_m", "y": 180 },
+        "rotation=1,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_m", "y": 270 },
+
+        "rotation=0,facing=north,waterlogged=true": { "model": "stairway:block/scaffolding_o", "y":   0 },
+        "rotation=0,facing=east,waterlogged=true":  { "model": "stairway:block/scaffolding_o", "y":  90 },
+        "rotation=0,facing=south,waterlogged=true": { "model": "stairway:block/scaffolding_o", "y": 180 },
+        "rotation=0,facing=west,waterlogged=true":  { "model": "stairway:block/scaffolding_o", "y": 270 }
+    }
+}

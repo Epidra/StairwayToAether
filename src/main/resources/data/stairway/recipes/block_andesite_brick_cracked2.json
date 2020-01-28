@@ -1,0 +1,9 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "stairway:block_andesite_brick_moss"
+  },
+  "result": "stairway:block_andesite_brick_cracked",
+  "experience": 0.15,
+  "cookingtime": 200
+}

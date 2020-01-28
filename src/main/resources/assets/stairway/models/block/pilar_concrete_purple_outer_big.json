@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_outer_big",
+    "textures": {
+        "top":     "minecraft:block/purple_concrete",
+        "side":    "minecraft:block/purple_concrete",
+        "bottom":  "minecraft:block/purple_concrete",
+        "paticle": "minecraft:block/purple_concrete"
+    }
+}

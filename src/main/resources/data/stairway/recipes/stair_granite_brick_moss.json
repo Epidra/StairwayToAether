@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "stair_granite",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_granite_brick_moss"
+    }
+  },
+  "result": {
+    "item": "stairway:stair_granite_brick_moss",
+    "count": 4
+  }
+}

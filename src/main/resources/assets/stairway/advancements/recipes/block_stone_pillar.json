@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_stone_pillar"
+    ]
+  },
+  "criteria": {
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stonebrick",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:block_stone_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

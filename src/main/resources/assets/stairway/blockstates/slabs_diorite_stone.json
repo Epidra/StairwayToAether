@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "half=bottom": { "model": "stairway:slabs_diorite_stone_bottom" },
+        "half=top":    { "model": "stairway:slabs_diorite_stone_top" },
+        "half=north":  { "model": "stairway:slabs_diorite_stone_north" },
+        "half=south":  { "model": "stairway:slabs_diorite_stone_south" },
+        "half=east":   { "model": "stairway:slabs_diorite_stone_east" },
+        "half=west":   { "model": "stairway:slabs_diorite_stone_west" },
+        "half=full":   { "model": "diorite" }
+    }
+}

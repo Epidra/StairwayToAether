@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "axis=y,offset=true":    { "model": "stairway:block_chain_gold1" },
+        "axis=z,offset=true":    { "model": "stairway:block_chain_gold1", "x": 90 },
+        "axis=x,offset=true":    { "model": "stairway:block_chain_gold1", "x": 90, "y": 90 },
+        "axis=none,offset=true": { "model": "stairway:block_chain_gold1" },
+        "axis=y,offset=false":    { "model": "stairway:block_chain_gold2"  },
+        "axis=z,offset=false":    { "model": "stairway:block_chain_gold2", "x": 90 },
+        "axis=x,offset=false":    { "model": "stairway:block_chain_gold2", "x": 90, "y": 90 },
+        "axis=none,offset=false": { "model": "stairway:block_chain_gold2"  }
+    }
+}

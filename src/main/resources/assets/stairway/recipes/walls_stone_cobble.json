@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_stone",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "minecraft:cobblestone_wall",
+    "count": 6,
+    "data": 0
+  }
+}

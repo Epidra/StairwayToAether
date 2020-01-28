@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_stone_brick2"
+    ]
+  },
+  "criteria": {
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "stairway:block_stone_smooth",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:block_stone_brick2"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

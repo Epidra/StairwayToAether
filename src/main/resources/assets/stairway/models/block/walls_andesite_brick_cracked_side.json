@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_side",
+    "textures": {
+        "wall": "stairway:blocks/andesite_brick_cracked"
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_scaffolding"
+    ]
+  },
+  "criteria": {
+    "has_stick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:timber_scaffolding"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stick",
+      "has_the_recipe"
+    ]
+  ]
+}

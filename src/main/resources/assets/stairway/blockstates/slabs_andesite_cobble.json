@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "half=bottom": { "model": "stairway:slabs_andesite_cobble_bottom" },
+        "half=top":    { "model": "stairway:slabs_andesite_cobble_top" },
+        "half=north":  { "model": "stairway:slabs_andesite_cobble_north" },
+        "half=south":  { "model": "stairway:slabs_andesite_cobble_south" },
+        "half=east":   { "model": "stairway:slabs_andesite_cobble_east" },
+        "half=west":   { "model": "stairway:slabs_andesite_cobble_west" },
+        "half=full":   { "model": "stairway:block_andesite_cobble" }
+    }
+}

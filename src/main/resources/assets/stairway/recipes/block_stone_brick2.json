@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "block_stone_brick",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stonebrick",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "minecraft:stonebrick",
+    "count": 3,
+    "data": 0
+  }
+}

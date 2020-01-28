@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_concrete",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:concrete",
+      "data": 9
+    }
+  },
+  "result": {
+    "item": "stairway:walls_concrete_cyan",
+    "count": 6,
+    "data": 0
+  }
+}

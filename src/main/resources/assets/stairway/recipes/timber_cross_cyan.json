@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_cross",
+  "pattern": [
+    "IXI",
+    "XIX",
+	"IXI"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stained_hardened_clay",
+      "data": 9
+    },
+	"I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_cross",
+    "count": 4,
+    "data": 9
+  }
+}

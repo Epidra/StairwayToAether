@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian",
+      "data": 6
+    }
+  },
+  "result": {
+    "item": "stairway:block_obsidian_smooth",
+    "count": 4,
+    "data": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_prismarine",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:prismarine",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:walls_prismarine_stone",
+    "count": 6,
+    "data": 0
+  }
+}

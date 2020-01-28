@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_diag_left",
+  "pattern": [
+    " XX",
+    "XIX",
+	"XXI"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stained_hardened_clay",
+      "data": 14
+    },
+	"I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_diag_left",
+    "count": 6,
+    "data": 14
+  }
+}

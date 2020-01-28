@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_basic",
+  "pattern": [
+    "XXX",
+    "XXX",
+	"XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stained_hardened_clay",
+      "data": 5
+    }
+  },
+  "result": {
+    "item": "stairway:timber_basic",
+    "count": 9,
+    "data": 5
+  }
+}

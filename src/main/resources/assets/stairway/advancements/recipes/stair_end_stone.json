@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:stair_end_stone"
+    ]
+  },
+  "criteria": {
+    "has_end": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:end_stone",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:stair_end_stone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_end",
+      "has_the_recipe"
+    ]
+  ]
+}

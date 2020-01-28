@@ -1,0 +1,21 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "blocks/concrete_light_blue",
+        "top":    "blocks/concrete_light_blue",
+        "side":   "blocks/concrete_light_blue"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 8, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

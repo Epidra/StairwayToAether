@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "half=bottom": { "model": "stairway:slabs_concrete_red_bottom" },
+        "half=top":    { "model": "stairway:slabs_concrete_red_top" },
+        "half=north":  { "model": "stairway:slabs_concrete_red_north" },
+        "half=south":  { "model": "stairway:slabs_concrete_red_south" },
+        "half=east":   { "model": "stairway:slabs_concrete_red_east" },
+        "half=west":   { "model": "stairway:slabs_concrete_red_west" },
+        "half=full":   { "model": "red_concrete" }
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "chainblock",
+  "pattern": [
+    "##",
+    "##",
+	"##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_ingot",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:block_chain_gold",
+    "count": 2,
+    "data": 0
+  }
+}

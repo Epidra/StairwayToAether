@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_obsidian",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:walls_obsidian_stone",
+    "count": 6,
+    "data": 0
+  }
+}

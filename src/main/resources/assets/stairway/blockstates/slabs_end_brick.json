@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "half=bottom": { "model": "stairway:slabs_end_brick_bottom" },
+        "half=top":    { "model": "stairway:slabs_end_brick_top" },
+        "half=north":  { "model": "stairway:slabs_end_brick_north" },
+        "half=south":  { "model": "stairway:slabs_end_brick_south" },
+        "half=east":   { "model": "stairway:slabs_end_brick_east" },
+        "half=west":   { "model": "stairway:slabs_end_brick_west" },
+        "half=full":   { "model": "end_bricks" }
+    }
+}

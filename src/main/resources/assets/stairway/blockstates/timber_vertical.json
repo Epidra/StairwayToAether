@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "color=black":      { "model": "stairway:timber_vertical_black" },
+        "color=blue":       { "model": "stairway:timber_vertical_blue" },
+        "color=brown":      { "model": "stairway:timber_vertical_brown" },
+        "color=cyan":       { "model": "stairway:timber_vertical_cyan" },
+        "color=gray":       { "model": "stairway:timber_vertical_gray" },
+        "color=green":      { "model": "stairway:timber_vertical_green" },
+        "color=light_blue": { "model": "stairway:timber_vertical_lightBlue" },
+        "color=lime":       { "model": "stairway:timber_vertical_lime" },
+        "color=magenta":    { "model": "stairway:timber_vertical_magenta" },
+        "color=orange":     { "model": "stairway:timber_vertical_orange" },
+        "color=pink":       { "model": "stairway:timber_vertical_pink" },
+        "color=purple":     { "model": "stairway:timber_vertical_purple" },
+        "color=red":        { "model": "stairway:timber_vertical_red" },
+        "color=silver":     { "model": "stairway:timber_vertical_silver" },
+        "color=white":      { "model": "stairway:timber_vertical_white" },
+        "color=yellow":     { "model": "stairway:timber_vertical_yellow" }
+    }
+}

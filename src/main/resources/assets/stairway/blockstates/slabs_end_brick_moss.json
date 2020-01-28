@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "half=bottom": { "model": "stairway:slabs_end_brick_moss_bottom" },
+        "half=top":    { "model": "stairway:slabs_end_brick_moss_top" },
+        "half=north":  { "model": "stairway:slabs_end_brick_moss_north" },
+        "half=south":  { "model": "stairway:slabs_end_brick_moss_south" },
+        "half=east":   { "model": "stairway:slabs_end_brick_moss_east" },
+        "half=west":   { "model": "stairway:slabs_end_brick_moss_west" },
+        "half=full":   { "model": "stairway:block_end_brick_moss" }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "stairway:block_end_cobble",
+      "data": 0
+    },
+    {
+      "item": "minecraft:vine",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "stairway:block_end_cobble_moss",
+    "count": 1
+  }
+}

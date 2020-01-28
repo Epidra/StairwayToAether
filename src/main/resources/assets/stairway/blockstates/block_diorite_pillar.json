@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":    { "model": "stairway:block_diorite_pillar" },
+        "axis=z":    { "model": "stairway:block_diorite_pillar", "x": 90 },
+        "axis=x":    { "model": "stairway:block_diorite_pillar", "x": 90, "y": 90 },
+        "axis=none": { "model": "stairway:block_diorite_pillar" }
+    }
+}

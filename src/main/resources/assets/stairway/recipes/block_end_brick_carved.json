@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:slabs_end_brick",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:block_end_brick_carved",
+    "count": 1,
+    "data": 0
+  }
+}

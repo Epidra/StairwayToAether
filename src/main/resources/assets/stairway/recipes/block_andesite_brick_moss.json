@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "stairway:block_andesite_brick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:vine",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "stairway:block_andesite_brick_moss",
+    "count": 1,
+    "data": 0
+  }
+}

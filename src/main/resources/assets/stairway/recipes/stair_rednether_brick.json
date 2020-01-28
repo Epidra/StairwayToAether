@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:red_nether_brick",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:stair_rednether_brick",
+    "count": 4,
+    "data": 0
+  }
+}

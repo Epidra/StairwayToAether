@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_stone",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_stone_smooth",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:walls_stone_smooth",
+    "count": 6,
+    "data": 0
+  }
+}

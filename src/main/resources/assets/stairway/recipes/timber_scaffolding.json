@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+	"###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:Timber_Scaffolding",
+    "count": 1,
+    "data": 0
+  }
+}

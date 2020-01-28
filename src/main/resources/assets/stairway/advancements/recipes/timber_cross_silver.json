@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_cross_silver"
+    ]
+  },
+  "criteria": {
+    "has_silver_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stained_hardened_clay",
+            "data": 8
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:timber_cross_silver"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_silver_stained_hardened_clay",
+      "has_the_recipe"
+    ]
+  ]
+}

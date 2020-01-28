@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_horizontal",
+  "pattern": [
+    "XXX",
+    "III",
+	"XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stained_hardened_clay",
+      "data": 11
+    },
+	"I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_horizontal",
+    "count": 6,
+    "data": 11
+  }
+}

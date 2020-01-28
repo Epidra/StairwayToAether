@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_granite",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stone",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "stairway:walls_granite_stone",
+    "count": 6,
+    "data": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_granite",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_granite_cobble_moss",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "stairway:walls_granite_cobble_moss",
+    "count": 6,
+    "data": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "blocks/red_nether_brick",
+        "top":    "blocks/red_nether_brick",
+        "side":   "blocks/red_nether_brick"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 8, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

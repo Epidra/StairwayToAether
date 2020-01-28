@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "stair_stone",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stonebrick",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "stairway:stair_stone_brick_cracked",
+    "count": 4,
+    "data": 0
+  }
+}

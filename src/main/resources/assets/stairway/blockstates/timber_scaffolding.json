@@ -1,0 +1,83 @@
+{
+    "variants": {
+        "color=white,facing=north": { "model": "stairway:scaffolding_a", "y":   0 },
+        "color=white,facing=east":  { "model": "stairway:scaffolding_a", "y":  90 },
+        "color=white,facing=south": { "model": "stairway:scaffolding_a", "y": 180 },
+        "color=white,facing=west":  { "model": "stairway:scaffolding_a", "y": 270 },
+        
+        "color=orange,facing=north": { "model": "stairway:scaffolding_a", "y":   0 },
+        "color=orange,facing=east":  { "model": "stairway:scaffolding_a", "y":  90 },
+        "color=orange,facing=south": { "model": "stairway:scaffolding_a", "y": 180 },
+        "color=orange,facing=west":  { "model": "stairway:scaffolding_a", "y": 270 },
+        
+        "color=magenta,facing=north": { "model": "stairway:scaffolding_b", "y":   0 },
+        "color=magenta,facing=east":  { "model": "stairway:scaffolding_b", "y":  90 },
+        "color=magenta,facing=south": { "model": "stairway:scaffolding_b", "y": 180 },
+        "color=magenta,facing=west":  { "model": "stairway:scaffolding_b", "y": 270 },
+        
+        "color=light_blue,facing=north": { "model": "stairway:scaffolding_c", "y":   0 },
+        "color=light_blue,facing=east":  { "model": "stairway:scaffolding_c", "y":  90 },
+        "color=light_blue,facing=south": { "model": "stairway:scaffolding_c", "y": 180 },
+        "color=light_blue,facing=west":  { "model": "stairway:scaffolding_c", "y": 270 },
+        
+        "color=yellow,facing=north": { "model": "stairway:scaffolding_d", "y":   0 },
+        "color=yellow,facing=east":  { "model": "stairway:scaffolding_d", "y":  90 },
+        "color=yellow,facing=south": { "model": "stairway:scaffolding_d", "y": 180 },
+        "color=yellow,facing=west":  { "model": "stairway:scaffolding_d", "y": 270 },
+        
+        "color=lime,facing=north": { "model": "stairway:scaffolding_e", "y":   0 },
+        "color=lime,facing=east":  { "model": "stairway:scaffolding_e", "y":  90 },
+        "color=lime,facing=south": { "model": "stairway:scaffolding_e", "y": 180 },
+        "color=lime,facing=west":  { "model": "stairway:scaffolding_e", "y": 270 },
+        
+        "color=pink,facing=north": { "model": "stairway:scaffolding_f", "y":   0 },
+        "color=pink,facing=east":  { "model": "stairway:scaffolding_f", "y":  90 },
+        "color=pink,facing=south": { "model": "stairway:scaffolding_f", "y": 180 },
+        "color=pink,facing=west":  { "model": "stairway:scaffolding_f", "y": 270 },
+        
+        "color=gray,facing=north": { "model": "stairway:scaffolding_g", "y": 180 },
+        "color=gray,facing=east":  { "model": "stairway:scaffolding_g", "y": 270 },
+        "color=gray,facing=south": { "model": "stairway:scaffolding_g", "y":   0 },
+        "color=gray,facing=west":  { "model": "stairway:scaffolding_g", "y":  90 },
+        
+        "color=silver,facing=north": { "model": "stairway:scaffolding_h", "y": 180 },
+        "color=silver,facing=east":  { "model": "stairway:scaffolding_h", "y": 270 },
+        "color=silver,facing=south": { "model": "stairway:scaffolding_h", "y":   0 },
+        "color=silver,facing=west":  { "model": "stairway:scaffolding_h", "y":  90 },
+        
+        "color=cyan,facing=north": { "model": "stairway:scaffolding_i", "y": 270 },
+        "color=cyan,facing=east":  { "model": "stairway:scaffolding_i", "y":   0 },
+        "color=cyan,facing=south": { "model": "stairway:scaffolding_i", "y":  90 },
+        "color=cyan,facing=west":  { "model": "stairway:scaffolding_i", "y": 180 },
+        
+        "color=purple,facing=north": { "model": "stairway:scaffolding_j", "y": 270 },
+        "color=purple,facing=east":  { "model": "stairway:scaffolding_j", "y":   0 },
+        "color=purple,facing=south": { "model": "stairway:scaffolding_j", "y":  90 },
+        "color=purple,facing=west":  { "model": "stairway:scaffolding_j", "y": 180 },
+        
+        "color=blue,facing=north": { "model": "stairway:scaffolding_k", "y": 270 },
+        "color=blue,facing=east":  { "model": "stairway:scaffolding_k", "y":   0 },
+        "color=blue,facing=south": { "model": "stairway:scaffolding_k", "y":  90 },
+        "color=blue,facing=west":  { "model": "stairway:scaffolding_k", "y": 180 },
+        
+        "color=brown,facing=north": { "model": "stairway:scaffolding_n", "y":   0 },
+        "color=brown,facing=east":  { "model": "stairway:scaffolding_n", "y":  90 },
+        "color=brown,facing=south": { "model": "stairway:scaffolding_n", "y": 180 },
+        "color=brown,facing=west":  { "model": "stairway:scaffolding_n", "y": 270 },
+        
+        "color=green,facing=north": { "model": "stairway:scaffolding_l", "y":  90 },
+        "color=green,facing=east":  { "model": "stairway:scaffolding_l", "y": 180 },
+        "color=green,facing=south": { "model": "stairway:scaffolding_l", "y": 270 },
+        "color=green,facing=west":  { "model": "stairway:scaffolding_l", "y":   0 },
+        
+        "color=red,facing=north": { "model": "stairway:scaffolding_m", "y":   0 },
+        "color=red,facing=east":  { "model": "stairway:scaffolding_m", "y":  90 },
+        "color=red,facing=south": { "model": "stairway:scaffolding_m", "y": 180 },
+        "color=red,facing=west":  { "model": "stairway:scaffolding_m", "y": 270 },
+        
+        "color=black,facing=north": { "model": "stairway:scaffolding_o", "y":   0 },
+        "color=black,facing=east":  { "model": "stairway:scaffolding_o", "y":  90 },
+        "color=black,facing=south": { "model": "stairway:scaffolding_o", "y": 180 },
+        "color=black,facing=west":  { "model": "stairway:scaffolding_o", "y": 270 }
+    }
+}

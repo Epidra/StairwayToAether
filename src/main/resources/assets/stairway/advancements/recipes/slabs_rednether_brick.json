@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:slabs_rednether_brick"
+    ]
+  },
+  "criteria": {
+    "has_red_nether_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:red_nether_brick",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:slabs_rednether_brick"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_nether_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

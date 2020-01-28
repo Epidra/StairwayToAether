@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_horizontal_pink"
+    ]
+  },
+  "criteria": {
+    "has_pink_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stained_hardened_clay",
+            "data": 6
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "stairway:timber_horizontal_pink"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pink_stained_hardened_clay",
+      "has_the_recipe"
+    ]
+  ]
+}

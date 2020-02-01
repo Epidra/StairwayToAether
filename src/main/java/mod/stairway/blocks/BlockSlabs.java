@@ -14,7 +14,6 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -64,10 +63,6 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
 
     //---------------------------------------
 
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.SOLID;
-    }
-
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
@@ -98,7 +93,7 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
             BlockState blockstate1 = this.getDefaultState().with(TYPE, EnumBlockHalf.BOTTOM).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
             Direction direction = context.getFace();
 
-            if(!StairwayConfig.vertical || context.isPlacerSneaking()){
+            if(!StairwayConfig.vertical || context.func_225518_g_()){
                 //BlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
                 return direction != Direction.DOWN && (direction == Direction.UP || !(context.getHitVec().y - (double)blockpos.getY() > 0.5D)) ? blockstate1 : blockstate1.with(TYPE, EnumBlockHalf.TOP);
             }
@@ -204,8 +199,8 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
         }
 
         public static EnumBlockHalf getFacing(BlockPos pos, LivingEntity placer){
-            if (Math.abs(placer.posX - (double)((float)pos.getX() + 0.5F)) < 2.0D && Math.abs(placer.posZ - (double)((float)pos.getZ() + 0.5F)) < 2.0D){
-                double d0 = placer.posY + (double)placer.getEyeHeight();
+            if (Math.abs(placer.getPosX() - (double)((float)pos.getX() + 0.5F)) < 2.0D && Math.abs(placer.getPosZ() - (double)((float)pos.getZ() + 0.5F)) < 2.0D){
+                double d0 = placer.getPosY() + (double)placer.getEyeHeight();
                 if (d0 - (double)pos.getY() > 2.0D){
                     return BOTTOM;
                 }

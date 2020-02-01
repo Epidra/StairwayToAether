@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "block_gargoyle",
+  "pattern": [
+    "B",
+    "R",
+    "#"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "#": {
+      "item": "minecraft:polished_diorite"
+    }
+  },
+  "result": {
+    "item": "stairway:block_gargoyle_diorite",
+    "count": 1
+  }
+}

@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_inner_big",
     "textures": {
-        "top":     "minecraft:block/stone",
-        "side":    "minecraft:block/stone",
-        "bottom":  "minecraft:block/stone",
-        "paticle": "minecraft:block/stone"
+        "top":      "minecraft:block/stone",
+        "side":     "minecraft:block/stone",
+        "bottom":   "minecraft:block/stone",
+        "particle": "minecraft:block/stone"
     }
 }

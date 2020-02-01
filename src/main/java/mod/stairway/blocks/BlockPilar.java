@@ -19,7 +19,6 @@ import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -83,10 +82,6 @@ public class BlockPilar extends BlockBlock implements IWaterLoggable {
 
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @Deprecated

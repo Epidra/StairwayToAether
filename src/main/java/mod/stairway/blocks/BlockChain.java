@@ -16,7 +16,6 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -56,10 +55,6 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
 
     //----------------------------------------RENDER----------------------------------------//
 
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
-    }
-
     @Deprecated
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         Direction.Axis enumfacing = state.get(AXIS);
@@ -74,11 +69,6 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
             default:
                 return VoxelShapes.fullCube();
         }
-    }
-
-    @Deprecated
-    public boolean isSolid(BlockState state) {
-        return true;
     }
 
 

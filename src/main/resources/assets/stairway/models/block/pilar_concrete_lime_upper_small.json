@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_upper_small",
     "textures": {
-        "top":     "minecraft:block/lime_concrete",
-        "side":    "minecraft:block/lime_concrete",
-        "bottom":  "minecraft:block/lime_concrete",
-        "paticle": "minecraft:block/lime_concrete"
+        "top":      "minecraft:block/lime_concrete",
+        "side":     "minecraft:block/lime_concrete",
+        "bottom":   "minecraft:block/lime_concrete",
+        "particle": "minecraft:block/lime_concrete"
     }
 }

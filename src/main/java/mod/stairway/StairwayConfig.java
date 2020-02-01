@@ -1,6 +1,5 @@
 package mod.stairway;
 
-import mod.uncharted.UnchartedConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;

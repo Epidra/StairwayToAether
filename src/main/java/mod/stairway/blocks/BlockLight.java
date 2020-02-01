@@ -3,27 +3,35 @@ package mod.stairway.blocks;
 import mod.shared.blocks.BlockBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.GlassBlock;
+import net.minecraft.block.StainedGlassBlock;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
-public class BlockLight extends BlockBlock {
+public class BlockLight extends StainedGlassBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
-    public static final BooleanProperty OFFSET = BlockStateProperties.INVERTED;
 
-    public BlockLight(String modid, String name, Block block) {
-        super(modid, name, block);
+    public BlockLight(String modid, String name, Block block, DyeColor dyeColor) {
+        super(dyeColor, Properties.from(block).lightValue(4).hardnessAndResistance(200));
+        this.setRegistryName(modid, name);
     }
 
 
@@ -39,7 +47,7 @@ public class BlockLight extends BlockBlock {
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(FACING, OFFSET);
+        builder.add(FACING);
     }
 
     @Nullable
@@ -49,20 +57,10 @@ public class BlockLight extends BlockBlock {
 
     /** Called by ItemBlocks after a block is set in the world, to allow post-place logic */
     public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        worldIn.setBlockState(pos, state.with(OFFSET, isOffset(pos)), 2);
+        worldIn.setBlockState(pos, state, 2);
     }
 
-    private boolean isOffset(BlockPos pos) {
-        int counter = 0;
-        if(Math.abs(pos.getX()) % 2 == 1) counter++;
-        if(Math.abs(pos.getY()) % 2 == 1) counter++;
-        if(Math.abs(pos.getZ()) % 2 == 1) counter++;
-        return counter % 2 == 1;
-    }
 
-    public int getLightValue(BlockState state) {
-        return 4;
-    }
 
 
 

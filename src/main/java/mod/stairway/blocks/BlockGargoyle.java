@@ -3,9 +3,6 @@ package mod.stairway.blocks;
 import mod.shared.blocks.BlockBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
@@ -24,7 +21,7 @@ import java.util.Random;
 
 public class BlockGargoyle extends BlockBlock {
 
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty EYES = BlockStateProperties.AGE_0_2;
 
     public BlockGargoyle(String modid, String name, Block block) {
@@ -44,9 +41,9 @@ public class BlockGargoyle extends BlockBlock {
         builder.add(FACING, EYES);
     }
 
-    public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit){
-        if (world.isRemote) {
-            return true;
+    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit){
+        if (world.isRemote || hand == Hand.OFF_HAND) {
+            return ActionResultType.PASS;
         }
         int power = state.get(EYES);
         if(player.getHeldItem(hand).getItem() == Items.DIAMOND){
@@ -60,7 +57,7 @@ public class BlockGargoyle extends BlockBlock {
                 world.setBlockState(pos, state.with(EYES, power-1));
             }
         }
-        return true;
+        return ActionResultType.SUCCESS;
     }
 
     public BlockState rotate(BlockState state, Rotation rot) {
@@ -88,15 +85,6 @@ public class BlockGargoyle extends BlockBlock {
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
-    }
-
-    @Deprecated
-    public boolean isSolid(BlockState state) {
-        return true;
-    }
-
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
 

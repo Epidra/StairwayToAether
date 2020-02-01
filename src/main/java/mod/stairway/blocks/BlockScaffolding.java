@@ -71,10 +71,6 @@ public class BlockScaffolding extends BlockBlock implements IWaterLoggable {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
-    }
-
     @Deprecated
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         int color = state.get(ROTATION);

@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_outer_small",
     "textures": {
-        "top":     "stairway:blocks/granite_cobble",
-        "side":    "stairway:blocks/granite_cobble",
-        "bottom":  "stairway:blocks/granite_cobble",
-        "paticle": "stairway:blocks/granite_cobble"
+        "top":      "stairway:blocks/granite_cobble",
+        "side":     "stairway:blocks/granite_cobble",
+        "bottom":   "stairway:blocks/granite_cobble",
+        "particle": "stairway:blocks/granite_cobble"
     }
 }

@@ -7,6 +7,7 @@ import mod.shared.blocks.BlockPillar;
 import mod.stairway.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ForgeConfigSpec;
 
@@ -408,24 +409,39 @@ public class StairKeeper {
     public static final Block BLOCK_GARGOYLE_ANDESITE = new BlockGargoyle(MODID, "block_gargoyle_andesite", Blocks.ANDESITE);
     public static final Block BLOCK_GARGOYLE_END      = new BlockGargoyle(MODID, "block_gargoyle_end",      Blocks.END_STONE);
 
-    public static final Block BLOCK_EMITTER = new BlockEmitter(MODID, "block_emitter", Blocks.DISPENSER);
+    public static final Block BLOCK_EMITTER_WHITE     = new BlockEmitter(MODID, "block_emitter_white",     Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_ORANGE    = new BlockEmitter(MODID, "block_emitter_orange",    Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_MAGENTA   = new BlockEmitter(MODID, "block_emitter_magenta",   Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_LIGHTBLUE = new BlockEmitter(MODID, "block_emitter_lightblue", Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_YELLOW    = new BlockEmitter(MODID, "block_emitter_yellow",    Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_LIME      = new BlockEmitter(MODID, "block_emitter_lime",      Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_PINK      = new BlockEmitter(MODID, "block_emitter_pink",      Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_GRAY      = new BlockEmitter(MODID, "block_emitter_gray",      Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_SILVER    = new BlockEmitter(MODID, "block_emitter_silver",    Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_CYAN      = new BlockEmitter(MODID, "block_emitter_cyan",      Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_PURPLE    = new BlockEmitter(MODID, "block_emitter_purple",    Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_BLUE      = new BlockEmitter(MODID, "block_emitter_blue",      Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_BROWN     = new BlockEmitter(MODID, "block_emitter_brown",     Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_GREEN     = new BlockEmitter(MODID, "block_emitter_green",     Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_RED       = new BlockEmitter(MODID, "block_emitter_red",       Blocks.OBSERVER);
+    public static final Block BLOCK_EMITTER_BLACK     = new BlockEmitter(MODID, "block_emitter_black",     Blocks.OBSERVER);
 
-    public static final Block BLOCK_LIGHT_WHITE     = new BlockLight(MODID, "block_light_white",     Blocks.WHITE_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_ORANGE    = new BlockLight(MODID, "block_light_orange",    Blocks.ORANGE_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_MAGENTA   = new BlockLight(MODID, "block_light_magenta",   Blocks.MAGENTA_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_LIGHTBLUE = new BlockLight(MODID, "block_light_lightblue", Blocks.LIGHT_BLUE_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_YELLOW    = new BlockLight(MODID, "block_light_yellow",    Blocks.YELLOW_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_LIME      = new BlockLight(MODID, "block_light_lime",      Blocks.LIME_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_PINK      = new BlockLight(MODID, "block_light_pink",      Blocks.PINK_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_GRAY      = new BlockLight(MODID, "block_light_gray",      Blocks.GRAY_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_SILVER    = new BlockLight(MODID, "block_light_silver",    Blocks.LIGHT_GRAY_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_CYAN      = new BlockLight(MODID, "block_light_cyan",      Blocks.CYAN_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_PURPLE    = new BlockLight(MODID, "block_light_purple",    Blocks.PURPLE_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_BLUE      = new BlockLight(MODID, "block_light_blue",      Blocks.BLUE_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_BROWN     = new BlockLight(MODID, "block_light_brown",     Blocks.BROWN_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_GREEN     = new BlockLight(MODID, "block_light_green",     Blocks.GREEN_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_RED       = new BlockLight(MODID, "block_light_red",       Blocks.RED_STAINED_GLASS);
-    public static final Block BLOCK_LIGHT_BLACK     = new BlockLight(MODID, "block_light_black",     Blocks.BLACK_STAINED_GLASS);
+    public static final Block BLOCK_LIGHT_WHITE     = new BlockLight(MODID, "block_light_white",     Blocks.WHITE_STAINED_GLASS, DyeColor.WHITE);
+    public static final Block BLOCK_LIGHT_ORANGE    = new BlockLight(MODID, "block_light_orange",    Blocks.ORANGE_STAINED_GLASS, DyeColor.ORANGE);
+    public static final Block BLOCK_LIGHT_MAGENTA   = new BlockLight(MODID, "block_light_magenta",   Blocks.MAGENTA_STAINED_GLASS, DyeColor.MAGENTA);
+    public static final Block BLOCK_LIGHT_LIGHTBLUE = new BlockLight(MODID, "block_light_lightblue", Blocks.LIGHT_BLUE_STAINED_GLASS, DyeColor.LIGHT_BLUE);
+    public static final Block BLOCK_LIGHT_YELLOW    = new BlockLight(MODID, "block_light_yellow",    Blocks.YELLOW_STAINED_GLASS, DyeColor.YELLOW);
+    public static final Block BLOCK_LIGHT_LIME      = new BlockLight(MODID, "block_light_lime",      Blocks.LIME_STAINED_GLASS, DyeColor.LIME);
+    public static final Block BLOCK_LIGHT_PINK      = new BlockLight(MODID, "block_light_pink",      Blocks.PINK_STAINED_GLASS, DyeColor.PINK);
+    public static final Block BLOCK_LIGHT_GRAY      = new BlockLight(MODID, "block_light_gray",      Blocks.GRAY_STAINED_GLASS, DyeColor.GRAY);
+    public static final Block BLOCK_LIGHT_SILVER    = new BlockLight(MODID, "block_light_silver",    Blocks.LIGHT_GRAY_STAINED_GLASS, DyeColor.LIGHT_GRAY);
+    public static final Block BLOCK_LIGHT_CYAN      = new BlockLight(MODID, "block_light_cyan",      Blocks.CYAN_STAINED_GLASS, DyeColor.CYAN);
+    public static final Block BLOCK_LIGHT_PURPLE    = new BlockLight(MODID, "block_light_purple",    Blocks.PURPLE_STAINED_GLASS, DyeColor.PURPLE);
+    public static final Block BLOCK_LIGHT_BLUE      = new BlockLight(MODID, "block_light_blue",      Blocks.BLUE_STAINED_GLASS, DyeColor.BLUE);
+    public static final Block BLOCK_LIGHT_BROWN     = new BlockLight(MODID, "block_light_brown",     Blocks.BROWN_STAINED_GLASS, DyeColor.BROWN);
+    public static final Block BLOCK_LIGHT_GREEN     = new BlockLight(MODID, "block_light_green",     Blocks.GREEN_STAINED_GLASS, DyeColor.GREEN);
+    public static final Block BLOCK_LIGHT_RED       = new BlockLight(MODID, "block_light_red",       Blocks.RED_STAINED_GLASS, DyeColor.RED);
+    public static final Block BLOCK_LIGHT_BLACK     = new BlockLight(MODID, "block_light_black",     Blocks.BLACK_STAINED_GLASS, DyeColor.BLACK);
 
     /**Register all stuff, pre is true during preInit and false during Init**/
     public static void registerStuff(){
@@ -776,7 +792,22 @@ public class StairKeeper {
         Register.registerBlock(BLOCK_SCAFFOLDING,       ItemGroup.BUILDING_BLOCKS);
         Register.registerBlock(BLOCK_CHAIN_IRON,        ItemGroup.BUILDING_BLOCKS);
         Register.registerBlock(BLOCK_CHAIN_GOLD,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_EMITTER,           ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_WHITE,     ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_ORANGE,    ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_MAGENTA,   ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_LIGHTBLUE, ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_YELLOW,    ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_LIME,      ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_PINK,      ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_GRAY,      ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_SILVER,    ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_CYAN,      ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_PURPLE,    ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_BLUE,      ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_BROWN,     ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_GREEN,     ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_RED,       ItemGroup.REDSTONE);
+        Register.registerBlock(BLOCK_EMITTER_BLACK,     ItemGroup.REDSTONE);
         Register.registerBlock(BLOCK_GARGOYLE_STONE,    ItemGroup.REDSTONE);
         Register.registerBlock(BLOCK_GARGOYLE_GRANITE,  ItemGroup.REDSTONE);
         Register.registerBlock(BLOCK_GARGOYLE_DIORITE,  ItemGroup.REDSTONE);
@@ -784,22 +815,22 @@ public class StairKeeper {
         Register.registerBlock(BLOCK_GARGOYLE_END,      ItemGroup.REDSTONE);
 
         // Timber Cross
-        Register.registerBlock(BLOCK_LIGHT_WHITE,     ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_ORANGE,    ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_MAGENTA,   ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_LIGHTBLUE, ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_YELLOW,    ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_LIME,      ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_PINK,      ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_GRAY,      ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_SILVER,    ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_CYAN,      ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_PURPLE,    ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_BLUE,      ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_BROWN,     ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_GREEN,     ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_RED,       ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_LIGHT_BLACK,     ItemGroup.DECORATIONS);
+        Register.registerBlock(BLOCK_LIGHT_WHITE);
+        Register.registerBlock(BLOCK_LIGHT_ORANGE);
+        Register.registerBlock(BLOCK_LIGHT_MAGENTA);
+        Register.registerBlock(BLOCK_LIGHT_LIGHTBLUE);
+        Register.registerBlock(BLOCK_LIGHT_YELLOW);
+        Register.registerBlock(BLOCK_LIGHT_LIME);
+        Register.registerBlock(BLOCK_LIGHT_PINK);
+        Register.registerBlock(BLOCK_LIGHT_GRAY);
+        Register.registerBlock(BLOCK_LIGHT_SILVER);
+        Register.registerBlock(BLOCK_LIGHT_CYAN);
+        Register.registerBlock(BLOCK_LIGHT_PURPLE);
+        Register.registerBlock(BLOCK_LIGHT_BLUE);
+        Register.registerBlock(BLOCK_LIGHT_BROWN);
+        Register.registerBlock(BLOCK_LIGHT_GREEN);
+        Register.registerBlock(BLOCK_LIGHT_RED);
+        Register.registerBlock(BLOCK_LIGHT_BLACK);
     }
 
 }

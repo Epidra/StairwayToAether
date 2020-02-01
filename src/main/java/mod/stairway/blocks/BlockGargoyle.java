@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class BlockGargoyle extends BlockBlock {
 
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty EYES = BlockStateProperties.AGE_0_2;
 
     public BlockGargoyle(String modid, String name, Block block) {

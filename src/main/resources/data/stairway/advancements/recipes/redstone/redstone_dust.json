@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_gargoyle_stone",
+      "stairway:block_gargoyle_granite",
+      "stairway:block_gargoyle_diorite",
+      "stairway:block_gargoyle_andesite",
+      "stairway:block_gargoyle_end"
+    ]
+  },
+  "criteria": {
+    "has_quartz": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:redstone"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_quartz"
+    ]
+  ]
+}

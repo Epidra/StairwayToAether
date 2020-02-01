@@ -21,6 +21,12 @@ public class BlockBlock extends Block {
     }
 
     /** Contructor with predefined BlockProperty */
+    public BlockBlock(String modid, String name, Properties block) {
+        super(block);
+        this.setRegistryName(modid, name);
+    }
+
+    /** Contructor with predefined BlockProperty */
     public BlockBlock(String modid, String name, Block block) {
         super(Properties.from(block));
         this.setRegistryName(modid, name);

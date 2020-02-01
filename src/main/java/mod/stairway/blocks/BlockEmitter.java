@@ -28,16 +28,15 @@ import java.util.Random;
 public class BlockEmitter extends BlockBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
-    public static final IntegerProperty COLOR = BlockStateProperties.LEVEL_0_15;
 
     /** Default Constructor */
     public BlockEmitter(String modid, String name, Block block) {
-        super(modid, name, block);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(COLOR, Integer.valueOf(0)));
+        super(modid, name, Properties.from(block).tickRandomly());
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(FACING, COLOR);
+        builder.add(FACING);
     }
 
     public BlockState rotate(BlockState state, Rotation rot) {
@@ -52,7 +51,7 @@ public class BlockEmitter extends BlockBlock {
      * How many world ticks before ticking
      */
     public int tickRate(IWorldReader worldIn) {
-        return 4;
+        return 1;
     }
 
     public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
@@ -61,15 +60,22 @@ public class BlockEmitter extends BlockBlock {
         setLightBlocks(state, worldIn, pos, power, facing);
     }
 
+    @Deprecated
+    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+        int power = world.getRedstonePowerFromNeighbors(pos);
+        Direction facing = state.get(FACING);
+        setLightBlocks(state, world, pos, power, facing);
+    }
+
     public void setLightBlocks(BlockState state, World world, BlockPos pos, int power, Direction facing){
         for(int i = 1; i < 17; i++){
             BlockPos blockpos = getOffset(facing, pos, i);
             if(world.isAirBlock(blockpos)){
                 if(i < power){
-                    world.setBlockState(blockpos, getBlock(state).with(BlockLight.FACING, facing).with(BlockLight.OFFSET, isOffset(blockpos)));
+                    world.setBlockState(blockpos, getBlock(state).with(BlockLight.FACING, facing));
                 }
-            } else if(world.getBlockState(pos).getBlock() instanceof BlockLight){
-                if(world.getBlockState(pos).getBlock() == getBlock(state).getBlock()){
+            } else if(world.getBlockState(blockpos).getBlock() instanceof BlockLight){
+                if(world.getBlockState(blockpos).getBlock() == getBlock(state).getBlock()){
                     if(i > power){
                         world.setBlockState(blockpos, Blocks.AIR.getDefaultState());
                     }
@@ -84,56 +90,53 @@ public class BlockEmitter extends BlockBlock {
         if (world.isRemote) {
             return true;
         } else {
-            if(player.getHeldItem(hand).getItem() == Items.BLACK_DYE){ world.setBlockState(pos, state.with(COLOR,  0), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.BLUE_DYE){ world.setBlockState(pos, state.with(COLOR,  1), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.BROWN_DYE){ world.setBlockState(pos, state.with(COLOR,  2), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.CYAN_DYE){ world.setBlockState(pos, state.with(COLOR,  3), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.GRAY_DYE){ world.setBlockState(pos, state.with(COLOR,  4), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.GREEN_DYE){ world.setBlockState(pos, state.with(COLOR,  5), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.LIGHT_BLUE_DYE){ world.setBlockState(pos, state.with(COLOR,  6), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.LIME_DYE){ world.setBlockState(pos, state.with(COLOR,  7), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.MAGENTA_DYE){ world.setBlockState(pos, state.with(COLOR,  8), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.ORANGE_DYE){ world.setBlockState(pos, state.with(COLOR,  9), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.PINK_DYE){ world.setBlockState(pos, state.with(COLOR, 10), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.PURPLE_DYE){ world.setBlockState(pos, state.with(COLOR, 11), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.RED_DYE){ world.setBlockState(pos, state.with(COLOR, 12), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.LIGHT_GRAY_DYE){ world.setBlockState(pos, state.with(COLOR, 13), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.WHITE_DYE){ world.setBlockState(pos, state.with(COLOR, 14), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.YELLOW_DYE){ world.setBlockState(pos, state.with(COLOR, 15), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.BLACK_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BLACK.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.BLUE_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BLUE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.BROWN_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BROWN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.CYAN_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_CYAN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.GRAY_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_GRAY.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.GREEN_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_GREEN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.LIGHT_BLUE_DYE){ world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_LIGHTBLUE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.LIME_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_LIME.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.MAGENTA_DYE){    world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_MAGENTA.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.ORANGE_DYE){     world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_ORANGE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.PINK_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_PINK.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.PURPLE_DYE){     world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_PURPLE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.RED_DYE){        world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_RED.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.LIGHT_GRAY_DYE){ world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_SILVER.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.WHITE_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_WHITE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.YELLOW_DYE){     world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_YELLOW.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             return true;
         }
     }
 
     public BlockPos getOffset(Direction facing, BlockPos pos, int i){
-        if(facing == Direction.UP)    return pos.add(0, +i, 0);
-        if(facing == Direction.DOWN)  return pos.add(0, -i, 0);
-        if(facing == Direction.NORTH) return pos.add(+i,  0, 0);
-        if(facing == Direction.SOUTH) return pos.add(-i,  0, 0);
-        if(facing == Direction.EAST)  return pos.add(0,  0, +i);
-        if(facing == Direction.WEST)  return pos.add(0,  0, -i);
+        if(facing == Direction.UP)    return pos.add( 0, +i,  0);
+        if(facing == Direction.DOWN)  return pos.add( 0, -i,  0);
+        if(facing == Direction.NORTH) return pos.add( 0,  0, -i);
+        if(facing == Direction.SOUTH) return pos.add( 0,  0, +i);
+        if(facing == Direction.EAST)  return pos.add(+i,  0,  0);
+        if(facing == Direction.WEST)  return pos.add(-i,  0,  0);
         return pos;
     }
 
     public BlockState getBlock(BlockState state){
-        int color = state.get(COLOR);
-        switch(color){
-            case  0: return StairKeeper.BLOCK_LIGHT_BLACK.getDefaultState();
-            case  1: return StairKeeper.BLOCK_LIGHT_BLUE.getDefaultState();
-            case  2: return StairKeeper.BLOCK_LIGHT_BROWN.getDefaultState();
-            case  3: return StairKeeper.BLOCK_LIGHT_CYAN.getDefaultState();
-            case  4: return StairKeeper.BLOCK_LIGHT_GRAY.getDefaultState();
-            case  5: return StairKeeper.BLOCK_LIGHT_GREEN.getDefaultState();
-            case  6: return StairKeeper.BLOCK_LIGHT_LIGHTBLUE.getDefaultState();
-            case  7: return StairKeeper.BLOCK_LIGHT_LIME.getDefaultState();
-            case  8: return StairKeeper.BLOCK_LIGHT_MAGENTA.getDefaultState();
-            case  9: return StairKeeper.BLOCK_LIGHT_ORANGE.getDefaultState();
-            case 10: return StairKeeper.BLOCK_LIGHT_PINK.getDefaultState();
-            case 11: return StairKeeper.BLOCK_LIGHT_PURPLE.getDefaultState();
-            case 12: return StairKeeper.BLOCK_LIGHT_RED.getDefaultState();
-            case 13: return StairKeeper.BLOCK_LIGHT_SILVER.getDefaultState();
-            case 14: return StairKeeper.BLOCK_LIGHT_WHITE.getDefaultState();
-            case 15: return StairKeeper.BLOCK_LIGHT_YELLOW.getDefaultState();
-        }
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_BLACK)     return StairKeeper.BLOCK_LIGHT_BLACK.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_BLUE)      return StairKeeper.BLOCK_LIGHT_BLUE.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_BROWN)     return StairKeeper.BLOCK_LIGHT_BROWN.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_CYAN)      return StairKeeper.BLOCK_LIGHT_CYAN.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_GRAY)      return StairKeeper.BLOCK_LIGHT_GRAY.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_GREEN)     return StairKeeper.BLOCK_LIGHT_GREEN.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_LIGHTBLUE) return StairKeeper.BLOCK_LIGHT_LIGHTBLUE.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_LIME)      return StairKeeper.BLOCK_LIGHT_LIME.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_MAGENTA)   return StairKeeper.BLOCK_LIGHT_MAGENTA.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_ORANGE)    return StairKeeper.BLOCK_LIGHT_ORANGE.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_PINK)      return StairKeeper.BLOCK_LIGHT_PINK.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_PURPLE)    return StairKeeper.BLOCK_LIGHT_PURPLE.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_RED)       return StairKeeper.BLOCK_LIGHT_RED.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_SILVER)    return StairKeeper.BLOCK_LIGHT_SILVER.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_WHITE)     return StairKeeper.BLOCK_LIGHT_WHITE.getDefaultState();
+            if(state.getBlock() == StairKeeper.BLOCK_EMITTER_YELLOW)    return StairKeeper.BLOCK_LIGHT_YELLOW.getDefaultState();
         return StairKeeper.BLOCK_LIGHT_BLACK.getDefaultState();
     }
 
@@ -143,7 +146,7 @@ public class BlockEmitter extends BlockBlock {
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getNearestLookingDirection().getOpposite().getOpposite());
+        return this.getDefaultState().with(FACING, context.getNearestLookingDirection().getOpposite());
     }
 
     private boolean isOffset(BlockPos pos) {

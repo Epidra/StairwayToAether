@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
 
-//@Mod("stairway")
+@Mod("stairway")
 public class StairwayToAether {
 
     /** Log Manager Instance */

@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=down":  { "model": "stairway:block/block_emitter_gray_vertical", "x": 180 },
+        "facing=up":    { "model": "stairway:block/block_emitter_gray_vertical" },
+        "facing=north": { "model": "stairway:block/block_emitter_gray_horizontal" },
+        "facing=south": { "model": "stairway:block/block_emitter_gray_horizontal", "y": 180 },
+        "facing=west":  { "model": "stairway:block/block_emitter_gray_horizontal", "y": 270 },
+        "facing=east":  { "model": "stairway:block/block_emitter_gray_horizontal", "y": 90 }
+    }
+}

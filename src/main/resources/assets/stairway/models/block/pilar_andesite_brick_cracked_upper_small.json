@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_upper_small",
     "textures": {
-        "top":     "stairway:blocks/andesite_brick_cracked",
-        "side":    "stairway:blocks/andesite_brick_cracked",
-        "bottom":  "stairway:blocks/andesite_brick_cracked",
-        "paticle": "stairway:blocks/andesite_brick_cracked"
+        "top":      "stairway:blocks/andesite_brick_cracked",
+        "side":     "stairway:blocks/andesite_brick_cracked",
+        "bottom":   "stairway:blocks/andesite_brick_cracked",
+        "particle": "stairway:blocks/andesite_brick_cracked"
     }
 }

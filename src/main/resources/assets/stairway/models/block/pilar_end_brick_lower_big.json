@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_lower_big",
     "textures": {
-        "top":     "minecraft:block/end_stone_bricks",
-        "side":    "minecraft:block/end_stone_bricks",
-        "bottom":  "minecraft:block/end_stone_bricks",
-        "paticle": "minecraft:block/end_stone_bricks"
+        "top":      "minecraft:block/end_stone_bricks",
+        "side":     "minecraft:block/end_stone_bricks",
+        "bottom":   "minecraft:block/end_stone_bricks",
+        "particle": "minecraft:block/end_stone_bricks"
     }
 }

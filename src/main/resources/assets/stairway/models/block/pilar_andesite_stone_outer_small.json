@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_outer_small",
     "textures": {
-        "top":     "minecraft:block/andesite",
-        "side":    "minecraft:block/andesite",
-        "bottom":  "minecraft:block/andesite",
-        "paticle": "minecraft:block/andesite"
+        "top":      "minecraft:block/andesite",
+        "side":     "minecraft:block/andesite",
+        "bottom":   "minecraft:block/andesite",
+        "particle": "minecraft:block/andesite"
     }
 }

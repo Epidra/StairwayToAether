@@ -1,6 +1,10 @@
 {
     "variants": {
-        "inverted=true":  { "model": "stairway:block/block_light_cyan1" },
-        "inverted=false": { "model": "stairway:block/block_light_cyan0" }
+        "facing=down":  { "model": "stairway:block/block_light_cyan", "x":  90 },
+        "facing=up":    { "model": "stairway:block/block_light_cyan", "x": 270 },
+        "facing=north": { "model": "stairway:block/block_light_cyan" },
+        "facing=south": { "model": "stairway:block/block_light_cyan", "y": 180 },
+        "facing=west":  { "model": "stairway:block/block_light_cyan", "y": 270 },
+        "facing=east":  { "model": "stairway:block/block_light_cyan", "y": 90 }
     }
 }

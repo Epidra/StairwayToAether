@@ -3,7 +3,7 @@ loaderVersion="[28,)" #mandatory (26 is current forge version)
 issueTrackerURL="https://github.com/Epidra/StairwayToAether/issues"
 [[mods]]
 modId="stairway"
-version="v12"
+version="v13"
 displayName="StairwayToAether"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/stairway-to-aether"
 logoFile="stairway.png"

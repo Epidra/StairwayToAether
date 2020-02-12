@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone",
+    "stairway:block_granite_cobble",
+    "stairway:block_granite_cobble_moss",
+    "stairway:block_diorite_cobble",
+    "stairway:block_diorite_cobble_moss",
+    "stairway:block_andesite_cobble",
+    "stairway:block_andesite_cobble_moss",
+    "stairway:block_end_cobble",
+    "stairway:block_end_cobble_moss"
+  ]
+}

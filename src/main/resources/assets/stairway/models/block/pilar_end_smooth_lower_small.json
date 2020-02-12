@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_small",
+    "textures": {
+        "top":      "stairway:blocks/end_smooth",
+        "side":     "stairway:blocks/end_smooth",
+        "bottom":   "stairway:blocks/end_smooth",
+        "particle": "stairway:blocks/end_smooth"
+    }
+}

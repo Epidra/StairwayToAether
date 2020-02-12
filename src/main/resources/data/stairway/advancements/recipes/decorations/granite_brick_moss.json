@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_granite_brick_moss",
+      "stairway:walls_granite_brick_moss_stonecutter",
+      "stairway:pilar_granite_brick_moss",
+      "stairway:pilar_granite_brick_moss_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_granite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "stairway:block_granite_brick_moss"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite"
+    ]
+  ]
+}

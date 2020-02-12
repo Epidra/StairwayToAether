@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "stairway:block_andesite_brick_moss"
+  },
+  "result": "stairway:stair_andesite_brick_moss",
+  "count": 1
+}

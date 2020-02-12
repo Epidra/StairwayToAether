@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "facing=north,age=0": { "model": "stairway:block/block_gargoyle_diorite0", "y": 180 },
+        "facing=north,age=1": { "model": "stairway:block/block_gargoyle_diorite1", "y": 180 },
+        "facing=north,age=2": { "model": "stairway:block/block_gargoyle_diorite2", "y": 180 },
+        "facing=south,age=0": { "model": "stairway:block/block_gargoyle_diorite0"           },
+        "facing=south,age=1": { "model": "stairway:block/block_gargoyle_diorite1"           },
+        "facing=south,age=2": { "model": "stairway:block/block_gargoyle_diorite2"           },
+        "facing=west,age=0":  { "model": "stairway:block/block_gargoyle_diorite0", "y":  90 },
+        "facing=west,age=1":  { "model": "stairway:block/block_gargoyle_diorite1", "y":  90 },
+        "facing=west,age=2":  { "model": "stairway:block/block_gargoyle_diorite2", "y":  90 },
+        "facing=east,age=0":  { "model": "stairway:block/block_gargoyle_diorite0", "y": 270 },
+        "facing=east,age=1":  { "model": "stairway:block/block_gargoyle_diorite1", "y": 270 },
+        "facing=east,age=2":  { "model": "stairway:block/block_gargoyle_diorite2", "y": 270 }
+    }
+}

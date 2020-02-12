@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "block_gargoyle",
+  "pattern": [
+    "B",
+    "R",
+    "#"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "#": {
+      "item": "minecraft:polished_andesite"
+    }
+  },
+  "result": {
+    "item": "stairway:block_gargoyle_andesite",
+    "count": 1
+  }
+}

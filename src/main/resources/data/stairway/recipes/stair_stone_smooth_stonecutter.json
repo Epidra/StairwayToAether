@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:smooth_stone"
+  },
+  "result": "stairway:stair_stone_smooth",
+  "count": 1
+}

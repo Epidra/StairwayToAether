@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_upper_big",
+    "textures": {
+        "top":      "minecraft:block/prismarine_bricks",
+        "side":     "minecraft:block/prismarine_bricks",
+        "bottom":   "minecraft:block/prismarine_bricks",
+        "particle": "minecraft:block/prismarine_bricks"
+    }
+}

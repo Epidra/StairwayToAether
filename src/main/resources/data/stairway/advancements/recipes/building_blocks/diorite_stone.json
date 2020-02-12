@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_diorite_smooth"
+    ]
+  },
+  "criteria": {
+    "has_diorite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:diorite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite"
+    ]
+  ]
+}

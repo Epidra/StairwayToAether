@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "stairway:block/slabs_granite_smooth_bottom" },
-        "type=top":    { "model": "stairway:block/slabs_granite_smooth_top" },
-        "type=double": { "model": "block/polished_granite" }
-    }
-}

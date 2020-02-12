@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_small",
+    "textures": {
+        "top":      "minecraft:block/diorite",
+        "side":     "minecraft:block/diorite",
+        "bottom":   "minecraft:block/diorite",
+        "particle": "minecraft:block/diorite"
+    }
+}

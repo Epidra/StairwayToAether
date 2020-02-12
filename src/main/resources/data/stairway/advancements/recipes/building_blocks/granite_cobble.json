@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_granite_stone1",
+      "stairway:block_granite_cobble_moss",
+      "stairway:slabs_granite_cobble",
+      "stairway:stair_granite_cobble",
+      "stairway:slabs_granite_cobble_stonecutter",
+      "stairway:stair_granite_cobble_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_granite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "stairway:block_granite_cobble"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite"
+    ]
+  ]
+}

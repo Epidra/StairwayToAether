@@ -1,11 +1,11 @@
 package mod.shared.util;
 
-import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 
 public class Inventory {
 
-    public static boolean decreaseInventory(InventoryPlayer inv, ItemStack item, int amount){
+    public static boolean decreaseInventory(PlayerInventory inv, ItemStack item, int amount){
         boolean decreased = false;
 
         int leftAmount = amount;

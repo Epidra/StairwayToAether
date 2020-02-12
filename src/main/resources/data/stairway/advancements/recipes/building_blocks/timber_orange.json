@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:timber_basic_orange",
+      "stairway:timber_cross_orange",
+      "stairway:timber_diag_left_orange",
+      "stairway:timber_diag_right_orange",
+      "stairway:timber_horizontal_orange",
+      "stairway:timber_plus_orange",
+      "stairway:timber_vertical_orange"
+    ]
+  },
+  "criteria": {
+    "has_orange_stained_hardened_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:orange_terracotta"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_orange_stained_hardened_clay"
+    ]
+  ]
+}

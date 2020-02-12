@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:purple_terracotta",
+    "stairway:timber_basic_purple",
+    "stairway:timber_diag_left_purple",
+    "stairway:timber_diag_right_purple",
+    "stairway:timber_horizontal_purple",
+    "stairway:timber_vertical_purple",
+    "stairway:timber_cross_purple",
+    "stairway:timber_plus_purple"
+  ]
+}

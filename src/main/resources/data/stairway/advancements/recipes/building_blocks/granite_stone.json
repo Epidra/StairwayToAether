@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_granite_smooth"
+    ]
+  },
+  "criteria": {
+    "has_granite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:granite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite"
+    ]
+  ]
+}

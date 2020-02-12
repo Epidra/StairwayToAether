@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_diorite_smooth",
+      "stairway:walls_diorite_smooth_stonecutter",
+      "stairway:pilar_diorite_smooth",
+      "stairway:pilar_diorite_smooth_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_diorite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:polished_diorite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite"
+    ]
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+      "item": "minecraft:blue_concrete"
+  },
+  "result": "stairway:pilar_concrete_blue",
+    "count": 1
+}

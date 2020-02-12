@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_small",
+    "textures": {
+        "top":      "minecraft:block/yellow_concrete",
+        "side":     "minecraft:block/yellow_concrete",
+        "bottom":   "minecraft:block/yellow_concrete",
+        "particle": "minecraft:block/yellow_concrete"
+    }
+}

@@ -1,12 +1,14 @@
 package mod.shared.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.state.IBlockState;
 
 public class BlockBlock extends Block {
+
+    //...
 
 
 
@@ -14,19 +16,25 @@ public class BlockBlock extends Block {
 
     /** Default Contructor */
     public BlockBlock(String modid, String name, Material material, MaterialColor materialcolor, float hardness, float resistance, SoundType sound, int light) {
-        super(Block.Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound).lightValue(light));
+        super(Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound).lightValue(light));
+        this.setRegistryName(modid, name);
+    }
+
+    /** Contructor with predefined BlockProperty */
+    public BlockBlock(String modid, String name, Properties block) {
+        super(block);
         this.setRegistryName(modid, name);
     }
 
     /** Contructor with predefined BlockProperty */
     public BlockBlock(String modid, String name, Block block) {
-        super(Block.Properties.from(block));
+        super(Properties.from(block));
         this.setRegistryName(modid, name);
     }
 
     /** Contructor with doesNotBlockMovement */
     public BlockBlock(String modid, String name, Material material, MaterialColor materialcolor, float hardness, float resistance, SoundType sound, int light, boolean blockMovement) {
-        super(Block.Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound).lightValue(light).doesNotBlockMovement());
+        super(Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound).lightValue(light).doesNotBlockMovement());
         this.setRegistryName(modid, name);
     }
 
@@ -35,7 +43,8 @@ public class BlockBlock extends Block {
     //----------------------------------------FUNCTION----------------------------------------//
 
     /** returns Harvest Level */
-    public int getHarvestLevel(IBlockState ibs){
+    public int getHarvestLevel(BlockState state) {
         return 1;
     }
+
 }

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:yellow_concrete"
+  },
+  "result": "stairway:walls_concrete_yellow",
+  "count": 1
+}

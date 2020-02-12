@@ -1,117 +1,99 @@
 package mod.stairway.blocks;
 
+import mod.shared.blocks.BlockBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.AttachFace;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Rotation;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
 
 import javax.annotation.Nullable;
 
-public class BlockChain extends Block {
+public class BlockChain extends BlockBlock implements IWaterLoggable {
 
-    public static final EnumProperty<EnumFacing.Axis> AXIS = BlockStateProperties.AXIS;
+    public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     public static final BooleanProperty OFFSET = BlockStateProperties.INVERTED;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public static final VoxelShape AABB   = Block.makeCuboidShape(0.0D*16, 0.0D*16, 0.0D*16, 1.0D*16, 1.0D*16, 1.0D*16);
-    public static final VoxelShape AABB_X = Block.makeCuboidShape(0.0D*16, 0.4D*16, 0.4D*16, 1.0D*16, 0.6D*16, 0.6D*16);
-    public static final VoxelShape AABB_Y = Block.makeCuboidShape(0.4D*16, 0.0D*16, 0.4D*16, 0.6D*16, 1.0D*16, 0.6D*16);
-    public static final VoxelShape AABB_Z = Block.makeCuboidShape(0.4D*16, 0.4D*16, 0.0D*16, 0.6D*16, 0.6D*16, 1.0D*16);
+    public static final VoxelShape AABB_X0 = Block.makeCuboidShape(0, 3, 6, 16, 13, 10);
+    public static final VoxelShape AABB_X1 = Block.makeCuboidShape(0, 6, 3, 16, 10, 13);
+    public static final VoxelShape AABB_Y0 = Block.makeCuboidShape(6, 0, 3, 10, 16, 13);
+    public static final VoxelShape AABB_Y1 = Block.makeCuboidShape(3, 0, 6, 13, 16, 10);
+    public static final VoxelShape AABB_Z0 = Block.makeCuboidShape(6, 3, 0, 10, 13, 16);
+    public static final VoxelShape AABB_Z1 = Block.makeCuboidShape(3, 6, 0, 13, 10, 16);
+
 
 
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
     public BlockChain(String modid, String name, Block block) {
-        super(Block.Properties.from(block));
-        this.setRegistryName(modid, name);
-        this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, EnumFacing.Axis.Y).with(OFFSET, Boolean.valueOf(false)));
+        super(modid, name, block);
+        this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, Direction.Axis.Y).with(OFFSET, Boolean.valueOf(false)).with(WATERLOGGED, Boolean.valueOf(false)));
     }
 
 
 
     //----------------------------------------RENDER----------------------------------------//
 
-    public boolean isFullCube(IBlockState state){
-        return false;
-    }
-
     public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
-    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-        EnumFacing.Axis enumfacing = state.get(AXIS);
+    @Deprecated
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        Direction.Axis enumfacing = state.get(AXIS);
+        boolean offset = state.get(OFFSET);
         switch(enumfacing) {
             case X:
-                return AABB_X;
+                return offset ? AABB_X1 : AABB_X0;
             case Y:
-                return AABB_Y;
+                return offset ? AABB_Y1 : AABB_Y0;
             case Z:
-                return AABB_Z;
+                return offset ? AABB_Z1 : AABB_Z0;
             default:
-                return AABB;
+                return VoxelShapes.fullCube();
         }
     }
 
-    @Override
-    public boolean isLadder(IBlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, net.minecraft.entity.EntityLivingBase entity) {
+    @Deprecated
+    public boolean isSolid(BlockState state) {
         return true;
     }
-
-    //public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn){
-    //    addCollisionBoxToList(pos, entityBox, collidingBoxes, getAABB(state));
-    //}
-
-    //public AxisAlignedBB getBoundingBox(IBlockState state, IBlock source, BlockPos pos){
-    //    return getAABB(state);
-    //}
-
-    //private AxisAlignedBB getAABB(IBlockState state){
-
-    //    EnumFacing.Axis axis = state.get(AXIS);
-    //    if(axis == EnumFacing.Axis.X) return AABB_X;
-    //    if(axis == EnumFacing.Axis.Y) return AABB_Y;
-    //    if(axis == EnumFacing.Axis.Z) return AABB_Z;
-
-    //    return AABB;
-    //}
-
-
-
-
 
 
 
     //----------------------------------------SUPPORT----------------------------------------//
 
-    public IBlockState rotate(IBlockState state, Rotation rot) {
+    public BlockState rotate(BlockState state, Rotation rot) {
         switch(rot) {
             case COUNTERCLOCKWISE_90:
             case CLOCKWISE_90:
                 switch(state.get(AXIS)) {
                     case X:
-                        return state.with(AXIS, EnumFacing.Axis.Z);
+                        return state.with(AXIS, Direction.Axis.Z);
                     case Z:
-                        return state.with(AXIS, EnumFacing.Axis.X);
+                        return state.with(AXIS, Direction.Axis.X);
                     default:
                         return state;
                 }
@@ -120,25 +102,22 @@ public class BlockChain extends Block {
         }
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
-        builder.add(AXIS, OFFSET);
+    @Override
+    public boolean isLadder(BlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, LivingEntity entity) {
+        return true;
     }
 
-    //public IBlockState getStateForPlacement(BlockItemUseContext context) {
-    //    return this.getDefaultState().with(AXIS, context.getFace().getAxis());
-    //}
-
-    protected ItemStack getSilkTouchDrop(IBlockState state) {
-        return new ItemStack(this);
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(AXIS, OFFSET, WATERLOGGED);
     }
 
     @Nullable
-    public IBlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(AXIS, context.getFace().getAxis()).with(OFFSET, isOffset(context.getPos()));
     }
 
     /** Called by ItemBlocks after a block is set in the world, to allow post-place logic */
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, @Nullable EntityLivingBase placer, ItemStack stack) {
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         worldIn.setBlockState(pos, state.with(OFFSET, isOffset(pos)), 2);
     }
 
@@ -148,6 +127,47 @@ public class BlockChain extends Block {
         if(Math.abs(pos.getY()) % 2 == 1) counter++;
         if(Math.abs(pos.getZ()) % 2 == 1) counter++;
         return counter % 2 == 1;
+    }
+
+    //--------------------------------
+
+    public IFluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
+
+    public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+        return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
+    }
+
+    public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
+        return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
+    }
+
+    /**
+     * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.
+     * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
+     * returns its solidified counterpart.
+     * Note that this method should ideally consider only the specific face passed in.
+     */
+    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.get(WATERLOGGED)) {
+            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+        }
+
+        return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    }
+
+    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+        switch(type) {
+            case LAND:
+                return false;
+            case WATER:
+                return worldIn.getFluidState(pos).isTagged(FluidTags.WATER);
+            case AIR:
+                return false;
+            default:
+                return false;
+        }
     }
 
 }

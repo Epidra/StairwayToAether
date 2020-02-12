@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "stairway:block/slabs_prismarine_dark_bottom" },
-        "type=top":    { "model": "stairway:block/slabs_prismarine_dark_top" },
-        "type=double": { "model": "block/dark_prismarine" }
-    }
-}

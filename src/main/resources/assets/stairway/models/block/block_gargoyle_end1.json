@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/gargoyle",
+    "textures": {
+        "stone":    "stairway:blocks/end_smooth",
+        "gem1":     "minecraft:block/diamond_block",
+        "gem2":     "minecraft:block/coal_block",
+        "particle": "stairway:blocks/end_smooth"
+    }
+}

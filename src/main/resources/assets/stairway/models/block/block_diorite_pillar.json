@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end":  "stairway:blocks/diorite_pillar_top",
-        "side": "stairway:blocks/diorite_pillar_side"
-    }
-}

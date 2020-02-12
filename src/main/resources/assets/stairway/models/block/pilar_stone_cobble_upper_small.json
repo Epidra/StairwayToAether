@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_upper_small",
+    "textures": {
+        "top":      "minecraft:block/cobblestone",
+        "side":     "minecraft:block/cobblestone",
+        "bottom":   "minecraft:block/cobblestone",
+        "particle": "minecraft:block/cobblestone"
+    }
+}

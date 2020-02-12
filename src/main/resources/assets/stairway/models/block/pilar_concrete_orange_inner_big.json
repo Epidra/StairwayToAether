@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_inner_big",
+    "textures": {
+        "top":      "minecraft:block/orange_concrete",
+        "side":     "minecraft:block/orange_concrete",
+        "bottom":   "minecraft:block/orange_concrete",
+        "particle": "minecraft:block/orange_concrete"
+    }
+}

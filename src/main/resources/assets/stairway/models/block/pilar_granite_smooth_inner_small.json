@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_inner_small",
+    "textures": {
+        "top":      "minecraft:block/polished_granite",
+        "side":     "minecraft:block/polished_granite",
+        "bottom":   "minecraft:block/polished_granite",
+        "particle": "minecraft:block/polished_granite"
+    }
+}

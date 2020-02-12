@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "stairway:blocks/obsidian_smooth_top",
-        "top":    "stairway:blocks/obsidian_smooth_top",
-        "side":   "stairway:blocks/obsidian_smooth_side"
-    }
-}

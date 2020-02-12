@@ -1,16 +1,13 @@
 package mod.stairway.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.WallBlock;
 
-public class BlockWalls extends net.minecraft.block.BlockWall {
+public class BlockWalls extends WallBlock {
 
     /** Default Constructor */
     public BlockWalls(String modid, String name, Block block) {
-        super(Block.Properties.from(block));
+        super(Properties.from(block));
         this.setRegistryName(modid, name);
     }
 

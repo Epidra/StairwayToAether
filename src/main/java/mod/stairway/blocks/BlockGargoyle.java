@@ -14,6 +14,9 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
@@ -23,6 +26,11 @@ public class BlockGargoyle extends BlockBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty EYES = BlockStateProperties.AGE_0_2;
+
+    public static final VoxelShape AABB0 = Block.makeCuboidShape(1, 0, 4, 16, 16, 12);
+    public static final VoxelShape AABB1 = Block.makeCuboidShape(4, 0, 1, 12, 16, 16);
+    public static final VoxelShape AABB2 = Block.makeCuboidShape(0, 0, 4, 15, 16, 12);
+    public static final VoxelShape AABB3 = Block.makeCuboidShape(4, 0, 0, 12, 16, 15);
 
     public BlockGargoyle(String modid, String name, Block block) {
         super(modid, name, block);
@@ -85,6 +93,19 @@ public class BlockGargoyle extends BlockBlock {
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+    }
+
+    @Deprecated
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        Direction enumfacing = state.get(FACING);
+        switch(enumfacing) {
+            case NORTH: return AABB1;
+            case SOUTH: return AABB3;
+            case EAST:  return AABB2;
+            case WEST:  return AABB0;
+            default:
+                return VoxelShapes.fullCube();
+        }
     }
 
 

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "stairway:block_stone_smooth"
+  },
+  "result": "stairway:slabs_stone_brick_cracked",
+  "count": 2
+}

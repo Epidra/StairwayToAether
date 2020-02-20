@@ -3,20 +3,19 @@ package mod.stairway.blocks;
 import mod.shared.blocks.BlockBlock;
 import mod.stairway.StairKeeper;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.Items;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
@@ -28,19 +27,19 @@ public class BlockEmitter extends BlockBlock {
 
     /** Default Constructor */
     public BlockEmitter(String modid, String name, Block block) {
-        super(modid, name, Properties.from(block).tickRandomly());
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+        super(modid, name, Properties.from(block).needsRandomTick());
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumFacing.NORTH));
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
         builder.add(FACING);
     }
 
-    public BlockState rotate(BlockState state, Rotation rot) {
+    public IBlockState rotate(IBlockState state, Rotation rot) {
         return state.with(FACING, rot.rotate(state.get(FACING)));
     }
 
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
+    public IBlockState mirror(IBlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.toRotation(state.get(FACING)));
     }
 
@@ -51,20 +50,20 @@ public class BlockEmitter extends BlockBlock {
         return 1;
     }
 
-    public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
+    public void tick(IBlockState state, World worldIn, BlockPos pos, Random random) {
         int power = worldIn.getRedstonePowerFromNeighbors(pos);
-        Direction facing = state.get(FACING);
+        EnumFacing facing = state.get(FACING);
         setLightBlocks(state, worldIn, pos, power, facing);
     }
 
     @Deprecated
-    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
         int power = world.getRedstonePowerFromNeighbors(pos);
-        Direction facing = state.get(FACING);
+        EnumFacing facing = state.get(FACING);
         setLightBlocks(state, world, pos, power, facing);
     }
 
-    public void setLightBlocks(BlockState state, World world, BlockPos pos, int power, Direction facing){
+    public void setLightBlocks(IBlockState state, World world, BlockPos pos, int power, EnumFacing facing){
         for(int i = 1; i < 17; i++){
             BlockPos blockpos = getOffset(facing, pos, i);
             if(world.isAirBlock(blockpos)){
@@ -83,41 +82,41 @@ public class BlockEmitter extends BlockBlock {
         }
     }
 
-    public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit){
+    public boolean onBlockActivated(IBlockState state, World world, BlockPos pos, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
         if (world.isRemote) {
             return true;
         } else {
-            if(player.getHeldItem(hand).getItem() == Items.BLACK_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BLACK.getDefaultState().with(FACING, state.get(FACING)), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.BLUE_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BLUE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.BROWN_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BROWN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.INK_SAC){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BLACK.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.LAPIS_LAZULI){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BLUE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.COCOA_BEANS){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_BROWN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.CYAN_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_CYAN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.GRAY_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_GRAY.getDefaultState().with(FACING, state.get(FACING)), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.GREEN_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_GREEN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.CACTUS_GREEN){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_GREEN.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.LIGHT_BLUE_DYE){ world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_LIGHTBLUE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.LIME_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_LIME.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.MAGENTA_DYE){    world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_MAGENTA.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.ORANGE_DYE){     world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_ORANGE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.PINK_DYE){       world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_PINK.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.PURPLE_DYE){     world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_PURPLE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.RED_DYE){        world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_RED.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.ROSE_RED){        world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_RED.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             if(player.getHeldItem(hand).getItem() == Items.LIGHT_GRAY_DYE){ world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_SILVER.getDefaultState().with(FACING, state.get(FACING)), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.WHITE_DYE){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_WHITE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
-            if(player.getHeldItem(hand).getItem() == Items.YELLOW_DYE){     world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_YELLOW.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.BONE_MEAL){      world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_WHITE.getDefaultState().with(FACING, state.get(FACING)), 2);  }
+            if(player.getHeldItem(hand).getItem() == Items.DANDELION_YELLOW){     world.setBlockState(pos, StairKeeper.BLOCK_EMITTER_YELLOW.getDefaultState().with(FACING, state.get(FACING)), 2);  }
             return true;
         }
     }
 
-    public BlockPos getOffset(Direction facing, BlockPos pos, int i){
-        if(facing == Direction.UP)    return pos.add( 0, +i,  0);
-        if(facing == Direction.DOWN)  return pos.add( 0, -i,  0);
-        if(facing == Direction.NORTH) return pos.add( 0,  0, -i);
-        if(facing == Direction.SOUTH) return pos.add( 0,  0, +i);
-        if(facing == Direction.EAST)  return pos.add(+i,  0,  0);
-        if(facing == Direction.WEST)  return pos.add(-i,  0,  0);
+    public BlockPos getOffset(EnumFacing facing, BlockPos pos, int i){
+        if(facing == EnumFacing.UP)    return pos.add( 0, +i,  0);
+        if(facing == EnumFacing.DOWN)  return pos.add( 0, -i,  0);
+        if(facing == EnumFacing.NORTH) return pos.add( 0,  0, -i);
+        if(facing == EnumFacing.SOUTH) return pos.add( 0,  0, +i);
+        if(facing == EnumFacing.EAST)  return pos.add(+i,  0,  0);
+        if(facing == EnumFacing.WEST)  return pos.add(-i,  0,  0);
         return pos;
     }
 
-    public BlockState getBlock(BlockState state){
+    public IBlockState getBlock(IBlockState state){
             if(state.getBlock() == StairKeeper.BLOCK_EMITTER_BLACK)     return StairKeeper.BLOCK_LIGHT_BLACK.getDefaultState();
             if(state.getBlock() == StairKeeper.BLOCK_EMITTER_BLUE)      return StairKeeper.BLOCK_LIGHT_BLUE.getDefaultState();
             if(state.getBlock() == StairKeeper.BLOCK_EMITTER_BROWN)     return StairKeeper.BLOCK_LIGHT_BROWN.getDefaultState();
@@ -137,12 +136,12 @@ public class BlockEmitter extends BlockBlock {
         return StairKeeper.BLOCK_LIGHT_BLACK.getDefaultState();
     }
 
-    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-        Direction facing = state.get(FACING);
+    public void onReplaced(IBlockState state, World worldIn, BlockPos pos, IBlockState newState, boolean isMoving) {
+        EnumFacing facing = state.get(FACING);
         setLightBlocks(state, worldIn, pos, 0, facing);
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public IBlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getNearestLookingDirection().getOpposite());
     }
 

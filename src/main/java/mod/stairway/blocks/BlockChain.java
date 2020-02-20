@@ -2,12 +2,13 @@ package mod.stairway.blocks;
 
 import mod.shared.blocks.BlockBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.block.ILiquidContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
+import net.minecraft.init.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
@@ -17,10 +18,9 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.Direction;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
@@ -29,9 +29,9 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockChain extends BlockBlock implements IWaterLoggable {
+public class BlockChain extends BlockBlock implements ILiquidContainer {
 
-    public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
+    public static final EnumProperty<EnumFacing.Axis> AXIS = BlockStateProperties.AXIS;
     public static final BooleanProperty OFFSET = BlockStateProperties.INVERTED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -49,7 +49,7 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
     /** Default Constructor */
     public BlockChain(String modid, String name, Block block) {
         super(modid, name, block);
-        this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, Direction.Axis.Y).with(OFFSET, Boolean.valueOf(false)).with(WATERLOGGED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, EnumFacing.Axis.Y).with(OFFSET, Boolean.valueOf(false)).with(WATERLOGGED, Boolean.valueOf(false)));
     }
 
 
@@ -60,9 +60,8 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
-    @Deprecated
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        Direction.Axis enumfacing = state.get(AXIS);
+    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
+        EnumFacing.Axis enumfacing = state.get(AXIS);
         boolean offset = state.get(OFFSET);
         switch(enumfacing) {
             case X:
@@ -77,7 +76,7 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
     }
 
     @Deprecated
-    public boolean isSolid(BlockState state) {
+    public boolean isSolid(IBlockState state) {
         return true;
     }
 
@@ -85,15 +84,15 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
 
     //----------------------------------------SUPPORT----------------------------------------//
 
-    public BlockState rotate(BlockState state, Rotation rot) {
+    public IBlockState rotate(IBlockState state, Rotation rot) {
         switch(rot) {
             case COUNTERCLOCKWISE_90:
             case CLOCKWISE_90:
                 switch(state.get(AXIS)) {
                     case X:
-                        return state.with(AXIS, Direction.Axis.Z);
+                        return state.with(AXIS, EnumFacing.Axis.Z);
                     case Z:
-                        return state.with(AXIS, Direction.Axis.X);
+                        return state.with(AXIS, EnumFacing.Axis.X);
                     default:
                         return state;
                 }
@@ -102,22 +101,21 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
         }
     }
 
-    @Override
-    public boolean isLadder(BlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, LivingEntity entity) {
+    public boolean isLadder(IBlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, EntityLiving entity) {
         return true;
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
         builder.add(AXIS, OFFSET, WATERLOGGED);
     }
 
     @Nullable
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public IBlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(AXIS, context.getFace().getAxis()).with(OFFSET, isOffset(context.getPos()));
     }
 
     /** Called by ItemBlocks after a block is set in the world, to allow post-place logic */
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, @Nullable EntityLivingBase placer, ItemStack stack) {
         worldIn.setBlockState(pos, state.with(OFFSET, isOffset(pos)), 2);
     }
 
@@ -131,43 +129,45 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
 
     //--------------------------------
 
-    public IFluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
-    }
-
-    public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
-        return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
-    }
-
-    public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
-        return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
-    }
-
-    /**
-     * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.
-     * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
-     * returns its solidified counterpart.
-     * Note that this method should ideally consider only the specific face passed in.
-     */
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (stateIn.get(WATERLOGGED)) {
             worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
         }
-
         return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
-    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-        switch(type) {
-            case LAND:
-                return false;
-            case WATER:
-                return worldIn.getFluidState(pos).isTagged(FluidTags.WATER);
-            case AIR:
-                return false;
-            default:
-                return false;
+    public Fluid pickupFluid(IWorld worldIn, BlockPos pos, IBlockState state) {
+        if (state.get(WATERLOGGED)) {
+            worldIn.setBlockState(pos, state.with(WATERLOGGED, Boolean.valueOf(false)), 3);
+            return Fluids.WATER;
+        } else {
+            return Fluids.EMPTY;
         }
+    }
+
+    public IFluidState getFluidState(IBlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
+
+    public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, IBlockState state, Fluid fluidIn) {
+        return !state.get(WATERLOGGED) && fluidIn == Fluids.WATER;
+    }
+
+    public boolean receiveFluid(IWorld worldIn, BlockPos pos, IBlockState state, IFluidState fluidStateIn) {
+        if (!state.get(WATERLOGGED) && fluidStateIn.getFluid() == Fluids.WATER) {
+            if (!worldIn.isRemote()) {
+                worldIn.setBlockState(pos, state.with(WATERLOGGED, Boolean.valueOf(true)), 3);
+                worldIn.getPendingFluidTicks().scheduleTick(pos, fluidStateIn.getFluid(), fluidStateIn.getFluid().getTickRate(worldIn));
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean allowsMovement(IBlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+        return false;
     }
 
 }

@@ -2,7 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:block_stone_brick1"
+      "stairway:block_stone_brick1",
+      "stairway:slabs_stone_smooth",
+      "stairway:slabs_stone_smooth_stonecutter"
     ]
   },
   "criteria": {

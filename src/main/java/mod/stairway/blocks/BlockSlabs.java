@@ -3,29 +3,30 @@ package mod.stairway.blocks;
 import mod.shared.blocks.BlockBlock;
 import mod.stairway.StairwayConfig;
 import net.minecraft.block.*;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
+import net.minecraft.init.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.Direction;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
-public class BlockSlabs extends BlockBlock implements IWaterLoggable {
+public class BlockSlabs extends BlockBlock implements ILiquidContainer {
 
     public static final EnumProperty<EnumBlockHalf> TYPE = EnumProperty.create("type", EnumBlockHalf.class);
     public static final net.minecraft.state.BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -49,11 +50,11 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
         builder.add(TYPE, WATERLOGGED);
     }
 
-    public boolean func_220074_n(BlockState state) {
+    public boolean func_220074_n(IBlockState state) {
         return state.get(TYPE) != EnumBlockHalf.FULL;
     }
 
@@ -65,12 +66,7 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
         return BlockRenderLayer.SOLID;
     }
 
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
-    @Deprecated
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
         if (state.get(TYPE) == EnumBlockHalf.TOP)   { return AABB_TOP; }
         else if (state.get(TYPE) == EnumBlockHalf.BOTTOM){ return AABB_BOTTOM; }
         else if (state.get(TYPE) == EnumBlockHalf.NORTH) { return AABB_NORTH; }
@@ -85,19 +81,19 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
     //---------------------------------
 
     @Nullable
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public IBlockState getStateForPlacement(BlockItemUseContext context) {
         BlockPos blockpos = context.getPos();
-        BlockState blockstate = context.getWorld().getBlockState(blockpos);
+        IBlockState blockstate = context.getWorld().getBlockState(blockpos);
         if (blockstate.getBlock() == this) {
             return blockstate.with(TYPE, EnumBlockHalf.FULL).with(WATERLOGGED, Boolean.valueOf(false));
         } else {
             IFluidState ifluidstate = context.getWorld().getFluidState(blockpos);
-            BlockState blockstate1 = this.getDefaultState().with(TYPE, EnumBlockHalf.BOTTOM).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
-            Direction direction = context.getFace();
+            IBlockState blockstate1 = this.getDefaultState().with(TYPE, EnumBlockHalf.BOTTOM).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
+            EnumFacing direction = context.getFace();
 
             if(!StairwayConfig.vertical || context.isPlacerSneaking()){
                 //BlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
-                return direction != Direction.DOWN && (direction == Direction.UP || !(context.getHitVec().y - (double)blockpos.getY() > 0.5D)) ? blockstate1 : blockstate1.with(TYPE, EnumBlockHalf.TOP);
+                return direction != EnumFacing.DOWN && (direction == EnumFacing.UP || !(context.getHitY() - (double)blockpos.getY() > 0.5D)) ? blockstate1 : blockstate1.with(TYPE, EnumBlockHalf.TOP);
             }
             return blockstate1.with(TYPE, EnumBlockHalf.getFacing(context.getPos(), context.getPlayer()));
 
@@ -105,17 +101,17 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
         }
     }
 
-    public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
+    public boolean isReplaceable(IBlockState state, BlockItemUseContext useContext) {
         ItemStack itemstack = useContext.getItem();
         EnumBlockHalf slabtype = state.get(TYPE);
         if (slabtype != EnumBlockHalf.FULL && itemstack.getItem() == this.asItem()) {
             if (useContext.replacingClickedOnBlock()) {
-                boolean flag = useContext.getHitVec().y - (double)useContext.getPos().getY() > 0.5D;
-                Direction direction = useContext.getFace();
+                boolean flag = useContext.getHitY() - (double)useContext.getPos().getY() > 0.5D;
+                EnumFacing direction = useContext.getFace();
                 if (slabtype == EnumBlockHalf.BOTTOM) {
-                    return direction == Direction.UP || flag && direction.getAxis().isHorizontal();
+                    return direction == EnumFacing.UP || flag && direction.getAxis().isHorizontal();
                 } else {
-                    return direction == Direction.DOWN || !flag && direction.getAxis().isHorizontal();
+                    return direction == EnumFacing.DOWN || !flag && direction.getAxis().isHorizontal();
                 }
             } else {
                 return true;
@@ -128,43 +124,53 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
 
     //--------------------------------
 
-    public IFluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
-    }
-
-    public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
-        return state.get(TYPE) != EnumBlockHalf.FULL ? IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn) : false;
-    }
-
-    public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
-        return state.get(TYPE) != EnumBlockHalf.FULL ? IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn) : false;
-    }
-
-    /**
-     * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.
-     * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
-     * returns its solidified counterpart.
-     * Note that this method should ideally consider only the specific face passed in.
-     */
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (stateIn.get(WATERLOGGED)) {
             worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
         }
-
         return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
-    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-        switch(type) {
-            case LAND:
-                return false;
-            case WATER:
-                return worldIn.getFluidState(pos).isTagged(FluidTags.WATER);
-            case AIR:
-                return false;
-            default:
-                return false;
+    public Fluid pickupFluid(IWorld worldIn, BlockPos pos, IBlockState state) {
+        if (state.get(WATERLOGGED)) {
+            worldIn.setBlockState(pos, state.with(WATERLOGGED, Boolean.valueOf(false)), 3);
+            return Fluids.WATER;
+        } else {
+            return Fluids.EMPTY;
         }
+    }
+
+    public IFluidState getFluidState(IBlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
+
+    public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, IBlockState state, Fluid fluidIn) {
+        return !state.get(WATERLOGGED) && fluidIn == Fluids.WATER;
+    }
+
+    public boolean receiveFluid(IWorld worldIn, BlockPos pos, IBlockState state, IFluidState fluidStateIn) {
+        if (!state.get(WATERLOGGED) && fluidStateIn.getFluid() == Fluids.WATER) {
+            if (!worldIn.isRemote()) {
+                worldIn.setBlockState(pos, state.with(WATERLOGGED, Boolean.valueOf(true)), 3);
+                worldIn.getPendingFluidTicks().scheduleTick(pos, fluidStateIn.getFluid(), fluidStateIn.getFluid().getTickRate(worldIn));
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean allowsMovement(IBlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+        return false;
+    }
+
+    public int getItemsToDropCount(IBlockState state, int fortune, World worldIn, BlockPos pos, Random random) {
+        EnumBlockHalf slabtype = state.get(TYPE);
+        if (slabtype == EnumBlockHalf.FULL){
+            return 2;
+        }
+        return 1;
     }
 
 
@@ -200,7 +206,7 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
             return this.name;
         }
 
-        public static EnumBlockHalf getFacing(BlockPos pos, LivingEntity placer){
+        public static EnumBlockHalf getFacing(BlockPos pos, EntityPlayer placer){
             if (Math.abs(placer.posX - (double)((float)pos.getX() + 0.5F)) < 2.0D && Math.abs(placer.posZ - (double)((float)pos.getZ() + 0.5F)) < 2.0D){
                 double d0 = placer.posY + (double)placer.getEyeHeight();
                 if (d0 - (double)pos.getY() > 2.0D){
@@ -210,10 +216,10 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
                     return TOP;
                 }
             }
-            if(placer.getHorizontalFacing() == Direction.EAST)  return EAST;
-            if(placer.getHorizontalFacing() == Direction.WEST)  return WEST;
-            if(placer.getHorizontalFacing() == Direction.NORTH) return NORTH;
-            if(placer.getHorizontalFacing() == Direction.SOUTH) return SOUTH;
+            if(placer.getHorizontalFacing() == EnumFacing.EAST)  return EAST;
+            if(placer.getHorizontalFacing() == EnumFacing.WEST)  return WEST;
+            if(placer.getHorizontalFacing() == EnumFacing.NORTH) return NORTH;
+            if(placer.getHorizontalFacing() == EnumFacing.SOUTH) return SOUTH;
             return FULL;
         }
 

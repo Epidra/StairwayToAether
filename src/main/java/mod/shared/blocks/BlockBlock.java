@@ -1,10 +1,10 @@
 package mod.shared.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.block.state.IBlockState;
 
 public class BlockBlock extends Block {
 
@@ -43,7 +43,7 @@ public class BlockBlock extends Block {
     //----------------------------------------FUNCTION----------------------------------------//
 
     /** returns Harvest Level */
-    public int getHarvestLevel(BlockState state) {
+    public int getHarvestLevel(IBlockState state) {
         return 1;
     }
 

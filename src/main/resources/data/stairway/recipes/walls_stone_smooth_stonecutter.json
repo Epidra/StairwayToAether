@@ -1,7 +1,7 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:smooth_stone"
+    "item": "stairway:block_stone_smooth"
   },
   "result": "stairway:walls_stone_smooth",
   "count": 1

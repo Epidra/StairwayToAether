@@ -1,9 +1,9 @@
 package mod.stairway.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.WallBlock;
+import net.minecraft.block.BlockWall;
 
-public class BlockWalls extends WallBlock {
+public class BlockWalls extends BlockWall {
 
     /** Default Constructor */
     public BlockWalls(String modid, String name, Block block) {

@@ -4,8 +4,8 @@ import mod.shared.Register;
 import mod.shared.blocks.BlockBlock;
 import mod.stairway.blocks.*;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.DyeColor;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemGroup;
 
 import static mod.stairway.StairwayToAether.MODID;
@@ -26,9 +26,9 @@ public class StairKeeper {
     //                        SLABS_STONE_COBBLE_MOSS
     //                        STAIR_STONE_COBBLE_MOSS
     //                        WALLS_STONE_COBBLE_MOSS
-    public static final Block PILAR_STONE_COBBLE_MOSS  = new BlockPilar(MODID,"pilar_stone_cobble_moss", Blocks.STONE);
-    //                        BLOCK_STONE_SMOOTH
-    //                        SLABS_STONE_SMOOTH
+    public static final Block PILAR_STONE_COBBLE_MOSS   = new BlockPilar(MODID,"pilar_stone_cobble_moss", Blocks.STONE);
+    public static final Block BLOCK_STONE_SMOOTH        = new BlockBlock(MODID, "block_stone_smooth",      Blocks.STONE);
+    public static final Block SLABS_STONE_SMOOTH        = new BlockSlabs(MODID, "slabs_stone_smooth",      Blocks.STONE);
     public static final Block STAIR_STONE_SMOOTH        = new BlockStair(MODID,"stair_stone_smooth", Blocks.STONE);
     public static final Block WALLS_STONE_SMOOTH        = new BlockWalls(MODID,"walls_stone_smooth", Blocks.STONE);
     public static final Block PILAR_STONE_SMOOTH        = new BlockPilar(MODID,"pilar_stone_smooth", Blocks.STONE);
@@ -398,11 +398,11 @@ public class StairKeeper {
     public static final Block BLOCK_CHAIN_IRON  = new BlockChain(MODID,       "block_chain_iron",   Blocks.IRON_BLOCK);
     public static final Block BLOCK_CHAIN_GOLD  = new BlockChain(MODID,       "block_chain_gold",   Blocks.GOLD_BLOCK);
 
-    public static final Block BLOCK_GARGOYLE_STONE    = new BlockGargoyle(MODID, "block_gargoyle_stone",    Blocks.STONE);
-    public static final Block BLOCK_GARGOYLE_GRANITE  = new BlockGargoyle(MODID, "block_gargoyle_granite",  Blocks.GRANITE);
-    public static final Block BLOCK_GARGOYLE_DIORITE  = new BlockGargoyle(MODID, "block_gargoyle_diorite",  Blocks.DIORITE);
-    public static final Block BLOCK_GARGOYLE_ANDESITE = new BlockGargoyle(MODID, "block_gargoyle_andesite", Blocks.ANDESITE);
-    public static final Block BLOCK_GARGOYLE_END      = new BlockGargoyle(MODID, "block_gargoyle_end",      Blocks.END_STONE);
+    public static final Block GOYLE_DOG_STONE    = new BlockGargoyle(MODID, "goyle_dog_stone",    Blocks.STONE);
+    public static final Block GOYLE_DOG_GRANITE  = new BlockGargoyle(MODID, "goyle_dog_granite",  Blocks.GRANITE);
+    public static final Block GOYLE_DOG_DIORITE  = new BlockGargoyle(MODID, "goyle_dog_diorite",  Blocks.DIORITE);
+    public static final Block GOYLE_DOG_ANDESITE = new BlockGargoyle(MODID, "goyle_dog_andesite", Blocks.ANDESITE);
+    public static final Block GOYLE_DOG_END      = new BlockGargoyle(MODID, "goyle_dog_end",      Blocks.END_STONE);
 
     public static final Block BLOCK_EMITTER_WHITE     = new BlockEmitter(MODID, "block_emitter_white",     Blocks.OBSERVER);
     public static final Block BLOCK_EMITTER_ORANGE    = new BlockEmitter(MODID, "block_emitter_orange",    Blocks.OBSERVER);
@@ -421,22 +421,22 @@ public class StairKeeper {
     public static final Block BLOCK_EMITTER_RED       = new BlockEmitter(MODID, "block_emitter_red",       Blocks.OBSERVER);
     public static final Block BLOCK_EMITTER_BLACK     = new BlockEmitter(MODID, "block_emitter_black",     Blocks.OBSERVER);
 
-    public static final Block BLOCK_LIGHT_WHITE     = new BlockLight(MODID, "block_light_white",     Blocks.WHITE_STAINED_GLASS, DyeColor.WHITE);
-    public static final Block BLOCK_LIGHT_ORANGE    = new BlockLight(MODID, "block_light_orange",    Blocks.ORANGE_STAINED_GLASS, DyeColor.ORANGE);
-    public static final Block BLOCK_LIGHT_MAGENTA   = new BlockLight(MODID, "block_light_magenta",   Blocks.MAGENTA_STAINED_GLASS, DyeColor.MAGENTA);
-    public static final Block BLOCK_LIGHT_LIGHTBLUE = new BlockLight(MODID, "block_light_lightblue", Blocks.LIGHT_BLUE_STAINED_GLASS, DyeColor.LIGHT_BLUE);
-    public static final Block BLOCK_LIGHT_YELLOW    = new BlockLight(MODID, "block_light_yellow",    Blocks.YELLOW_STAINED_GLASS, DyeColor.YELLOW);
-    public static final Block BLOCK_LIGHT_LIME      = new BlockLight(MODID, "block_light_lime",      Blocks.LIME_STAINED_GLASS, DyeColor.LIME);
-    public static final Block BLOCK_LIGHT_PINK      = new BlockLight(MODID, "block_light_pink",      Blocks.PINK_STAINED_GLASS, DyeColor.PINK);
-    public static final Block BLOCK_LIGHT_GRAY      = new BlockLight(MODID, "block_light_gray",      Blocks.GRAY_STAINED_GLASS, DyeColor.GRAY);
-    public static final Block BLOCK_LIGHT_SILVER    = new BlockLight(MODID, "block_light_silver",    Blocks.LIGHT_GRAY_STAINED_GLASS, DyeColor.LIGHT_GRAY);
-    public static final Block BLOCK_LIGHT_CYAN      = new BlockLight(MODID, "block_light_cyan",      Blocks.CYAN_STAINED_GLASS, DyeColor.CYAN);
-    public static final Block BLOCK_LIGHT_PURPLE    = new BlockLight(MODID, "block_light_purple",    Blocks.PURPLE_STAINED_GLASS, DyeColor.PURPLE);
-    public static final Block BLOCK_LIGHT_BLUE      = new BlockLight(MODID, "block_light_blue",      Blocks.BLUE_STAINED_GLASS, DyeColor.BLUE);
-    public static final Block BLOCK_LIGHT_BROWN     = new BlockLight(MODID, "block_light_brown",     Blocks.BROWN_STAINED_GLASS, DyeColor.BROWN);
-    public static final Block BLOCK_LIGHT_GREEN     = new BlockLight(MODID, "block_light_green",     Blocks.GREEN_STAINED_GLASS, DyeColor.GREEN);
-    public static final Block BLOCK_LIGHT_RED       = new BlockLight(MODID, "block_light_red",       Blocks.RED_STAINED_GLASS, DyeColor.RED);
-    public static final Block BLOCK_LIGHT_BLACK     = new BlockLight(MODID, "block_light_black",     Blocks.BLACK_STAINED_GLASS, DyeColor.BLACK);
+    public static final Block BLOCK_LIGHT_WHITE     = new BlockLight(MODID, "block_light_white",     Blocks.WHITE_STAINED_GLASS, EnumDyeColor.WHITE);
+    public static final Block BLOCK_LIGHT_ORANGE    = new BlockLight(MODID, "block_light_orange",    Blocks.ORANGE_STAINED_GLASS, EnumDyeColor.ORANGE);
+    public static final Block BLOCK_LIGHT_MAGENTA   = new BlockLight(MODID, "block_light_magenta",   Blocks.MAGENTA_STAINED_GLASS, EnumDyeColor.MAGENTA);
+    public static final Block BLOCK_LIGHT_LIGHTBLUE = new BlockLight(MODID, "block_light_lightblue", Blocks.LIGHT_BLUE_STAINED_GLASS, EnumDyeColor.LIGHT_BLUE);
+    public static final Block BLOCK_LIGHT_YELLOW    = new BlockLight(MODID, "block_light_yellow",    Blocks.YELLOW_STAINED_GLASS, EnumDyeColor.YELLOW);
+    public static final Block BLOCK_LIGHT_LIME      = new BlockLight(MODID, "block_light_lime",      Blocks.LIME_STAINED_GLASS, EnumDyeColor.LIME);
+    public static final Block BLOCK_LIGHT_PINK      = new BlockLight(MODID, "block_light_pink",      Blocks.PINK_STAINED_GLASS, EnumDyeColor.PINK);
+    public static final Block BLOCK_LIGHT_GRAY      = new BlockLight(MODID, "block_light_gray",      Blocks.GRAY_STAINED_GLASS, EnumDyeColor.GRAY);
+    public static final Block BLOCK_LIGHT_SILVER    = new BlockLight(MODID, "block_light_silver",    Blocks.LIGHT_GRAY_STAINED_GLASS, EnumDyeColor.LIGHT_GRAY);
+    public static final Block BLOCK_LIGHT_CYAN      = new BlockLight(MODID, "block_light_cyan",      Blocks.CYAN_STAINED_GLASS, EnumDyeColor.CYAN);
+    public static final Block BLOCK_LIGHT_PURPLE    = new BlockLight(MODID, "block_light_purple",    Blocks.PURPLE_STAINED_GLASS, EnumDyeColor.PURPLE);
+    public static final Block BLOCK_LIGHT_BLUE      = new BlockLight(MODID, "block_light_blue",      Blocks.BLUE_STAINED_GLASS, EnumDyeColor.BLUE);
+    public static final Block BLOCK_LIGHT_BROWN     = new BlockLight(MODID, "block_light_brown",     Blocks.BROWN_STAINED_GLASS, EnumDyeColor.BROWN);
+    public static final Block BLOCK_LIGHT_GREEN     = new BlockLight(MODID, "block_light_green",     Blocks.GREEN_STAINED_GLASS, EnumDyeColor.GREEN);
+    public static final Block BLOCK_LIGHT_RED       = new BlockLight(MODID, "block_light_red",       Blocks.RED_STAINED_GLASS, EnumDyeColor.RED);
+    public static final Block BLOCK_LIGHT_BLACK     = new BlockLight(MODID, "block_light_black",     Blocks.BLACK_STAINED_GLASS, EnumDyeColor.BLACK);
     /**Register all stuff, pre is true during preInit and false during Init**/
     public static void registerStuff(){
 
@@ -445,17 +445,19 @@ public class StairKeeper {
 
         Register.registerBlock(WALLS_STONE_STONE,         ItemGroup.DECORATIONS);
         Register.registerBlock(PILAR_STONE_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_COBBLE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_COBBLE_MOSS,         ItemGroup.DECORATIONS);
+        Register.registerBlock(PILAR_STONE_COBBLE,        ItemGroup.DECORATIONS);
+        Register.registerBlock(PILAR_STONE_COBBLE_MOSS,   ItemGroup.DECORATIONS);
+        Register.registerBlock(BLOCK_STONE_SMOOTH,        ItemGroup.BUILDING_BLOCKS);
+        Register.registerBlock(SLABS_STONE_SMOOTH,        ItemGroup.BUILDING_BLOCKS);
         Register.registerBlock(STAIR_STONE_SMOOTH,        ItemGroup.BUILDING_BLOCKS);
         Register.registerBlock(WALLS_STONE_SMOOTH,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_SMOOTH,         ItemGroup.DECORATIONS);
+        Register.registerBlock(PILAR_STONE_SMOOTH,        ItemGroup.DECORATIONS);
         Register.registerBlock(PILAR_STONE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_BRICK_MOSS,         ItemGroup.DECORATIONS);
+        Register.registerBlock(PILAR_STONE_BRICK_MOSS,    ItemGroup.DECORATIONS);
         Register.registerBlock(SLABS_STONE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
         Register.registerBlock(STAIR_STONE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
         Register.registerBlock(WALLS_STONE_BRICK_CRACKED, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_BRICK_CRACKED,         ItemGroup.DECORATIONS);
+        Register.registerBlock(PILAR_STONE_BRICK_CRACKED, ItemGroup.DECORATIONS);
 
         // Granite
         Register.registerBlock(PILAR_GRANITE_STONE,         ItemGroup.DECORATIONS);
@@ -802,11 +804,11 @@ public class StairKeeper {
         Register.registerBlock(BLOCK_EMITTER_GREEN,     ItemGroup.REDSTONE);
         Register.registerBlock(BLOCK_EMITTER_RED,       ItemGroup.REDSTONE);
         Register.registerBlock(BLOCK_EMITTER_BLACK,     ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_STONE,    ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_GRANITE,  ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_DIORITE,  ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_ANDESITE, ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_END,      ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_STONE,         ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_GRANITE,       ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_DIORITE,       ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_ANDESITE,      ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_END,           ItemGroup.REDSTONE);
 
         // Timber Cross
         Register.registerBlock(BLOCK_LIGHT_WHITE);

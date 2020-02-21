@@ -403,11 +403,11 @@ public class StairKeeper {
     public static final Block BLOCK_CHAIN_IRON  = new BlockChain(MODID,       "block_chain_iron",   Blocks.IRON_BLOCK);
     public static final Block BLOCK_CHAIN_GOLD  = new BlockChain(MODID,       "block_chain_gold",   Blocks.GOLD_BLOCK);
 
-    public static final Block BLOCK_GARGOYLE_STONE    = new BlockGargoyle(MODID, "block_gargoyle_stone",    Blocks.STONE);
-    public static final Block BLOCK_GARGOYLE_GRANITE  = new BlockGargoyle(MODID, "block_gargoyle_granite",  Blocks.GRANITE);
-    public static final Block BLOCK_GARGOYLE_DIORITE  = new BlockGargoyle(MODID, "block_gargoyle_diorite",  Blocks.DIORITE);
-    public static final Block BLOCK_GARGOYLE_ANDESITE = new BlockGargoyle(MODID, "block_gargoyle_andesite", Blocks.ANDESITE);
-    public static final Block BLOCK_GARGOYLE_END      = new BlockGargoyle(MODID, "block_gargoyle_end",      Blocks.END_STONE);
+    public static final Block GOYLE_DOG_STONE    = new BlockGargoyle(MODID, "goyle_dog_stone",    Blocks.STONE);
+    public static final Block GOYLE_DOG_GRANITE  = new BlockGargoyle(MODID, "goyle_dog_granite",  Blocks.GRANITE);
+    public static final Block GOYLE_DOG_DIORITE  = new BlockGargoyle(MODID, "goyle_dog_diorite",  Blocks.DIORITE);
+    public static final Block GOYLE_DOG_ANDESITE = new BlockGargoyle(MODID, "goyle_dog_andesite", Blocks.ANDESITE);
+    public static final Block GOYLE_DOG_END      = new BlockGargoyle(MODID, "goyle_dog_end",      Blocks.END_STONE);
 
     public static final Block BLOCK_EMITTER_WHITE     = new BlockEmitter(MODID, "block_emitter_white",     Blocks.OBSERVER);
     public static final Block BLOCK_EMITTER_ORANGE    = new BlockEmitter(MODID, "block_emitter_orange",    Blocks.OBSERVER);
@@ -808,11 +808,11 @@ public class StairKeeper {
         Register.registerBlock(BLOCK_EMITTER_GREEN,     ItemGroup.REDSTONE);
         Register.registerBlock(BLOCK_EMITTER_RED,       ItemGroup.REDSTONE);
         Register.registerBlock(BLOCK_EMITTER_BLACK,     ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_STONE,    ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_GRANITE,  ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_DIORITE,  ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_ANDESITE, ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_GARGOYLE_END,      ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_STONE,         ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_GRANITE,       ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_DIORITE,       ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_ANDESITE,      ItemGroup.REDSTONE);
+        Register.registerBlock(GOYLE_DOG_END,           ItemGroup.REDSTONE);
 
         // Timber Cross
         Register.registerBlock(BLOCK_LIGHT_WHITE);

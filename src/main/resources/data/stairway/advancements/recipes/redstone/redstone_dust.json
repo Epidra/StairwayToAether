@@ -2,11 +2,11 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:block_gargoyle_stone",
-      "stairway:block_gargoyle_granite",
-      "stairway:block_gargoyle_diorite",
-      "stairway:block_gargoyle_andesite",
-      "stairway:block_gargoyle_end"
+      "stairway:goyle_dog_stone",
+      "stairway:goyle_dog_granite",
+      "stairway:goyle_dog_diorite",
+      "stairway:goyle_dog_andesite",
+      "stairway:goyle_dog_end"
     ]
   },
   "criteria": {

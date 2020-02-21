@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "goyle_dog",
+  "pattern": [
+    "B",
+    "R",
+    "#"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "#": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "result": {
+    "item": "stairway:goyle_dog_stone",
+    "count": 1
+  }
+}

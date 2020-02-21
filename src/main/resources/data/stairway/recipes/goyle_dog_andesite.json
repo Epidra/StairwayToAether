@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "block_gargoyle",
+  "group": "goyle_dog",
   "pattern": [
     "B",
     "R",
@@ -14,11 +14,11 @@
       "item": "minecraft:redstone"
     },
     "#": {
-      "item": "stairway:block_end_smooth"
+      "item": "minecraft:polished_andesite"
     }
   },
   "result": {
-    "item": "stairway:block_gargoyle_end",
+    "item": "stairway:goyle_dog_andesite",
     "count": 1
   }
 }

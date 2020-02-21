@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "stairway:block_gargoyle_stone"
+          "name": "stairway:goyle_dog_stone"
         }
       ],
       "conditions": [

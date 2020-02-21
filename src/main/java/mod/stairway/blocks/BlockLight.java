@@ -31,7 +31,7 @@ public class BlockLight extends StainedGlassBlock {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
 
     public BlockLight(String modid, String name, Block block, DyeColor dyeColor) {
-        super(dyeColor, Properties.from(block).lightValue(4).hardnessAndResistance(200));
+        super(dyeColor, Properties.from(block).lightValue(4).hardnessAndResistance(2000));
         this.setRegistryName(modid, name);
     }
 

@@ -62,10 +62,31 @@ public class BlockGargoyle extends BlockBlock {
                 player.getHeldItem(hand).shrink(1);
                 world.setBlockState(pos, state.with(EYES, power+1));
             }
+            if(power == 3){
+                player.getHeldItem(hand).shrink(1);
+                world.setBlockState(pos, state.with(EYES, 5));
+            }
+        } else if(player.getHeldItem(hand).getItem() == Items.EMERALD){
+            if(power == 0 || power == 3){
+                player.getHeldItem(hand).shrink(1);
+                world.setBlockState(pos, state.with(EYES, power == 0 ? 3 : 4));
+            }
+            if(power == 1){
+                player.getHeldItem(hand).shrink(1);
+                world.setBlockState(pos, state.with(EYES, 5));
+            }
         } else if(player.getHeldItem(hand).isEmpty()){
-            if(power > 0){
+            if(power == 1 || power == 2){
                 player.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, 1));
                 world.setBlockState(pos, state.with(EYES, power-1));
+            }
+            if(power == 3 || power == 4){
+                player.inventory.addItemStackToInventory(new ItemStack(Items.EMERALD, 1));
+                world.setBlockState(pos, state.with(EYES, power == 3 ? 0 : 3));
+            }
+            if(power == 5){
+                player.inventory.addItemStackToInventory(new ItemStack(Items.EMERALD, 1));
+                world.setBlockState(pos, state.with(EYES, 1));
             }
         }
         return true;

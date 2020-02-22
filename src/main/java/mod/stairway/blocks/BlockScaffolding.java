@@ -74,6 +74,10 @@ public class BlockScaffolding extends BlockBlock implements ILiquidContainer {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
     public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
         int color = state.get(ROTATION);
         EnumFacing      direc = state.get(FACING);

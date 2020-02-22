@@ -86,6 +86,10 @@ public class BlockPilar extends BlockBlock implements ILiquidContainer {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
     public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
         EnumFacing.Axis enumfacing = state.get(AXIS);
         int connection = state.get(CONNECTION);

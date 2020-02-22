@@ -80,6 +80,10 @@ public class BlockChain extends BlockBlock implements ILiquidContainer {
         return true;
     }
 
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
 
 
     //----------------------------------------SUPPORT----------------------------------------//

@@ -58,6 +58,10 @@ public class BlockSlabs extends BlockBlock implements ILiquidContainer {
         return state.get(TYPE) != EnumBlockHalf.FULL;
     }
 
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
 
 
     //---------------------------------------

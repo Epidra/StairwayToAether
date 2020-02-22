@@ -36,6 +36,10 @@ public class BlockGargoyle extends BlockBlock {
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumFacing.NORTH).with(EYES, Integer.valueOf(0)));
     }
 
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
     public boolean canProvidePower(IBlockState state) {
         return state.get(EYES) > 0;
     }

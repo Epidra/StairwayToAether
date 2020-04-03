@@ -28,7 +28,7 @@ import java.util.Random;
 public class BlockGargoyle extends BlockBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static final IntegerProperty EYES = BlockStateProperties.AGE_0_2;
+    public static final IntegerProperty EYES = BlockStateProperties.AGE_0_5;
 
     public static final VoxelShape AABB0 = Block.makeCuboidShape(1, 0, 4, 16, 16, 12);
     public static final VoxelShape AABB1 = Block.makeCuboidShape(4, 0, 1, 12, 16, 16);
@@ -45,7 +45,17 @@ public class BlockGargoyle extends BlockBlock {
     }
 
     public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
-        return blockState.get(EYES) == 2 ? 15 : blockState.get(EYES) == 1 ? 6 : 0;
+        int eyes = blockState.get(EYES);
+        if(eyes == 1 || eyes == 3){
+            return 6;
+        }
+        if(eyes == 2 || eyes == 4){
+            return 15;
+        }
+        if(eyes == 5){
+            return 10;
+        }
+        return 0;
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
@@ -56,37 +66,39 @@ public class BlockGargoyle extends BlockBlock {
         if (world.isRemote) {
             return true;
         }
-        int power = state.get(EYES);
-        if(player.getHeldItem(hand).getItem() == Items.DIAMOND){
-            if(power < 2){
-                player.getHeldItem(hand).shrink(1);
-                world.setBlockState(pos, state.with(EYES, power+1));
-            }
-            if(power == 3){
-                player.getHeldItem(hand).shrink(1);
-                world.setBlockState(pos, state.with(EYES, 5));
-            }
-        } else if(player.getHeldItem(hand).getItem() == Items.EMERALD){
-            if(power == 0 || power == 3){
-                player.getHeldItem(hand).shrink(1);
-                world.setBlockState(pos, state.with(EYES, power == 0 ? 3 : 4));
-            }
-            if(power == 1){
-                player.getHeldItem(hand).shrink(1);
-                world.setBlockState(pos, state.with(EYES, 5));
-            }
-        } else if(player.getHeldItem(hand).isEmpty()){
-            if(power == 1 || power == 2){
-                player.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, 1));
-                world.setBlockState(pos, state.with(EYES, power-1));
-            }
-            if(power == 3 || power == 4){
-                player.inventory.addItemStackToInventory(new ItemStack(Items.EMERALD, 1));
-                world.setBlockState(pos, state.with(EYES, power == 3 ? 0 : 3));
-            }
-            if(power == 5){
-                player.inventory.addItemStackToInventory(new ItemStack(Items.EMERALD, 1));
-                world.setBlockState(pos, state.with(EYES, 1));
+        if(hand == Hand.MAIN_HAND){
+            int power = state.get(EYES);
+            if(player.getHeldItem(hand).getItem() == Items.DIAMOND){
+                if(power < 2){
+                    player.getHeldItem(hand).shrink(1);
+                    world.setBlockState(pos, state.with(EYES, power+1));
+                }
+                if(power == 3){
+                    player.getHeldItem(hand).shrink(1);
+                    world.setBlockState(pos, state.with(EYES, 5));
+                }
+            } else if(player.getHeldItem(hand).getItem() == Items.EMERALD){
+                if(power == 0 || power == 3){
+                    player.getHeldItem(hand).shrink(1);
+                    world.setBlockState(pos, state.with(EYES, power == 0 ? 3 : 4));
+                }
+                if(power == 1){
+                    player.getHeldItem(hand).shrink(1);
+                    world.setBlockState(pos, state.with(EYES, 5));
+                }
+            } else if(player.getHeldItem(hand).isEmpty()){
+                if(power == 1 || power == 2){
+                    player.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, 1));
+                    world.setBlockState(pos, state.with(EYES, power-1));
+                }
+                if(power == 3 || power == 4){
+                    player.inventory.addItemStackToInventory(new ItemStack(Items.EMERALD, 1));
+                    world.setBlockState(pos, state.with(EYES, power == 3 ? 0 : 3));
+                }
+                if(power == 5){
+                    player.inventory.addItemStackToInventory(new ItemStack(Items.EMERALD, 1));
+                    world.setBlockState(pos, state.with(EYES, 1));
+                }
             }
         }
         return true;

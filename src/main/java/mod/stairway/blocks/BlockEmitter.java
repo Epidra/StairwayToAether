@@ -5,8 +5,10 @@ import mod.stairway.StairKeeper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
@@ -17,6 +19,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockEmitter extends BlockBlock {
@@ -61,6 +64,12 @@ public class BlockEmitter extends BlockBlock {
         setLightBlocks(state, world, pos, power, facing);
     }
 
+    public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        int power = world.getRedstonePowerFromNeighbors(pos);
+        Direction facing = state.get(FACING);
+        setLightBlocks(state, world, pos, power, facing);
+    }
+
     public void setLightBlocks(BlockState state, World world, BlockPos pos, int power, Direction facing){
         for(int i = 1; i < 17; i++){
             BlockPos blockpos = getOffset(facing, pos, i);
@@ -72,6 +81,10 @@ public class BlockEmitter extends BlockBlock {
                 if(world.getBlockState(blockpos).getBlock() == getBlock(state).getBlock()){
                     if(i > power){
                         world.setBlockState(blockpos, Blocks.AIR.getDefaultState());
+                    }
+                } else {
+                    if(i < power){
+                        world.setBlockState(blockpos, getBlock(state).with(BlockLight.FACING, facing));
                     }
                 }
             } else {

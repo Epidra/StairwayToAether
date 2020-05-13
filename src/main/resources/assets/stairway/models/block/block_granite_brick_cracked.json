@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "stairway:blocks/granite_brick_cracked"
+        "all": "stairway:block/granite_brick_cracked"
     }
 }

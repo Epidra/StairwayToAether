@@ -1,6 +1,6 @@
 {
     "parent": "block/template_wall_post",
     "textures": {
-        "wall": "stairway:blocks/end_smooth"
+        "wall": "stairway:block/end_smooth"
     }
 }

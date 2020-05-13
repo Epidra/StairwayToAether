@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "stairway:blocks/end_brick_carved"
+        "all": "stairway:block/end_brick_carved"
     }
 }

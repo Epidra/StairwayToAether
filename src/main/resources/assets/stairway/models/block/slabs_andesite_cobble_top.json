@@ -1,10 +1,10 @@
 {
     "parent": "block/upper_slab",
     "textures": {
-        "bottom": "stairway:blocks/andesite_cobble",
-        "top":    "stairway:blocks/andesite_cobble",
-        "side":   "stairway:blocks/andesite_cobble",
-        "particle": "stairway:blocks/andesite_cobble"
+        "bottom": "stairway:block/andesite_cobble",
+        "top":    "stairway:block/andesite_cobble",
+        "side":   "stairway:block/andesite_cobble",
+        "particle": "stairway:block/andesite_cobble"
     },
     "elements": [
         {   "from": [ 0, 8, 0 ],

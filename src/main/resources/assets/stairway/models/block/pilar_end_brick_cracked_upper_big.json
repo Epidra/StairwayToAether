@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_upper_big",
     "textures": {
-        "top":      "stairway:blocks/end_brick_cracked",
-        "side":     "stairway:blocks/end_brick_cracked",
-        "bottom":   "stairway:blocks/end_brick_cracked",
-        "particle": "stairway:blocks/end_brick_cracked"
+        "top":      "stairway:block/end_brick_cracked",
+        "side":     "stairway:block/end_brick_cracked",
+        "bottom":   "stairway:block/end_brick_cracked",
+        "particle": "stairway:block/end_brick_cracked"
     }
 }

@@ -1,10 +1,10 @@
 {
     "parent": "block/half_slab",
     "textures": {
-        "bottom": "stairway:blocks/granite_brick",
-        "top":    "stairway:blocks/granite_brick",
-        "side":   "stairway:blocks/granite_brick",
-        "particle": "stairway:blocks/granite_brick"
+        "bottom": "stairway:block/granite_brick",
+        "top":    "stairway:block/granite_brick",
+        "side":   "stairway:block/granite_brick",
+        "particle": "stairway:block/granite_brick"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

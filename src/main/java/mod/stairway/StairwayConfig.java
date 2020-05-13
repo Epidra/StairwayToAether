@@ -8,18 +8,32 @@ import org.apache.commons.lang3.tuple.Pair;
 public class StairwayConfig {
 
     private static ForgeConfigSpec.ConfigValue<Boolean> cv_vertical;
-
     public static boolean vertical = true;
+
+
+
+
+    //----------------------------------------INIT----------------------------------------//
 
     public static void init() {
         Pair<Loader, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Loader::new);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, specPair.getRight());
     }
 
+
+
+
+    //----------------------------------------LOAD----------------------------------------//
+
     @SuppressWarnings("unchecked")
     public static void load() {
         vertical = cv_vertical.get();
     }
+
+
+
+
+    //----------------------------------------HELPER----------------------------------------//
 
     static class Loader {
         public Loader(ForgeConfigSpec.Builder builder) {

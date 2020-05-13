@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_inner_small",
     "textures": {
-        "top":      "stairway:blocks/granite_brick",
-        "side":     "stairway:blocks/granite_brick",
-        "bottom":   "stairway:blocks/granite_brick",
-        "particle": "stairway:blocks/granite_brick"
+        "top":      "stairway:block/granite_brick",
+        "side":     "stairway:block/granite_brick",
+        "bottom":   "stairway:block/granite_brick",
+        "particle": "stairway:block/granite_brick"
     }
 }

@@ -5,10 +5,16 @@ import net.minecraft.block.WallBlock;
 
 public class BlockWalls extends WallBlock {
 
+    // ...
+
+
+
+
+    //----------------------------------------CONSTRUCTOR----------------------------------------//
+
     /** Default Constructor */
-    public BlockWalls(String modid, String name, Block block) {
+    public BlockWalls(Block block) {
         super(Properties.from(block));
-        this.setRegistryName(modid, name);
     }
 
 }

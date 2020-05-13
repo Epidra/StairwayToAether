@@ -1,835 +1,499 @@
 package mod.stairway;
 
-import com.electronwill.nightconfig.core.file.CommentedFileConfig;
-import mod.shared.Register;
-import mod.shared.blocks.BlockBlock;
-import mod.shared.blocks.BlockPillar;
+import mod.stairway.blocks.BlockBlock;
 import mod.stairway.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.DyeColor;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraftforge.common.ForgeConfigSpec;
-
-import java.nio.file.Path;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import static mod.stairway.StairwayToAether.MODID;
 
 public class StairKeeper {
 
-    //                        BLOCK_STONE_STONE
-    //public static final Block SLABS_STONE_STONE        = new BlockSlabs("minecraft","stone_slab", Blocks.STONE);
-    //                        STAIR_STONE_STONE
-    public static final Block WALLS_STONE_STONE        = new BlockWalls(MODID,"walls_stone_stone", Blocks.STONE);
-    public static final Block PILAR_STONE_STONE        = new BlockPilar(MODID,"pilar_stone_stone", Blocks.STONE);
-    //                        BLOCK_STONE_COBBLE
-    //                        SLABS_STONE_COBBLE
-    //                        STAIR_STONE_COBBLE
-    //                        WALLS_STONE_COBBLE
-    public static final Block PILAR_STONE_COBBLE       = new BlockPilar(MODID,"pilar_stone_cobble", Blocks.STONE);
-    //                        BLOCK_STONE_COBBLE_MOSS
-    //                        SLABS_STONE_COBBLE_MOSS
-    //                        STAIR_STONE_COBBLE_MOSS
-    //                        WALLS_STONE_COBBLE_MOSS
-    public static final Block PILAR_STONE_COBBLE_MOSS  = new BlockPilar(MODID,"pilar_stone_cobble_moss", Blocks.STONE);
-    //                        BLOCK_STONE_SMOOTH
-    //                        SLABS_STONE_SMOOTH
-    public static final Block STAIR_STONE_SMOOTH        = new BlockStair(MODID,"stair_stone_smooth", Blocks.STONE);
-    public static final Block WALLS_STONE_SMOOTH        = new BlockWalls(MODID,"walls_stone_smooth", Blocks.STONE);
-    public static final Block PILAR_STONE_SMOOTH        = new BlockPilar(MODID,"pilar_stone_smooth", Blocks.STONE);
-    //                        BLOCK_STONE_BRICK
-    //                        SLABS_STONE_BRICK
-    //                        STAIR_STONE_BRICK
-    //                        WALLS_STONE_BRICK
-    public static final Block PILAR_STONE_BRICK        = new BlockPilar(MODID,"pilar_stone_brick", Blocks.STONE);
-    //                        BLOCK_STONE_BRICK_MOSS
-    //                        SLABS_STONE_BRICK_MOSS
-    //                        STAIR_STONE_BRICK_MOSS
-    //                        WALLS_STONE_BRICK_MOSS
-    public static final Block PILAR_STONE_BRICK_MOSS        = new BlockPilar(MODID,"pilar_stone_brick_moss", Blocks.STONE);
-    //                        BLOCK_STONE_BRICK_CRACKED
-    public static final Block SLABS_STONE_BRICK_CRACKED = new BlockSlabs(MODID,"slabs_stone_brick_cracked", Blocks.STONE);
-    public static final Block STAIR_STONE_BRICK_CRACKED = new BlockStair(MODID,"stair_stone_brick_cracked", Blocks.STONE);
-    public static final Block WALLS_STONE_BRICK_CRACKED = new BlockWalls(MODID,"walls_stone_brick_cracked", Blocks.STONE);
-    public static final Block PILAR_STONE_BRICK_CRACKED = new BlockPilar(MODID,"pilar_stone_brick_cracked", Blocks.STONE);
-    //                        BLOCK_STONE_BRICK_CARVED
+    private static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, MODID);
+    private static final DeferredRegister<Item> ITEMS  = new DeferredRegister<>(ForgeRegistries.ITEMS,  MODID);
 
-    //                        BLOCK_GRANITE_STONE
-    //                        SLABS_GRANITE_STONE
-    //                        STAIR_GRANITE_STONE
-    //                        WALLS_GRANITE_STONE
-    public static final Block PILAR_GRANITE_STONE        = new BlockPilar(MODID,"pilar_granite_stone", Blocks.GRANITE);
-    public static final Block BLOCK_GRANITE_COBBLE        = new BlockBlock(MODID, "block_granite_cobble",      Blocks.GRANITE);
-    public static final Block SLABS_GRANITE_COBBLE        = new BlockSlabs(MODID, "slabs_granite_cobble",      Blocks.GRANITE);
-    public static final Block STAIR_GRANITE_COBBLE        = new BlockStair(MODID, "stair_granite_cobble",      Blocks.GRANITE);
-    public static final Block WALLS_GRANITE_COBBLE        = new BlockWalls(MODID, "walls_granite_cobble",      Blocks.GRANITE);
-    public static final Block PILAR_GRANITE_COBBLE        = new BlockPilar(MODID,"pilar_granite_cobble", Blocks.GRANITE);
-    public static final Block BLOCK_GRANITE_COBBLE_MOSS   = new BlockBlock(MODID, "block_granite_cobble_moss", Blocks.GRANITE);
-    public static final Block SLABS_GRANITE_COBBLE_MOSS   = new BlockSlabs(MODID, "slabs_granite_cobble_moss", Blocks.GRANITE);
-    public static final Block STAIR_GRANITE_COBBLE_MOSS   = new BlockStair(MODID, "stair_granite_cobble_moss", Blocks.GRANITE);
-    public static final Block WALLS_GRANITE_COBBLE_MOSS   = new BlockWalls(MODID, "walls_granite_cobble_moss", Blocks.GRANITE);
-    public static final Block PILAR_GRANITE_COBBLE_MOSS   = new BlockPilar(MODID,"pilar_granite_cobble_moss", Blocks.GRANITE);
-    //                        BLOCK_GRANITE_SMOOTH
-    //                        SLABS_GRANITE_SMOOTH
-    //                        STAIR_GRANITE_SMOOTH
-    public static final Block WALLS_GRANITE_SMOOTH        = new BlockWalls(MODID, "walls_granite_smooth",        Blocks.GRANITE);
-    public static final Block PILAR_GRANITE_SMOOTH        = new BlockPilar(MODID,"pilar_granite_smooth", Blocks.GRANITE);
-    public static final Block BLOCK_GRANITE_BRICK         = new BlockBlock(MODID, "block_granite_brick",         Blocks.GRANITE);
-    public static final Block SLABS_GRANITE_BRICK         = new BlockSlabs(MODID, "slabs_granite_brick",         Blocks.GRANITE);
-    public static final Block STAIR_GRANITE_BRICK         = new BlockStair(MODID, "stair_granite_brick",         Blocks.GRANITE);
-    public static final Block WALLS_GRANITE_BRICK         = new BlockWalls(MODID, "walls_granite_brick",         Blocks.GRANITE);
-    public static final Block PILAR_GRANITE_BRICK        = new BlockPilar(MODID,"pilar_granite_brick", Blocks.GRANITE);
-    public static final Block BLOCK_GRANITE_BRICK_MOSS    = new BlockBlock(MODID, "block_granite_brick_moss",    Blocks.GRANITE);
-    public static final Block SLABS_GRANITE_BRICK_MOSS    = new BlockSlabs(MODID, "slabs_granite_brick_moss",    Blocks.GRANITE);
-    public static final Block STAIR_GRANITE_BRICK_MOSS    = new BlockStair(MODID, "stair_granite_brick_moss",    Blocks.GRANITE);
-    public static final Block WALLS_GRANITE_BRICK_MOSS    = new BlockWalls(MODID, "walls_granite_brick_moss",    Blocks.GRANITE);
-    public static final Block PILAR_GRANITE_BRICK_MOSS        = new BlockPilar(MODID,"pilar_granite_brick_moss", Blocks.GRANITE);
-    public static final Block BLOCK_GRANITE_BRICK_CRACKED = new BlockBlock(MODID, "block_granite_brick_cracked", Blocks.GRANITE);
-    public static final Block SLABS_GRANITE_BRICK_CRACKED = new BlockSlabs(MODID, "slabs_granite_brick_cracked", Blocks.GRANITE);
-    public static final Block STAIR_GRANITE_BRICK_CRACKED = new BlockStair(MODID, "stair_granite_brick_cracked", Blocks.GRANITE);
-    public static final Block WALLS_GRANITE_BRICK_CRACKED = new BlockWalls(MODID, "walls_granite_brick_cracked", Blocks.GRANITE);
-    public static final Block PILAR_GRANITE_BRICK_CRACKED        = new BlockPilar(MODID,"pilar_granite_brick_cracked", Blocks.GRANITE);
-    public static final Block BLOCK_GRANITE_BRICK_CARVED  = new BlockBlock(MODID, "block_granite_brick_carved",  Blocks.GRANITE);
 
-    //                        BLOCK_DIORITE_STONE
-    //                        SLABS_DIORITE_STONE
-    //                        STAIR_DIORITE_STONE
-    //                        WALLS_DIORITE_STONE
-    public static final Block PILAR_DIORITE_STONE        = new BlockPilar(MODID,"pilar_diorite_stone", Blocks.DIORITE);
-    public static final Block BLOCK_DIORITE_COBBLE        = new BlockBlock(MODID, "block_diorite_cobble",      Blocks.DIORITE);
-    public static final Block SLABS_DIORITE_COBBLE        = new BlockSlabs(MODID, "slabs_diorite_cobble",      Blocks.DIORITE);
-    public static final Block STAIR_DIORITE_COBBLE        = new BlockStair(MODID, "stair_diorite_cobble",      Blocks.DIORITE);
-    public static final Block WALLS_DIORITE_COBBLE        = new BlockWalls(MODID, "walls_diorite_cobble",      Blocks.DIORITE);
-    public static final Block PILAR_DIORITE_COBBLE        = new BlockPilar(MODID,"pilar_diorite_cobble", Blocks.DIORITE);
-    public static final Block BLOCK_DIORITE_COBBLE_MOSS   = new BlockBlock(MODID, "block_diorite_cobble_moss", Blocks.DIORITE);
-    public static final Block SLABS_DIORITE_COBBLE_MOSS   = new BlockSlabs(MODID, "slabs_diorite_cobble_moss", Blocks.DIORITE);
-    public static final Block STAIR_DIORITE_COBBLE_MOSS   = new BlockStair(MODID, "stair_diorite_cobble_moss", Blocks.DIORITE);
-    public static final Block WALLS_DIORITE_COBBLE_MOSS   = new BlockWalls(MODID, "walls_diorite_cobble_moss", Blocks.DIORITE);
-    public static final Block PILAR_DIORITE_COBBLE_MOSS        = new BlockPilar(MODID,"pilar_diorite_cobble_moss", Blocks.DIORITE);
-    //                        BLOCK_DIORITE_SMOOTH
-    //                        SLABS_DIORITE_SMOOTH
-    //                        STAIR_DIORITE_SMOOTH
-    public static final Block WALLS_DIORITE_SMOOTH        = new BlockWalls(MODID, "walls_diorite_smooth",        Blocks.DIORITE);
-    public static final Block PILAR_DIORITE_SMOOTH        = new BlockPilar(MODID,"pilar_diorite_smooth", Blocks.DIORITE);
-    public static final Block BLOCK_DIORITE_BRICK         = new BlockBlock(MODID, "block_diorite_brick",         Blocks.DIORITE);
-    public static final Block SLABS_DIORITE_BRICK         = new BlockSlabs(MODID, "slabs_diorite_brick",         Blocks.DIORITE);
-    public static final Block STAIR_DIORITE_BRICK         = new BlockStair(MODID, "stair_diorite_brick",         Blocks.DIORITE);
-    public static final Block WALLS_DIORITE_BRICK         = new BlockWalls(MODID, "walls_diorite_brick",         Blocks.DIORITE);
-    public static final Block PILAR_DIORITE_BRICK        = new BlockPilar(MODID,"pilar_diorite_brick", Blocks.DIORITE);
-    public static final Block BLOCK_DIORITE_BRICK_MOSS    = new BlockBlock(MODID, "block_diorite_brick_moss",    Blocks.DIORITE);
-    public static final Block SLABS_DIORITE_BRICK_MOSS    = new BlockSlabs(MODID, "slabs_diorite_brick_moss",    Blocks.DIORITE);
-    public static final Block STAIR_DIORITE_BRICK_MOSS    = new BlockStair(MODID, "stair_diorite_brick_moss",    Blocks.DIORITE);
-    public static final Block WALLS_DIORITE_BRICK_MOSS    = new BlockWalls(MODID, "walls_diorite_brick_moss",    Blocks.DIORITE);
-    public static final Block PILAR_DIORITE_BRICK_MOSS        = new BlockPilar(MODID,"pilar_diorite_brick_moss", Blocks.DIORITE);
-    public static final Block BLOCK_DIORITE_BRICK_CRACKED = new BlockBlock(MODID, "block_diorite_brick_cracked", Blocks.DIORITE);
-    public static final Block SLABS_DIORITE_BRICK_CRACKED = new BlockSlabs(MODID, "slabs_diorite_brick_cracked", Blocks.DIORITE);
-    public static final Block STAIR_DIORITE_BRICK_CRACKED = new BlockStair(MODID, "stair_diorite_brick_cracked", Blocks.DIORITE);
-    public static final Block WALLS_DIORITE_BRICK_CRACKED = new BlockWalls(MODID, "walls_diorite_brick_cracked", Blocks.DIORITE);
-    public static final Block PILAR_DIORITE_BRICK_CRACKED        = new BlockPilar(MODID,"pilar_diorite_brick_cracked", Blocks.DIORITE);
-    public static final Block BLOCK_DIORITE_BRICK_CARVED  = new BlockBlock(MODID, "block_diorite_brick_carved",  Blocks.DIORITE);
 
-    //                        BLOCK_ANDESITE_STONE
-    //                        SLABS_ANDESITE_STONE
-    //                        STAIR_ANDESITE_STONE
-    //                        WALLS_ANDESITE_STONE
-    public static final Block PILAR_ANDESITE_STONE        = new BlockPilar(MODID,"pilar_andesite_stone", Blocks.ANDESITE);
-    public static final Block BLOCK_ANDESITE_COBBLE        = new BlockBlock(MODID, "block_andesite_cobble",      Blocks.ANDESITE);
-    public static final Block SLABS_ANDESITE_COBBLE        = new BlockSlabs(MODID, "slabs_andesite_cobble",      Blocks.ANDESITE);
-    public static final Block STAIR_ANDESITE_COBBLE        = new BlockStair(MODID, "stair_andesite_cobble",      Blocks.ANDESITE);
-    public static final Block WALLS_ANDESITE_COBBLE        = new BlockWalls(MODID, "walls_andesite_cobble",      Blocks.ANDESITE);
-    public static final Block PILAR_ANDESITE_COBBLE        = new BlockPilar(MODID,"pilar_andesite_cobble", Blocks.ANDESITE);
-    public static final Block BLOCK_ANDESITE_COBBLE_MOSS   = new BlockBlock(MODID, "block_andesite_cobble_moss", Blocks.ANDESITE);
-    public static final Block SLABS_ANDESITE_COBBLE_MOSS   = new BlockSlabs(MODID, "slabs_andesite_cobble_moss", Blocks.ANDESITE);
-    public static final Block STAIR_ANDESITE_COBBLE_MOSS   = new BlockStair(MODID, "stair_andesite_cobble_moss", Blocks.ANDESITE);
-    public static final Block WALLS_ANDESITE_COBBLE_MOSS   = new BlockWalls(MODID, "walls_andesite_cobble_moss", Blocks.ANDESITE);
-    public static final Block PILAR_ANDESITE_COBBLE_MOSS        = new BlockPilar(MODID,"pilar_andesite_cobble_moss", Blocks.ANDESITE);
-    //                        BLOCK_ANDESITE_SMOOTH
-    //                        SLABS_ANDESITE_SMOOTH
-    //                        STAIR_ANDESITE_SMOOTH
-    public static final Block WALLS_ANDESITE_SMOOTH        = new BlockWalls(MODID, "walls_andesite_smooth",        Blocks.ANDESITE);
-    public static final Block PILAR_ANDESITE_SMOOTH        = new BlockPilar(MODID,"pilar_andesite_smooth", Blocks.ANDESITE);
-    public static final Block BLOCK_ANDESITE_BRICK         = new BlockBlock(MODID, "block_andesite_brick",         Blocks.ANDESITE);
-    public static final Block SLABS_ANDESITE_BRICK         = new BlockSlabs(MODID, "slabs_andesite_brick",         Blocks.ANDESITE);
-    public static final Block STAIR_ANDESITE_BRICK         = new BlockStair(MODID, "stair_andesite_brick",         Blocks.ANDESITE);
-    public static final Block WALLS_ANDESITE_BRICK         = new BlockWalls(MODID, "walls_andesite_brick",         Blocks.ANDESITE);
-    public static final Block PILAR_ANDESITE_BRICK        = new BlockPilar(MODID,"pilar_andesite_brick", Blocks.ANDESITE);
-    public static final Block BLOCK_ANDESITE_BRICK_MOSS    = new BlockBlock(MODID, "block_andesite_brick_moss",    Blocks.ANDESITE);
-    public static final Block SLABS_ANDESITE_BRICK_MOSS    = new BlockSlabs(MODID, "slabs_andesite_brick_moss",    Blocks.ANDESITE);
-    public static final Block STAIR_ANDESITE_BRICK_MOSS    = new BlockStair(MODID, "stair_andesite_brick_moss",    Blocks.ANDESITE);
-    public static final Block WALLS_ANDESITE_BRICK_MOSS    = new BlockWalls(MODID, "walls_andesite_brick_moss",    Blocks.ANDESITE);
-    public static final Block PILAR_ANDESITE_BRICK_MOSS        = new BlockPilar(MODID,"pilar_andesite_brick_moss", Blocks.ANDESITE);
-    public static final Block BLOCK_ANDESITE_BRICK_CRACKED = new BlockBlock(MODID, "block_andesite_brick_cracked", Blocks.ANDESITE);
-    public static final Block SLABS_ANDESITE_BRICK_CRACKED = new BlockSlabs(MODID, "slabs_andesite_brick_cracked", Blocks.ANDESITE);
-    public static final Block STAIR_ANDESITE_BRICK_CRACKED = new BlockStair(MODID, "stair_andesite_brick_cracked", Blocks.ANDESITE);
-    public static final Block WALLS_ANDESITE_BRICK_CRACKED = new BlockWalls(MODID, "walls_andesite_brick_cracked", Blocks.ANDESITE);
-    public static final Block PILAR_ANDESITE_BRICK_CRACKED        = new BlockPilar(MODID,"pilar_andesite_brick_cracked", Blocks.ANDESITE);
-    public static final Block BLOCK_ANDESITE_BRICK_CARVED  = new BlockBlock(MODID, "block_andesite_brick_carved",  Blocks.ANDESITE);
 
-    //                        SLABS_PRISMARINE_STONE
-    //                        STAIR_PRISMARINE_STONE
-    //                        WALLS_PRISMARINE_STONE
-    public static final Block PILAR_PRISMARINE_STONE        = new BlockPilar(MODID,"pilar_prismarine_stone", Blocks.PRISMARINE);
-    //                        SLABS_PRISMARINE_BRICK
-    //                        STAIR_PRISMARINE_BRICK
-    public static final Block WALLS_PRISMARINE_BRICK = new BlockWalls(MODID, "walls_prismarine_brick", Blocks.PRISMARINE);
-    public static final Block PILAR_PRISMARINE_BRICK        = new BlockPilar(MODID,"pilar_prismarine_brick", Blocks.PRISMARINE);
-    //                        SLABS_PRISMARINE_DARK
-    //                        STAIR_PRISMARINE_DARK
-    public static final Block WALLS_PRISMARINE_DARK  = new BlockWalls(MODID, "walls_prismarine_dark", Blocks.PRISMARINE);
-    public static final Block PILAR_PRISMARINE_DARK        = new BlockPilar(MODID,"pilar_prismarine_dark", Blocks.PRISMARINE);
+    // Stone
+    //                                        BLOCK_STONE_STONE
+    //                                        SLABS_STONE_STONE
+    //                                        STAIR_STONE_STONE
+    public static final RegistryObject<Block> WALLS_STONE_STONE         = register("walls_stone_stone",         new BlockWalls(Blocks.STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_STONE_STONE         = register("pilar_stone_stone",         new BlockPilar(Blocks.STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_STONE_COBBLE
+    //                                        SLABS_STONE_COBBLE
+    //                                        STAIR_STONE_COBBLE
+    //                                        WALLS_STONE_COBBLE
+    public static final RegistryObject<Block> PILAR_STONE_COBBLE        = register("pilar_stone_cobble",        new BlockPilar(Blocks.STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_STONE_COBBLE_MOSS
+    //                                        SLABS_STONE_COBBLE_MOSS
+    //                                        STAIR_STONE_COBBLE_MOSS
+    //                                        WALLS_STONE_COBBLE_MOSS
+    public static final RegistryObject<Block> PILAR_STONE_COBBLE_MOSS   = register("pilar_stone_cobble_moss",   new BlockPilar(Blocks.STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_STONE_SMOOTH
+    //                                        SLABS_STONE_SMOOTH
+    public static final RegistryObject<Block> STAIR_STONE_SMOOTH        = register("stair_stone_smooth",        new BlockStair(Blocks.STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_STONE_SMOOTH        = register("walls_stone_smooth",        new BlockWalls(Blocks.STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_STONE_SMOOTH        = register("pilar_stone_smooth",        new BlockPilar(Blocks.STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_STONE_BRICK
+    //                                        SLABS_STONE_BRICK
+    //                                        STAIR_STONE_BRICK
+    //                                        WALLS_STONE_BRICK
+    public static final RegistryObject<Block> PILAR_STONE_BRICK         = register("pilar_stone_brick",         new BlockPilar(Blocks.STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_STONE_BRICK_MOSS
+    //                                        SLABS_STONE_BRICK_MOSS
+    //                                        STAIR_STONE_BRICK_MOSS
+    //                                        WALLS_STONE_BRICK_MOSS
+    public static final RegistryObject<Block> PILAR_STONE_BRICK_MOSS    = register("pilar_stone_brick_moss",    new BlockPilar(Blocks.STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_STONE_BRICK_CRACKED
+    public static final RegistryObject<Block> SLABS_STONE_BRICK_CRACKED = register("slabs_stone_brick_cracked", new BlockSlabs(Blocks.STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_STONE_BRICK_CRACKED = register("stair_stone_brick_cracked", new BlockStair(Blocks.STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_STONE_BRICK_CRACKED = register("walls_stone_brick_cracked", new BlockWalls(Blocks.STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_STONE_BRICK_CRACKED = register("pilar_stone_brick_cracked", new BlockPilar(Blocks.STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_STONE_BRICK_CARVED
 
-    //                        BLOCK_END_STONE
-    public static final Block SLABS_END_STONE         = new BlockSlabs(MODID, "slabs_end_stone",       Blocks.END_STONE);
-    public static final Block STAIR_END_STONE         = new BlockStair(MODID, "stair_end_stone",       Blocks.END_STONE);
-    public static final Block WALLS_END_STONE         = new BlockWalls(MODID, "walls_end_stone",       Blocks.END_STONE);
-    public static final Block PILAR_END_STONE        = new BlockPilar(MODID,"pilar_end_stone", Blocks.END_STONE);
-    public static final Block BLOCK_END_COBBLE        = new BlockBlock(MODID, "block_end_cobble",      Blocks.END_STONE);
-    public static final Block SLABS_END_COBBLE        = new BlockSlabs(MODID, "slabs_end_cobble",      Blocks.END_STONE);
-    public static final Block STAIR_END_COBBLE        = new BlockStair(MODID, "stair_end_cobble",      Blocks.END_STONE);
-    public static final Block WALLS_END_COBBLE        = new BlockWalls(MODID, "walls_end_cobble",      Blocks.END_STONE);
-    public static final Block PILAR_END_COBBLE        = new BlockPilar(MODID,"pilar_end_cobble", Blocks.END_STONE);
-    public static final Block BLOCK_END_COBBLE_MOSS   = new BlockBlock(MODID, "block_end_cobble_moss", Blocks.END_STONE);
-    public static final Block SLABS_END_COBBLE_MOSS   = new BlockSlabs(MODID, "slabs_end_cobble_moss", Blocks.END_STONE);
-    public static final Block STAIR_END_COBBLE_MOSS   = new BlockStair(MODID, "stair_end_cobble_moss", Blocks.END_STONE);
-    public static final Block WALLS_END_COBBLE_MOSS   = new BlockWalls(MODID, "walls_end_cobble_moss", Blocks.END_STONE);
-    public static final Block PILAR_END_COBBLE_MOSS        = new BlockPilar(MODID,"pilar_end_cobble_moss", Blocks.END_STONE);
-    public static final Block BLOCK_END_SMOOTH        = new BlockBlock(MODID, "block_end_smooth",      Blocks.END_STONE);
-    public static final Block SLABS_END_SMOOTH        = new BlockSlabs(MODID, "slabs_end_smooth",      Blocks.END_STONE);
-    public static final Block STAIR_END_SMOOTH        = new BlockStair(MODID, "stair_end_smooth",      Blocks.END_STONE);
-    public static final Block WALLS_END_SMOOTH        = new BlockWalls(MODID, "walls_end_smooth",      Blocks.END_STONE);
-    public static final Block PILAR_END_SMOOTH        = new BlockPilar(MODID,"pilar_end_smooth", Blocks.END_STONE);
-    //                        BLOCK_END_BRICK
-    //                        SLABS_END_BRICK
-    //                        STAIR_END_BRICK
-    //                        WALLS_END_BRICK
-    public static final Block PILAR_END_BRICK        = new BlockPilar(MODID,"pilar_end_brick", Blocks.END_STONE);
-    public static final Block BLOCK_END_BRICK_MOSS    = new BlockBlock(MODID, "block_end_brick_moss",    Blocks.END_STONE);
-    public static final Block SLABS_END_BRICK_MOSS    = new BlockSlabs(MODID, "slabs_end_brick_moss",    Blocks.END_STONE);
-    public static final Block STAIR_END_BRICK_MOSS    = new BlockStair(MODID, "stair_end_brick_moss",    Blocks.END_STONE);
-    public static final Block WALLS_END_BRICK_MOSS    = new BlockWalls(MODID, "walls_end_brick_moss",    Blocks.END_STONE);
-    public static final Block PILAR_END_BRICK_MOSS        = new BlockPilar(MODID,"pilar_end_brick_moss", Blocks.END_STONE);
-    public static final Block BLOCK_END_BRICK_CRACKED = new BlockBlock(MODID, "block_end_brick_cracked", Blocks.END_STONE);
-    public static final Block SLABS_END_BRICK_CRACKED = new BlockSlabs(MODID, "slabs_end_brick_cracked", Blocks.END_STONE);
-    public static final Block STAIR_END_BRICK_CRACKED = new BlockStair(MODID, "stair_end_brick_cracked", Blocks.END_STONE);
-    public static final Block WALLS_END_BRICK_CRACKED = new BlockWalls(MODID, "walls_end_brick_cracked", Blocks.END_STONE);
-    public static final Block PILAR_END_BRICK_CRACKED        = new BlockPilar(MODID,"pilar_end_brick_cracked", Blocks.END_STONE);
-    public static final Block BLOCK_END_BRICK_CARVED  = new BlockBlock(MODID, "block_end_brick_carved",  Blocks.END_STONE);
+    // Granite
+    //                                        BLOCK_GRANITE_STONE
+    //                                        SLABS_GRANITE_STONE
+    //                                        STAIR_GRANITE_STONE
+    //                                        WALLS_GRANITE_STONE
+    public static final RegistryObject<Block> PILAR_GRANITE_STONE        =  register("pilar_granite_stone",         new BlockPilar(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_GRANITE_COBBLE        = register("block_granite_cobble",        new BlockBlock(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_GRANITE_COBBLE        = register("slabs_granite_cobble",        new BlockSlabs(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_GRANITE_COBBLE        = register("stair_granite_cobble",        new BlockStair(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_GRANITE_COBBLE        = register("walls_granite_cobble",        new BlockWalls(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_GRANITE_COBBLE        = register("pilar_granite_cobble",        new BlockPilar(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_GRANITE_COBBLE_MOSS   = register("block_granite_cobble_moss",   new BlockBlock(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_GRANITE_COBBLE_MOSS   = register("slabs_granite_cobble_moss",   new BlockSlabs(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_GRANITE_COBBLE_MOSS   = register("stair_granite_cobble_moss",   new BlockStair(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_GRANITE_COBBLE_MOSS   = register("walls_granite_cobble_moss",   new BlockWalls(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_GRANITE_COBBLE_MOSS   = register("pilar_granite_cobble_moss",   new BlockPilar(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_GRANITE_SMOOTH
+    //                                        SLABS_GRANITE_SMOOTH
+    //                                        STAIR_GRANITE_SMOOTH
+    public static final RegistryObject<Block> WALLS_GRANITE_SMOOTH        = register("walls_granite_smooth",        new BlockWalls(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_GRANITE_SMOOTH        = register("pilar_granite_smooth",        new BlockPilar(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_GRANITE_BRICK         = register("block_granite_brick",         new BlockBlock(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_GRANITE_BRICK         = register("slabs_granite_brick",         new BlockSlabs(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_GRANITE_BRICK         = register("stair_granite_brick",         new BlockStair(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_GRANITE_BRICK         = register("walls_granite_brick",         new BlockWalls(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_GRANITE_BRICK         = register("pilar_granite_brick",         new BlockPilar(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_GRANITE_BRICK_MOSS    = register("block_granite_brick_moss",    new BlockBlock(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_GRANITE_BRICK_MOSS    = register("slabs_granite_brick_moss",    new BlockSlabs(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_GRANITE_BRICK_MOSS    = register("stair_granite_brick_moss",    new BlockStair(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_GRANITE_BRICK_MOSS    = register("walls_granite_brick_moss",    new BlockWalls(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_GRANITE_BRICK_MOSS    = register("pilar_granite_brick_moss",    new BlockPilar(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_GRANITE_BRICK_CRACKED = register("block_granite_brick_cracked", new BlockBlock(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_GRANITE_BRICK_CRACKED = register("slabs_granite_brick_cracked", new BlockSlabs(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_GRANITE_BRICK_CRACKED = register("stair_granite_brick_cracked", new BlockStair(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_GRANITE_BRICK_CRACKED = register("walls_granite_brick_cracked", new BlockWalls(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_GRANITE_BRICK_CRACKED = register("pilar_granite_brick_cracked", new BlockPilar(Blocks.GRANITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_GRANITE_BRICK_CARVED  = register("block_granite_brick_carved",  new BlockBlock(Blocks.GRANITE), ItemGroup.BUILDING_BLOCKS);
 
-    public static final Block SLABS_CONCRETE_WHITE     = new BlockSlabs(MODID, "slabs_concrete_white",     Blocks.WHITE_CONCRETE);
-    public static final Block STAIR_CONCRETE_WHITE     = new BlockStair(MODID, "stair_concrete_white",     Blocks.WHITE_CONCRETE);
-    public static final Block WALLS_CONCRETE_WHITE     = new BlockWalls(MODID, "walls_concrete_white",     Blocks.WHITE_CONCRETE);
-    public static final Block PILAR_CONCRETE_WHITE        = new BlockPilar(MODID,"pilar_concrete_white", Blocks.WHITE_CONCRETE);
-    public static final Block SLABS_CONCRETE_ORANGE    = new BlockSlabs(MODID, "slabs_concrete_orange",    Blocks.ORANGE_CONCRETE);
-    public static final Block STAIR_CONCRETE_ORANGE    = new BlockStair(MODID, "stair_concrete_orange",    Blocks.ORANGE_CONCRETE);
-    public static final Block WALLS_CONCRETE_ORANGE    = new BlockWalls(MODID, "walls_concrete_orange",    Blocks.ORANGE_CONCRETE);
-    public static final Block PILAR_CONCRETE_ORANGE        = new BlockPilar(MODID,"pilar_concrete_orange", Blocks.ORANGE_CONCRETE);
-    public static final Block SLABS_CONCRETE_MAGENTA   = new BlockSlabs(MODID, "slabs_concrete_magenta",   Blocks.MAGENTA_CONCRETE);
-    public static final Block STAIR_CONCRETE_MAGENTA   = new BlockStair(MODID, "stair_concrete_magenta",   Blocks.MAGENTA_CONCRETE);
-    public static final Block WALLS_CONCRETE_MAGENTA   = new BlockWalls(MODID, "walls_concrete_magenta",   Blocks.MAGENTA_CONCRETE);
-    public static final Block PILAR_CONCRETE_MAGENTA        = new BlockPilar(MODID,"pilar_concrete_magenta", Blocks.MAGENTA_CONCRETE);
-    public static final Block SLABS_CONCRETE_LIGHTBLUE = new BlockSlabs(MODID, "slabs_concrete_lightblue", Blocks.LIGHT_BLUE_CONCRETE);
-    public static final Block STAIR_CONCRETE_LIGHTBLUE = new BlockStair(MODID, "stair_concrete_lightblue", Blocks.LIGHT_BLUE_CONCRETE);
-    public static final Block WALLS_CONCRETE_LIGHTBLUE = new BlockWalls(MODID, "walls_concrete_lightblue", Blocks.LIGHT_BLUE_CONCRETE);
-    public static final Block PILAR_CONCRETE_LIGHTBLUE        = new BlockPilar(MODID,"pilar_concrete_lightblue", Blocks.LIGHT_BLUE_CONCRETE);
-    public static final Block SLABS_CONCRETE_YELLOW    = new BlockSlabs(MODID, "slabs_concrete_yellow",    Blocks.YELLOW_CONCRETE);
-    public static final Block STAIR_CONCRETE_YELLOW    = new BlockStair(MODID, "stair_concrete_yellow",    Blocks.YELLOW_CONCRETE);
-    public static final Block WALLS_CONCRETE_YELLOW    = new BlockWalls(MODID, "walls_concrete_yellow",    Blocks.YELLOW_CONCRETE);
-    public static final Block PILAR_CONCRETE_YELLOW        = new BlockPilar(MODID,"pilar_concrete_yellow", Blocks.YELLOW_CONCRETE);
-    public static final Block SLABS_CONCRETE_LIME      = new BlockSlabs(MODID, "slabs_concrete_lime",      Blocks.LIME_CONCRETE);
-    public static final Block STAIR_CONCRETE_LIME      = new BlockStair(MODID, "stair_concrete_lime",      Blocks.LIME_CONCRETE);
-    public static final Block WALLS_CONCRETE_LIME      = new BlockWalls(MODID, "walls_concrete_lime",      Blocks.LIME_CONCRETE);
-    public static final Block PILAR_CONCRETE_LIME        = new BlockPilar(MODID,"pilar_concrete_lime", Blocks.LIME_CONCRETE);
-    public static final Block SLABS_CONCRETE_PINK      = new BlockSlabs(MODID, "slabs_concrete_pink",      Blocks.PINK_CONCRETE);
-    public static final Block STAIR_CONCRETE_PINK      = new BlockStair(MODID, "stair_concrete_pink",      Blocks.PINK_CONCRETE);
-    public static final Block WALLS_CONCRETE_PINK      = new BlockWalls(MODID, "walls_concrete_pink",      Blocks.PINK_CONCRETE);
-    public static final Block PILAR_CONCRETE_PINK        = new BlockPilar(MODID,"pilar_concrete_pink", Blocks.PINK_CONCRETE);
-    public static final Block SLABS_CONCRETE_GRAY      = new BlockSlabs(MODID, "slabs_concrete_gray",      Blocks.GRAY_CONCRETE);
-    public static final Block STAIR_CONCRETE_GRAY      = new BlockStair(MODID, "stair_concrete_gray",      Blocks.GRAY_CONCRETE);
-    public static final Block WALLS_CONCRETE_GRAY      = new BlockWalls(MODID, "walls_concrete_gray",      Blocks.GRAY_CONCRETE);
-    public static final Block PILAR_CONCRETE_GRAY        = new BlockPilar(MODID,"pilar_concrete_gray", Blocks.GRAY_CONCRETE);
-    public static final Block SLABS_CONCRETE_SILVER    = new BlockSlabs(MODID, "slabs_concrete_silver",    Blocks.LIGHT_GRAY_CONCRETE);
-    public static final Block STAIR_CONCRETE_SILVER    = new BlockStair(MODID, "stair_concrete_silver",    Blocks.LIGHT_GRAY_CONCRETE);
-    public static final Block WALLS_CONCRETE_SILVER    = new BlockWalls(MODID, "walls_concrete_silver",    Blocks.LIGHT_GRAY_CONCRETE);
-    public static final Block PILAR_CONCRETE_SILVER        = new BlockPilar(MODID,"pilar_concrete_silver", Blocks.LIGHT_GRAY_CONCRETE);
-    public static final Block SLABS_CONCRETE_CYAN      = new BlockSlabs(MODID, "slabs_concrete_cyan",      Blocks.CYAN_CONCRETE);
-    public static final Block STAIR_CONCRETE_CYAN      = new BlockStair(MODID, "stair_concrete_cyan",      Blocks.CYAN_CONCRETE);
-    public static final Block WALLS_CONCRETE_CYAN      = new BlockWalls(MODID, "walls_concrete_cyan",      Blocks.CYAN_CONCRETE);
-    public static final Block PILAR_CONCRETE_CYAN        = new BlockPilar(MODID,"pilar_concrete_cyan", Blocks.CYAN_CONCRETE);
-    public static final Block SLABS_CONCRETE_PURPLE    = new BlockSlabs(MODID, "slabs_concrete_purple",    Blocks.PURPLE_CONCRETE);
-    public static final Block STAIR_CONCRETE_PURPLE    = new BlockStair(MODID, "stair_concrete_purple",    Blocks.PURPLE_CONCRETE);
-    public static final Block WALLS_CONCRETE_PURPLE    = new BlockWalls(MODID, "walls_concrete_purple",    Blocks.PURPLE_CONCRETE);
-    public static final Block PILAR_CONCRETE_PURPLE        = new BlockPilar(MODID,"pilar_concrete_purple", Blocks.PURPLE_CONCRETE);
-    public static final Block SLABS_CONCRETE_BLUE      = new BlockSlabs(MODID, "slabs_concrete_blue",      Blocks.BLUE_CONCRETE);
-    public static final Block STAIR_CONCRETE_BLUE      = new BlockStair(MODID, "stair_concrete_blue",      Blocks.BLUE_CONCRETE);
-    public static final Block WALLS_CONCRETE_BLUE      = new BlockWalls(MODID, "walls_concrete_blue",      Blocks.BLUE_CONCRETE);
-    public static final Block PILAR_CONCRETE_BLUE        = new BlockPilar(MODID,"pilar_concrete_blue", Blocks.BLUE_CONCRETE);
-    public static final Block SLABS_CONCRETE_BROWN     = new BlockSlabs(MODID, "slabs_concrete_brown",     Blocks.BROWN_CONCRETE);
-    public static final Block STAIR_CONCRETE_BROWN     = new BlockStair(MODID, "stair_concrete_brown",     Blocks.BROWN_CONCRETE);
-    public static final Block WALLS_CONCRETE_BROWN     = new BlockWalls(MODID, "walls_concrete_brown",     Blocks.BROWN_CONCRETE);
-    public static final Block PILAR_CONCRETE_BROWN        = new BlockPilar(MODID,"pilar_concrete_brown", Blocks.BROWN_CONCRETE);
-    public static final Block SLABS_CONCRETE_GREEN     = new BlockSlabs(MODID, "slabs_concrete_green",     Blocks.GREEN_CONCRETE);
-    public static final Block STAIR_CONCRETE_GREEN     = new BlockStair(MODID, "stair_concrete_green",     Blocks.GREEN_CONCRETE);
-    public static final Block WALLS_CONCRETE_GREEN     = new BlockWalls(MODID, "walls_concrete_green",     Blocks.GREEN_CONCRETE);
-    public static final Block PILAR_CONCRETE_GREEN        = new BlockPilar(MODID,"pilar_concrete_green", Blocks.GREEN_CONCRETE);
-    public static final Block SLABS_CONCRETE_RED       = new BlockSlabs(MODID, "slabs_concrete_red",       Blocks.RED_CONCRETE);
-    public static final Block STAIR_CONCRETE_RED       = new BlockStair(MODID, "stair_concrete_red",       Blocks.RED_CONCRETE);
-    public static final Block WALLS_CONCRETE_RED       = new BlockWalls(MODID, "walls_concrete_red",       Blocks.RED_CONCRETE);
-    public static final Block PILAR_CONCRETE_RED        = new BlockPilar(MODID,"pilar_concrete_red", Blocks.RED_CONCRETE);
-    public static final Block SLABS_CONCRETE_BLACK     = new BlockSlabs(MODID, "slabs_concrete_black",     Blocks.BLACK_CONCRETE);
-    public static final Block STAIR_CONCRETE_BLACK     = new BlockStair(MODID, "stair_concrete_black",     Blocks.BLACK_CONCRETE);
-    public static final Block WALLS_CONCRETE_BLACK     = new BlockWalls(MODID, "walls_concrete_black",     Blocks.BLACK_CONCRETE);
-    public static final Block PILAR_CONCRETE_BLACK        = new BlockPilar(MODID,"pilar_concrete_black", Blocks.BLACK_CONCRETE);
+    // Diorite
+    //                                        BLOCK_DIORITE_STONE
+    //                                        SLABS_DIORITE_STONE
+    //                                        STAIR_DIORITE_STONE
+    //                                        WALLS_DIORITE_STONE
+    public static final RegistryObject<Block> PILAR_DIORITE_STONE         = register("pilar_diorite_stone",         new BlockPilar(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_DIORITE_COBBLE        = register("block_diorite_cobble",        new BlockBlock(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_DIORITE_COBBLE        = register("slabs_diorite_cobble",        new BlockSlabs(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_DIORITE_COBBLE        = register("stair_diorite_cobble",        new BlockStair(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_DIORITE_COBBLE        = register("walls_diorite_cobble",        new BlockWalls(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_DIORITE_COBBLE        = register("pilar_diorite_cobble",        new BlockPilar(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_DIORITE_COBBLE_MOSS   = register("block_diorite_cobble_moss",   new BlockBlock(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_DIORITE_COBBLE_MOSS   = register("slabs_diorite_cobble_moss",   new BlockSlabs(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_DIORITE_COBBLE_MOSS   = register("stair_diorite_cobble_moss",   new BlockStair(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_DIORITE_COBBLE_MOSS   = register("walls_diorite_cobble_moss",   new BlockWalls(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_DIORITE_COBBLE_MOSS   = register("pilar_diorite_cobble_moss",   new BlockPilar(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_DIORITE_SMOOTH
+    //                                        SLABS_DIORITE_SMOOTH
+    //                                        STAIR_DIORITE_SMOOTH
+    public static final RegistryObject<Block> WALLS_DIORITE_SMOOTH        = register("walls_diorite_smooth",        new BlockWalls(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_DIORITE_SMOOTH        = register("pilar_diorite_smooth",        new BlockPilar(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_DIORITE_BRICK         = register("block_diorite_brick",         new BlockBlock(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_DIORITE_BRICK         = register("slabs_diorite_brick",         new BlockSlabs(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_DIORITE_BRICK         = register("stair_diorite_brick",         new BlockStair(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_DIORITE_BRICK         = register("walls_diorite_brick",         new BlockWalls(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_DIORITE_BRICK         = register("pilar_diorite_brick",         new BlockPilar(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_DIORITE_BRICK_MOSS    = register("block_diorite_brick_moss",    new BlockBlock(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_DIORITE_BRICK_MOSS    = register("slabs_diorite_brick_moss",    new BlockSlabs(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_DIORITE_BRICK_MOSS    = register("stair_diorite_brick_moss",    new BlockStair(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_DIORITE_BRICK_MOSS    = register("walls_diorite_brick_moss",    new BlockWalls(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_DIORITE_BRICK_MOSS    = register("pilar_diorite_brick_moss",    new BlockPilar(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_DIORITE_BRICK_CRACKED = register("block_diorite_brick_cracked", new BlockBlock(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_DIORITE_BRICK_CRACKED = register("slabs_diorite_brick_cracked", new BlockSlabs(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_DIORITE_BRICK_CRACKED = register("stair_diorite_brick_cracked", new BlockStair(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_DIORITE_BRICK_CRACKED = register("walls_diorite_brick_cracked", new BlockWalls(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_DIORITE_BRICK_CRACKED = register("pilar_diorite_brick_cracked", new BlockPilar(Blocks.DIORITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_DIORITE_BRICK_CARVED  = register("block_diorite_brick_carved",  new BlockBlock(Blocks.DIORITE), ItemGroup.BUILDING_BLOCKS);
 
-    public static final Block BLOCK_TIMBER_BASIC_WHITE     = new BlockBlock(MODID, "timber_basic_white",     Blocks.WHITE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_ORANGE    = new BlockBlock(MODID, "timber_basic_orange",    Blocks.ORANGE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_MAGENTA   = new BlockBlock(MODID, "timber_basic_magenta",   Blocks.MAGENTA_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_LIGHTBLUE = new BlockBlock(MODID, "timber_basic_lightblue", Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_YELLOW    = new BlockBlock(MODID, "timber_basic_yellow",    Blocks.YELLOW_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_LIME      = new BlockBlock(MODID, "timber_basic_lime",      Blocks.LIME_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_PINK      = new BlockBlock(MODID, "timber_basic_pink",      Blocks.PINK_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_GRAY      = new BlockBlock(MODID, "timber_basic_gray",      Blocks.GRAY_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_SILVER    = new BlockBlock(MODID, "timber_basic_silver",    Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_CYAN      = new BlockBlock(MODID, "timber_basic_cyan",      Blocks.CYAN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_PURPLE    = new BlockBlock(MODID, "timber_basic_purple",    Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_BLUE      = new BlockBlock(MODID, "timber_basic_blue",      Blocks.BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_BROWN     = new BlockBlock(MODID, "timber_basic_brown",     Blocks.BROWN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_GREEN     = new BlockBlock(MODID, "timber_basic_green",     Blocks.GREEN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_RED       = new BlockBlock(MODID, "timber_basic_red",       Blocks.RED_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_BASIC_BLACK     = new BlockBlock(MODID, "timber_basic_black",     Blocks.BLACK_TERRACOTTA);
+    // Andesite
+    //                                        BLOCK_ANDESITE_STONE
+    //                                        SLABS_ANDESITE_STONE
+    //                                        STAIR_ANDESITE_STONE
+    //                                        WALLS_ANDESITE_STONE
+    public static final RegistryObject<Block> PILAR_ANDESITE_STONE         = register("pilar_andesite_stone",         new BlockPilar(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_ANDESITE_COBBLE        = register("block_andesite_cobble",        new BlockBlock(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_ANDESITE_COBBLE        = register("slabs_andesite_cobble",        new BlockSlabs(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_ANDESITE_COBBLE        = register("stair_andesite_cobble",        new BlockStair(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_ANDESITE_COBBLE        = register("walls_andesite_cobble",        new BlockWalls(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_ANDESITE_COBBLE        = register("pilar_andesite_cobble",        new BlockPilar(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_ANDESITE_COBBLE_MOSS   = register("block_andesite_cobble_moss",   new BlockBlock(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_ANDESITE_COBBLE_MOSS   = register("slabs_andesite_cobble_moss",   new BlockSlabs(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_ANDESITE_COBBLE_MOSS   = register("stair_andesite_cobble_moss",   new BlockStair(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_ANDESITE_COBBLE_MOSS   = register("walls_andesite_cobble_moss",   new BlockWalls(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_ANDESITE_COBBLE_MOSS   = register("pilar_andesite_cobble_moss",   new BlockPilar(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_ANDESITE_SMOOTH
+    //                                        SLABS_ANDESITE_SMOOTH
+    //                                        STAIR_ANDESITE_SMOOTH
+    public static final RegistryObject<Block> WALLS_ANDESITE_SMOOTH        = register("walls_andesite_smooth",        new BlockWalls(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_ANDESITE_SMOOTH        = register("pilar_andesite_smooth",        new BlockPilar(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_ANDESITE_BRICK         = register("block_andesite_brick",         new BlockBlock(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_ANDESITE_BRICK         = register("slabs_andesite_brick",         new BlockSlabs(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_ANDESITE_BRICK         = register("stair_andesite_brick",         new BlockStair(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_ANDESITE_BRICK         = register("walls_andesite_brick",         new BlockWalls(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_ANDESITE_BRICK         = register("pilar_andesite_brick",         new BlockPilar(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_ANDESITE_BRICK_MOSS    = register("block_andesite_brick_moss",    new BlockBlock(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_ANDESITE_BRICK_MOSS    = register("slabs_andesite_brick_moss",    new BlockSlabs(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_ANDESITE_BRICK_MOSS    = register("stair_andesite_brick_moss",    new BlockStair(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_ANDESITE_BRICK_MOSS    = register("walls_andesite_brick_moss",    new BlockWalls(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_ANDESITE_BRICK_MOSS    = register("pilar_andesite_brick_moss",    new BlockPilar(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_ANDESITE_BRICK_CRACKED = register("block_andesite_brick_cracked", new BlockBlock(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_ANDESITE_BRICK_CRACKED = register("slabs_andesite_brick_cracked", new BlockSlabs(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_ANDESITE_BRICK_CRACKED = register("stair_andesite_brick_cracked", new BlockStair(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_ANDESITE_BRICK_CRACKED = register("walls_andesite_brick_cracked", new BlockWalls(Blocks.ANDESITE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> PILAR_ANDESITE_BRICK_CRACKED = register("pilar_andesite_brick_cracked", new BlockPilar(Blocks.ANDESITE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_ANDESITE_BRICK_CARVED  = register("block_andesite_brick_carved",  new BlockBlock(Blocks.ANDESITE), ItemGroup.DECORATIONS);
 
-    public static final Block BLOCK_TIMBER_HORIZONTAL_WHITE     = new BlockBlock(MODID, "timber_horizontal_white",     Blocks.WHITE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_ORANGE    = new BlockBlock(MODID, "timber_horizontal_orange",    Blocks.ORANGE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_MAGENTA   = new BlockBlock(MODID, "timber_horizontal_magenta",   Blocks.MAGENTA_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_LIGHTBLUE = new BlockBlock(MODID, "timber_horizontal_lightblue", Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_YELLOW    = new BlockBlock(MODID, "timber_horizontal_yellow",    Blocks.YELLOW_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_LIME      = new BlockBlock(MODID, "timber_horizontal_lime",      Blocks.LIME_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_PINK      = new BlockBlock(MODID, "timber_horizontal_pink",      Blocks.PINK_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_GRAY      = new BlockBlock(MODID, "timber_horizontal_gray",      Blocks.GRAY_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_SILVER    = new BlockBlock(MODID, "timber_horizontal_silver",    Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_CYAN      = new BlockBlock(MODID, "timber_horizontal_cyan",      Blocks.CYAN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_PURPLE    = new BlockBlock(MODID, "timber_horizontal_purple",    Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_BLUE      = new BlockBlock(MODID, "timber_horizontal_blue",      Blocks.BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_BROWN     = new BlockBlock(MODID, "timber_horizontal_brown",     Blocks.BROWN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_GREEN     = new BlockBlock(MODID, "timber_horizontal_green",     Blocks.GREEN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_RED       = new BlockBlock(MODID, "timber_horizontal_red",       Blocks.RED_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_HORIZONTAL_BLACK     = new BlockBlock(MODID, "timber_horizontal_black",     Blocks.BLACK_TERRACOTTA);
+    // Prismarine
+    //                                        SLABS_PRISMARINE_STONE
+    //                                        STAIR_PRISMARINE_STONE
+    //                                        WALLS_PRISMARINE_STONE
+    public static final RegistryObject<Block> PILAR_PRISMARINE_STONE = register("pilar_prismarine_stone", new BlockPilar(Blocks.PRISMARINE), ItemGroup.DECORATIONS);
+    //                                        SLABS_PRISMARINE_BRICK
+    //                                        STAIR_PRISMARINE_BRICK
+    public static final RegistryObject<Block> WALLS_PRISMARINE_BRICK = register("walls_prismarine_brick", new BlockWalls(Blocks.PRISMARINE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_PRISMARINE_BRICK = register("pilar_prismarine_brick", new BlockPilar(Blocks.PRISMARINE), ItemGroup.DECORATIONS);
+    //                                        SLABS_PRISMARINE_DARK
+    //                                        STAIR_PRISMARINE_DARK
+    public static final RegistryObject<Block> WALLS_PRISMARINE_DARK  = register("walls_prismarine_dark",  new BlockWalls(Blocks.PRISMARINE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_PRISMARINE_DARK  = register("pilar_prismarine_dark",  new BlockPilar(Blocks.PRISMARINE), ItemGroup.DECORATIONS);
 
-    public static final Block BLOCK_TIMBER_VERTICAL_WHITE     = new BlockBlock(MODID, "timber_vertical_white",     Blocks.WHITE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_ORANGE    = new BlockBlock(MODID, "timber_vertical_orange",    Blocks.ORANGE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_MAGENTA   = new BlockBlock(MODID, "timber_vertical_magenta",   Blocks.MAGENTA_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_LIGHTBLUE = new BlockBlock(MODID, "timber_vertical_lightblue", Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_YELLOW    = new BlockBlock(MODID, "timber_vertical_yellow",    Blocks.YELLOW_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_LIME      = new BlockBlock(MODID, "timber_vertical_lime",      Blocks.LIME_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_PINK      = new BlockBlock(MODID, "timber_vertical_pink",      Blocks.PINK_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_GRAY      = new BlockBlock(MODID, "timber_vertical_gray",      Blocks.GRAY_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_SILVER    = new BlockBlock(MODID, "timber_vertical_silver",    Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_CYAN      = new BlockBlock(MODID, "timber_vertical_cyan",      Blocks.CYAN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_PURPLE    = new BlockBlock(MODID, "timber_vertical_purple",    Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_BLUE      = new BlockBlock(MODID, "timber_vertical_blue",      Blocks.BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_BROWN     = new BlockBlock(MODID, "timber_vertical_brown",     Blocks.BROWN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_GREEN     = new BlockBlock(MODID, "timber_vertical_green",     Blocks.GREEN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_RED       = new BlockBlock(MODID, "timber_vertical_red",       Blocks.RED_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_VERTICAL_BLACK     = new BlockBlock(MODID, "timber_vertical_black",     Blocks.BLACK_TERRACOTTA);
+    // End Stone
+    //                                        BLOCK_END_STONE
+    public static final RegistryObject<Block> SLABS_END_STONE         = register("slabs_end_stone",         new BlockSlabs(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_END_STONE         = register("stair_end_stone",         new BlockStair(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_END_STONE         = register("walls_end_stone",         new BlockWalls(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_END_STONE         = register("pilar_end_stone",         new BlockPilar(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_END_COBBLE        = register("block_end_cobble",        new BlockBlock(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_END_COBBLE        = register("slabs_end_cobble",        new BlockSlabs(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_END_COBBLE        = register("stair_end_cobble",        new BlockStair(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_END_COBBLE        = register("walls_end_cobble",        new BlockWalls(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_END_COBBLE        = register("pilar_end_cobble",        new BlockPilar(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_END_COBBLE_MOSS   = register("block_end_cobble_moss",   new BlockBlock(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_END_COBBLE_MOSS   = register("slabs_end_cobble_moss",   new BlockSlabs(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_END_COBBLE_MOSS   = register("stair_end_cobble_moss",   new BlockStair(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_END_COBBLE_MOSS   = register("walls_end_cobble_moss",   new BlockWalls(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_END_COBBLE_MOSS   = register("pilar_end_cobble_moss",   new BlockPilar(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_END_SMOOTH        = register("block_end_smooth",        new BlockBlock(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_END_SMOOTH        = register("slabs_end_smooth",        new BlockSlabs(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_END_SMOOTH        = register("stair_end_smooth",        new BlockStair(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_END_SMOOTH        = register("walls_end_smooth",        new BlockWalls(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_END_SMOOTH        = register("pilar_end_smooth",        new BlockPilar(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    //                                        BLOCK_END_BRICK
+    //                                        SLABS_END_BRICK
+    //                                        STAIR_END_BRICK
+    //                                        WALLS_END_BRICK
+    public static final RegistryObject<Block> PILAR_END_BRICK         = register("pilar_end_brick",         new BlockPilar(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_END_BRICK_MOSS    = register("block_end_brick_moss",    new BlockBlock(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_END_BRICK_MOSS    = register("slabs_end_brick_moss",    new BlockSlabs(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_END_BRICK_MOSS    = register("stair_end_brick_moss",    new BlockStair(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_END_BRICK_MOSS    = register("walls_end_brick_moss",    new BlockWalls(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_END_BRICK_MOSS    = register("pilar_end_brick_moss",    new BlockPilar(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_END_BRICK_CRACKED = register("block_end_brick_cracked", new BlockBlock(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SLABS_END_BRICK_CRACKED = register("slabs_end_brick_cracked", new BlockSlabs(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_END_BRICK_CRACKED = register("stair_end_brick_cracked", new BlockStair(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_END_BRICK_CRACKED = register("walls_end_brick_cracked", new BlockWalls(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_END_BRICK_CRACKED = register("pilar_end_brick_cracked", new BlockPilar(Blocks.END_STONE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_END_BRICK_CARVED  = register("block_end_brick_carved",  new BlockBlock(Blocks.END_STONE), ItemGroup.BUILDING_BLOCKS);
 
-    public static final Block BLOCK_TIMBER_PLUS_WHITE     = new BlockBlock(MODID, "timber_plus_white",     Blocks.WHITE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_ORANGE    = new BlockBlock(MODID, "timber_plus_orange",    Blocks.ORANGE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_MAGENTA   = new BlockBlock(MODID, "timber_plus_magenta",   Blocks.MAGENTA_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_LIGHTBLUE = new BlockBlock(MODID, "timber_plus_lightblue", Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_YELLOW    = new BlockBlock(MODID, "timber_plus_yellow",    Blocks.YELLOW_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_LIME      = new BlockBlock(MODID, "timber_plus_lime",      Blocks.LIME_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_PINK      = new BlockBlock(MODID, "timber_plus_pink",      Blocks.PINK_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_GRAY      = new BlockBlock(MODID, "timber_plus_gray",      Blocks.GRAY_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_SILVER    = new BlockBlock(MODID, "timber_plus_silver",    Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_CYAN      = new BlockBlock(MODID, "timber_plus_cyan",      Blocks.CYAN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_PURPLE    = new BlockBlock(MODID, "timber_plus_purple",    Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_BLUE      = new BlockBlock(MODID, "timber_plus_blue",      Blocks.BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_BROWN     = new BlockBlock(MODID, "timber_plus_brown",     Blocks.BROWN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_GREEN     = new BlockBlock(MODID, "timber_plus_green",     Blocks.GREEN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_RED       = new BlockBlock(MODID, "timber_plus_red",       Blocks.RED_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_PLUS_BLACK     = new BlockBlock(MODID, "timber_plus_black",     Blocks.BLACK_TERRACOTTA);
+    // Concrete
+    public static final RegistryObject<Block> SLABS_CONCRETE_WHITE      = register("slabs_concrete_white",      new BlockSlabs(Blocks.WHITE_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_WHITE      = register("stair_concrete_white",      new BlockStair(Blocks.WHITE_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_WHITE      = register("walls_concrete_white",      new BlockWalls(Blocks.WHITE_CONCRETE),      ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_WHITE      = register("pilar_concrete_white",      new BlockPilar(Blocks.WHITE_CONCRETE),      ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_ORANGE     = register("slabs_concrete_orange",     new BlockSlabs(Blocks.ORANGE_CONCRETE),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_ORANGE     = register("stair_concrete_orange",     new BlockStair(Blocks.ORANGE_CONCRETE),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_ORANGE     = register("walls_concrete_orange",     new BlockWalls(Blocks.ORANGE_CONCRETE),     ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_ORANGE     = register("pilar_concrete_orange",     new BlockPilar(Blocks.ORANGE_CONCRETE),     ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_MAGENTA    = register("slabs_concrete_magenta",    new BlockSlabs(Blocks.MAGENTA_CONCRETE),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_MAGENTA    = register("stair_concrete_magenta",    new BlockStair(Blocks.MAGENTA_CONCRETE),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_MAGENTA    = register("walls_concrete_magenta",    new BlockWalls(Blocks.MAGENTA_CONCRETE),    ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_MAGENTA    = register("pilar_concrete_magenta",    new BlockPilar(Blocks.MAGENTA_CONCRETE),    ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_LIGHT_BLUE = register("slabs_concrete_light_blue", new BlockSlabs(Blocks.LIGHT_BLUE_CONCRETE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_LIGHT_BLUE = register("stair_concrete_light_blue", new BlockStair(Blocks.LIGHT_BLUE_CONCRETE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_LIGHT_BLUE = register("walls_concrete_light_blue", new BlockWalls(Blocks.LIGHT_BLUE_CONCRETE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_LIGHT_BLUE = register("pilar_concrete_light_blue", new BlockPilar(Blocks.LIGHT_BLUE_CONCRETE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_YELLOW     = register("slabs_concrete_yellow",     new BlockSlabs(Blocks.YELLOW_CONCRETE),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_YELLOW     = register("stair_concrete_yellow",     new BlockStair(Blocks.YELLOW_CONCRETE),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_YELLOW     = register("walls_concrete_yellow",     new BlockWalls(Blocks.YELLOW_CONCRETE),     ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_YELLOW     = register("pilar_concrete_yellow",     new BlockPilar(Blocks.YELLOW_CONCRETE),     ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_LIME       = register("slabs_concrete_lime",       new BlockSlabs(Blocks.LIME_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_LIME       = register("stair_concrete_lime",       new BlockStair(Blocks.LIME_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_LIME       = register("walls_concrete_lime",       new BlockWalls(Blocks.LIME_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_LIME       = register("pilar_concrete_lime",       new BlockPilar(Blocks.LIME_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_PINK       = register("slabs_concrete_pink",       new BlockSlabs(Blocks.PINK_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_PINK       = register("stair_concrete_pink",       new BlockStair(Blocks.PINK_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_PINK       = register("walls_concrete_pink",       new BlockWalls(Blocks.PINK_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_PINK       = register("pilar_concrete_pink",       new BlockPilar(Blocks.PINK_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_GRAY       = register("slabs_concrete_gray",       new BlockSlabs(Blocks.GRAY_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_GRAY       = register("stair_concrete_gray",       new BlockStair(Blocks.GRAY_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_GRAY       = register("walls_concrete_gray",       new BlockWalls(Blocks.GRAY_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_GRAY       = register("pilar_concrete_gray",       new BlockPilar(Blocks.GRAY_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_LIGHT_GRAY = register("slabs_concrete_light_gray", new BlockSlabs(Blocks.LIGHT_GRAY_CONCRETE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_LIGHT_GRAY = register("stair_concrete_light_gray", new BlockStair(Blocks.LIGHT_GRAY_CONCRETE), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_LIGHT_GRAY = register("walls_concrete_light_gray", new BlockWalls(Blocks.LIGHT_GRAY_CONCRETE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_LIGHT_GRAY = register("pilar_concrete_light_gray", new BlockPilar(Blocks.LIGHT_GRAY_CONCRETE), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_CYAN       = register("slabs_concrete_cyan",       new BlockSlabs(Blocks.CYAN_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_CYAN       = register("stair_concrete_cyan",       new BlockStair(Blocks.CYAN_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_CYAN       = register("walls_concrete_cyan",       new BlockWalls(Blocks.CYAN_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_CYAN       = register("pilar_concrete_cyan",       new BlockPilar(Blocks.CYAN_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_PURPLE     = register("slabs_concrete_purple",     new BlockSlabs(Blocks.PURPLE_CONCRETE),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_PURPLE     = register("stair_concrete_purple",     new BlockStair(Blocks.PURPLE_CONCRETE),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_PURPLE     = register("walls_concrete_purple",     new BlockWalls(Blocks.PURPLE_CONCRETE),     ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_PURPLE     = register("pilar_concrete_purple",     new BlockPilar(Blocks.PURPLE_CONCRETE),     ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_BLUE       = register("slabs_concrete_blue",       new BlockSlabs(Blocks.BLUE_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_BLUE       = register("stair_concrete_blue",       new BlockStair(Blocks.BLUE_CONCRETE),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_BLUE       = register("walls_concrete_blue",       new BlockWalls(Blocks.BLUE_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_BLUE       = register("pilar_concrete_blue",       new BlockPilar(Blocks.BLUE_CONCRETE),       ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_BROWN      = register("slabs_concrete_brown",      new BlockSlabs(Blocks.BROWN_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_BROWN      = register("stair_concrete_brown",      new BlockStair(Blocks.BROWN_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_BROWN      = register("walls_concrete_brown",      new BlockWalls(Blocks.BROWN_CONCRETE),      ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_BROWN      = register("pilar_concrete_brown",      new BlockPilar(Blocks.BROWN_CONCRETE),      ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_GREEN      = register("slabs_concrete_green",      new BlockSlabs(Blocks.GREEN_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_GREEN      = register("stair_concrete_green",      new BlockStair(Blocks.GREEN_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_GREEN      = register("walls_concrete_green",      new BlockWalls(Blocks.GREEN_CONCRETE),      ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_GREEN      = register("pilar_concrete_green",      new BlockPilar(Blocks.GREEN_CONCRETE),      ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_RED        = register("slabs_concrete_red",        new BlockSlabs(Blocks.RED_CONCRETE),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_RED        = register("stair_concrete_red",        new BlockStair(Blocks.RED_CONCRETE),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_RED        = register("walls_concrete_red",        new BlockWalls(Blocks.RED_CONCRETE),        ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_RED        = register("pilar_concrete_red",        new BlockPilar(Blocks.RED_CONCRETE),        ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> SLABS_CONCRETE_BLACK      = register("slabs_concrete_black",      new BlockSlabs(Blocks.BLACK_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STAIR_CONCRETE_BLACK      = register("stair_concrete_black",      new BlockStair(Blocks.BLACK_CONCRETE),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WALLS_CONCRETE_BLACK      = register("walls_concrete_black",      new BlockWalls(Blocks.BLACK_CONCRETE),      ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PILAR_CONCRETE_BLACK      = register("pilar_concrete_black",      new BlockPilar(Blocks.BLACK_CONCRETE),      ItemGroup.DECORATIONS);
 
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_WHITE     = new BlockBlock(MODID, "timber_diag_left_white",     Blocks.WHITE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_ORANGE    = new BlockBlock(MODID, "timber_diag_left_orange",    Blocks.ORANGE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_MAGENTA   = new BlockBlock(MODID, "timber_diag_left_magenta",   Blocks.MAGENTA_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_LIGHTBLUE = new BlockBlock(MODID, "timber_diag_left_lightblue", Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_YELLOW    = new BlockBlock(MODID, "timber_diag_left_yellow",    Blocks.YELLOW_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_LIME      = new BlockBlock(MODID, "timber_diag_left_lime",      Blocks.LIME_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_PINK      = new BlockBlock(MODID, "timber_diag_left_pink",      Blocks.PINK_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_GRAY      = new BlockBlock(MODID, "timber_diag_left_gray",      Blocks.GRAY_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_SILVER    = new BlockBlock(MODID, "timber_diag_left_silver",    Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_CYAN      = new BlockBlock(MODID, "timber_diag_left_cyan",      Blocks.CYAN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_PURPLE    = new BlockBlock(MODID, "timber_diag_left_purple",    Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_BLUE      = new BlockBlock(MODID, "timber_diag_left_blue",      Blocks.BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_BROWN     = new BlockBlock(MODID, "timber_diag_left_brown",     Blocks.BROWN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_GREEN     = new BlockBlock(MODID, "timber_diag_left_green",     Blocks.GREEN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_RED       = new BlockBlock(MODID, "timber_diag_left_red",       Blocks.RED_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_LEFT_BLACK     = new BlockBlock(MODID, "timber_diag_left_black",     Blocks.BLACK_TERRACOTTA);
+    // Timber Frames
+    public static final RegistryObject<Block> TIMBER_BASIC_WHITE           = register("timber_basic_white",           new BlockBlock(Blocks.WHITE_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_ORANGE          = register("timber_basic_orange",          new BlockBlock(Blocks.ORANGE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_MAGENTA         = register("timber_basic_magenta",         new BlockBlock(Blocks.MAGENTA_TERRACOTTA),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_LIGHT_BLUE      = register("timber_basic_light_blue",      new BlockBlock(Blocks.LIGHT_BLUE_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_YELLOW          = register("timber_basic_yellow",          new BlockBlock(Blocks.YELLOW_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_LIME            = register("timber_basic_lime",            new BlockBlock(Blocks.LIME_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_PINK            = register("timber_basic_pink",            new BlockBlock(Blocks.PINK_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_GRAY            = register("timber_basic_gray",            new BlockBlock(Blocks.GRAY_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_LIGHT_GRAY      = register("timber_basic_light_gray",      new BlockBlock(Blocks.LIGHT_GRAY_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_CYAN            = register("timber_basic_cyan",            new BlockBlock(Blocks.CYAN_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_PURPLE          = register("timber_basic_purple",          new BlockBlock(Blocks.PURPLE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_BLUE            = register("timber_basic_blue",            new BlockBlock(Blocks.BLUE_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_BROWN           = register("timber_basic_brown",           new BlockBlock(Blocks.BROWN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_GREEN           = register("timber_basic_green",           new BlockBlock(Blocks.GREEN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_RED             = register("timber_basic_red",             new BlockBlock(Blocks.RED_TERRACOTTA),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_BASIC_BLACK           = register("timber_basic_black",           new BlockBlock(Blocks.BLACK_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_WHITE      = register("timber_horizontal_white",      new BlockBlock(Blocks.WHITE_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_ORANGE     = register("timber_horizontal_orange",     new BlockBlock(Blocks.ORANGE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_MAGENTA    = register("timber_horizontal_magenta",    new BlockBlock(Blocks.MAGENTA_TERRACOTTA),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_LIGHT_BLUE = register("timber_horizontal_light_blue", new BlockBlock(Blocks.LIGHT_BLUE_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_YELLOW     = register("timber_horizontal_yellow",     new BlockBlock(Blocks.YELLOW_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_LIME       = register("timber_horizontal_lime",       new BlockBlock(Blocks.LIME_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_PINK       = register("timber_horizontal_pink",       new BlockBlock(Blocks.PINK_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_GRAY       = register("timber_horizontal_gray",       new BlockBlock(Blocks.GRAY_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_LIGHT_GRAY = register("timber_horizontal_light_gray", new BlockBlock(Blocks.LIGHT_GRAY_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_CYAN       = register("timber_horizontal_cyan",       new BlockBlock(Blocks.CYAN_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_PURPLE     = register("timber_horizontal_purple",     new BlockBlock(Blocks.PURPLE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_BLUE       = register("timber_horizontal_blue",       new BlockBlock(Blocks.BLUE_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_BROWN      = register("timber_horizontal_brown",      new BlockBlock(Blocks.BROWN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_GREEN      = register("timber_horizontal_green",      new BlockBlock(Blocks.GREEN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_RED        = register("timber_horizontal_red",        new BlockBlock(Blocks.RED_TERRACOTTA),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_HORIZONTAL_BLACK      = register("timber_horizontal_black",      new BlockBlock(Blocks.BLACK_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_WHITE        = register("timber_vertical_white",        new BlockBlock(Blocks.WHITE_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_ORANGE       = register("timber_vertical_orange",       new BlockBlock(Blocks.ORANGE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_MAGENTA      = register("timber_vertical_magenta",      new BlockBlock(Blocks.MAGENTA_TERRACOTTA),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_LIGHT_BLUE   = register("timber_vertical_light_blue",   new BlockBlock(Blocks.LIGHT_BLUE_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_YELLOW       = register("timber_vertical_yellow",       new BlockBlock(Blocks.YELLOW_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_LIME         = register("timber_vertical_lime",         new BlockBlock(Blocks.LIME_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_PINK         = register("timber_vertical_pink",         new BlockBlock(Blocks.PINK_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_GRAY         = register("timber_vertical_gray",         new BlockBlock(Blocks.GRAY_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_LIGHT_GRAY   = register("timber_vertical_light_gray",   new BlockBlock(Blocks.LIGHT_GRAY_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_CYAN         = register("timber_vertical_cyan",         new BlockBlock(Blocks.CYAN_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_PURPLE       = register("timber_vertical_purple",       new BlockBlock(Blocks.PURPLE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_BLUE         = register("timber_vertical_blue",         new BlockBlock(Blocks.BLUE_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_BROWN        = register("timber_vertical_brown",        new BlockBlock(Blocks.BROWN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_GREEN        = register("timber_vertical_green",        new BlockBlock(Blocks.GREEN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_RED          = register("timber_vertical_red",          new BlockBlock(Blocks.RED_TERRACOTTA),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_VERTICAL_BLACK        = register("timber_vertical_black",        new BlockBlock(Blocks.BLACK_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_WHITE            = register("timber_plus_white",            new BlockBlock(Blocks.WHITE_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_ORANGE           = register("timber_plus_orange",           new BlockBlock(Blocks.ORANGE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_MAGENTA          = register("timber_plus_magenta",          new BlockBlock(Blocks.MAGENTA_TERRACOTTA),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_LIGHT_BLUE       = register("timber_plus_light_blue",       new BlockBlock(Blocks.LIGHT_BLUE_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_YELLOW           = register("timber_plus_yellow",           new BlockBlock(Blocks.YELLOW_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_LIME             = register("timber_plus_lime",             new BlockBlock(Blocks.LIME_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_PINK             = register("timber_plus_pink",             new BlockBlock(Blocks.PINK_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_GRAY             = register("timber_plus_gray",             new BlockBlock(Blocks.GRAY_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_LIGHT_GRAY       = register("timber_plus_light_gray",       new BlockBlock(Blocks.LIGHT_GRAY_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_CYAN             = register("timber_plus_cyan",             new BlockBlock(Blocks.CYAN_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_PURPLE           = register("timber_plus_purple",           new BlockBlock(Blocks.PURPLE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_BLUE             = register("timber_plus_blue",             new BlockBlock(Blocks.BLUE_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_BROWN            = register("timber_plus_brown",            new BlockBlock(Blocks.BROWN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_GREEN            = register("timber_plus_green",            new BlockBlock(Blocks.GREEN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_RED              = register("timber_plus_red",              new BlockBlock(Blocks.RED_TERRACOTTA),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_PLUS_BLACK            = register("timber_plus_black",            new BlockBlock(Blocks.BLACK_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_WHITE       = register("timber_diag_left_white",       new BlockBlock(Blocks.WHITE_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_ORANGE      = register("timber_diag_left_orange",      new BlockBlock(Blocks.ORANGE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_MAGENTA     = register("timber_diag_left_magenta",     new BlockBlock(Blocks.MAGENTA_TERRACOTTA),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_LIGHT_BLUE  = register("timber_diag_left_light_blue",  new BlockBlock(Blocks.LIGHT_BLUE_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_YELLOW      = register("timber_diag_left_yellow",      new BlockBlock(Blocks.YELLOW_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_LIME        = register("timber_diag_left_lime",        new BlockBlock(Blocks.LIME_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_PINK        = register("timber_diag_left_pink",        new BlockBlock(Blocks.PINK_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_GRAY        = register("timber_diag_left_gray",        new BlockBlock(Blocks.GRAY_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_LIGHT_GRAY  = register("timber_diag_left_light_gray",  new BlockBlock(Blocks.LIGHT_GRAY_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_CYAN        = register("timber_diag_left_cyan",        new BlockBlock(Blocks.CYAN_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_PURPLE      = register("timber_diag_left_purple",      new BlockBlock(Blocks.PURPLE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_BLUE        = register("timber_diag_left_blue",        new BlockBlock(Blocks.BLUE_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_BROWN       = register("timber_diag_left_brown",       new BlockBlock(Blocks.BROWN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_GREEN       = register("timber_diag_left_green",       new BlockBlock(Blocks.GREEN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_RED         = register("timber_diag_left_red",         new BlockBlock(Blocks.RED_TERRACOTTA),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_LEFT_BLACK       = register("timber_diag_left_black",       new BlockBlock(Blocks.BLACK_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_WHITE      = register("timber_diag_right_white",      new BlockBlock(Blocks.WHITE_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_ORANGE     = register("timber_diag_right_orange",     new BlockBlock(Blocks.ORANGE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_MAGENTA    = register("timber_diag_right_magenta",    new BlockBlock(Blocks.MAGENTA_TERRACOTTA),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_LIGHT_BLUE = register("timber_diag_right_light_blue", new BlockBlock(Blocks.LIGHT_BLUE_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_YELLOW     = register("timber_diag_right_yellow",     new BlockBlock(Blocks.YELLOW_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_LIME       = register("timber_diag_right_lime",       new BlockBlock(Blocks.LIME_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_PINK       = register("timber_diag_right_pink",       new BlockBlock(Blocks.PINK_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_GRAY       = register("timber_diag_right_gray",       new BlockBlock(Blocks.GRAY_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_LIGHT_GRAY = register("timber_diag_right_light_gray", new BlockBlock(Blocks.LIGHT_GRAY_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_CYAN       = register("timber_diag_right_cyan",       new BlockBlock(Blocks.CYAN_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_PURPLE     = register("timber_diag_right_purple",     new BlockBlock(Blocks.PURPLE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_BLUE       = register("timber_diag_right_blue",       new BlockBlock(Blocks.BLUE_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_BROWN      = register("timber_diag_right_brown",      new BlockBlock(Blocks.BROWN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_GREEN      = register("timber_diag_right_green",      new BlockBlock(Blocks.GREEN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_RED        = register("timber_diag_right_red",        new BlockBlock(Blocks.RED_TERRACOTTA),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_DIAG_RIGHT_BLACK      = register("timber_diag_right_black",      new BlockBlock(Blocks.BLACK_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_WHITE           = register("timber_cross_white",           new BlockBlock(Blocks.WHITE_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_ORANGE          = register("timber_cross_orange",          new BlockBlock(Blocks.ORANGE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_MAGENTA         = register("timber_cross_magenta",         new BlockBlock(Blocks.MAGENTA_TERRACOTTA),    ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_LIGHT_BLUE      = register("timber_cross_light_blue",      new BlockBlock(Blocks.LIGHT_BLUE_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_YELLOW          = register("timber_cross_yellow",          new BlockBlock(Blocks.YELLOW_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_LIME            = register("timber_cross_lime",            new BlockBlock(Blocks.LIME_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_PINK            = register("timber_cross_pink",            new BlockBlock(Blocks.PINK_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_GRAY            = register("timber_cross_gray",            new BlockBlock(Blocks.GRAY_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_LIGHT_GRAY      = register("timber_cross_light_gray",      new BlockBlock(Blocks.LIGHT_GRAY_TERRACOTTA), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_CYAN            = register("timber_cross_cyan",            new BlockBlock(Blocks.CYAN_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_PURPLE          = register("timber_cross_purple",          new BlockBlock(Blocks.PURPLE_TERRACOTTA),     ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_BLUE            = register("timber_cross_blue",            new BlockBlock(Blocks.BLUE_TERRACOTTA),       ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_BROWN           = register("timber_cross_brown",           new BlockBlock(Blocks.BROWN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_GREEN           = register("timber_cross_green",           new BlockBlock(Blocks.GREEN_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_RED             = register("timber_cross_red",             new BlockBlock(Blocks.RED_TERRACOTTA),        ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> TIMBER_CROSS_BLACK           = register("timber_cross_black",           new BlockBlock(Blocks.BLACK_TERRACOTTA),      ItemGroup.BUILDING_BLOCKS);
 
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_WHITE     = new BlockBlock(MODID, "timber_diag_right_white",     Blocks.WHITE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_ORANGE    = new BlockBlock(MODID, "timber_diag_right_orange",    Blocks.ORANGE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_MAGENTA   = new BlockBlock(MODID, "timber_diag_right_magenta",   Blocks.MAGENTA_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_LIGHTBLUE = new BlockBlock(MODID, "timber_diag_right_lightblue", Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_YELLOW    = new BlockBlock(MODID, "timber_diag_right_yellow",    Blocks.YELLOW_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_LIME      = new BlockBlock(MODID, "timber_diag_right_lime",      Blocks.LIME_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_PINK      = new BlockBlock(MODID, "timber_diag_right_pink",      Blocks.PINK_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_GRAY      = new BlockBlock(MODID, "timber_diag_right_gray",      Blocks.GRAY_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_SILVER    = new BlockBlock(MODID, "timber_diag_right_silver",    Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_CYAN      = new BlockBlock(MODID, "timber_diag_right_cyan",      Blocks.CYAN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_PURPLE    = new BlockBlock(MODID, "timber_diag_right_purple",    Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_BLUE      = new BlockBlock(MODID, "timber_diag_right_blue",      Blocks.BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_BROWN     = new BlockBlock(MODID, "timber_diag_right_brown",     Blocks.BROWN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_GREEN     = new BlockBlock(MODID, "timber_diag_right_green",     Blocks.GREEN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_RED       = new BlockBlock(MODID, "timber_diag_right_red",       Blocks.RED_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_DIAG_RIGHT_BLACK     = new BlockBlock(MODID, "timber_diag_right_black",     Blocks.BLACK_TERRACOTTA);
+    // Other Blocks
+    public static final RegistryObject<Block> BLOCK_SCAFFOLDING = register("timber_scaffolding", new BlockScaffolding(Blocks.OAK_PLANKS), ItemGroup.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> BLOCK_CHAIN_IRON  = register("block_chain_iron",   new BlockChain(      Blocks.IRON_BLOCK), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLOCK_CHAIN_GOLD  = register("block_chain_gold",   new BlockChain(      Blocks.GOLD_BLOCK), ItemGroup.DECORATIONS);
 
-    public static final Block BLOCK_TIMBER_CROSS_WHITE     = new BlockBlock(MODID, "timber_cross_white",     Blocks.WHITE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_ORANGE    = new BlockBlock(MODID, "timber_cross_orange",    Blocks.ORANGE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_MAGENTA   = new BlockBlock(MODID, "timber_cross_magenta",   Blocks.MAGENTA_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_LIGHTBLUE = new BlockBlock(MODID, "timber_cross_lightblue", Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_YELLOW    = new BlockBlock(MODID, "timber_cross_yellow",    Blocks.YELLOW_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_LIME      = new BlockBlock(MODID, "timber_cross_lime",      Blocks.LIME_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_PINK      = new BlockBlock(MODID, "timber_cross_pink",      Blocks.PINK_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_GRAY      = new BlockBlock(MODID, "timber_cross_gray",      Blocks.GRAY_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_SILVER    = new BlockBlock(MODID, "timber_cross_silver",    Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_CYAN      = new BlockBlock(MODID, "timber_cross_cyan",      Blocks.CYAN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_PURPLE    = new BlockBlock(MODID, "timber_cross_purple",    Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_BLUE      = new BlockBlock(MODID, "timber_cross_blue",      Blocks.BLUE_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_BROWN     = new BlockBlock(MODID, "timber_cross_brown",     Blocks.BROWN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_GREEN     = new BlockBlock(MODID, "timber_cross_green",     Blocks.GREEN_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_RED       = new BlockBlock(MODID, "timber_cross_red",       Blocks.RED_TERRACOTTA);
-    public static final Block BLOCK_TIMBER_CROSS_BLACK     = new BlockBlock(MODID, "timber_cross_black",     Blocks.BLACK_TERRACOTTA);
+    // Gargoyles
+    public static final RegistryObject<Block> GOYLE_DOG_STONE    = register("goyle_dog_stone",    new BlockGargoyle(Blocks.STONE),     ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> GOYLE_DOG_GRANITE  = register("goyle_dog_granite",  new BlockGargoyle(Blocks.GRANITE),   ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> GOYLE_DOG_DIORITE  = register("goyle_dog_diorite",  new BlockGargoyle(Blocks.DIORITE),   ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> GOYLE_DOG_ANDESITE = register("goyle_dog_andesite", new BlockGargoyle(Blocks.ANDESITE),  ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> GOYLE_DOG_END      = register("goyle_dog_end",      new BlockGargoyle(Blocks.END_STONE), ItemGroup.REDSTONE);
 
-    public static final Block BLOCK_SCAFFOLDING = new BlockScaffolding(MODID, "timber_scaffolding", Blocks.OAK_PLANKS);
-    public static final Block BLOCK_CHAIN_IRON  = new BlockChain(MODID,       "block_chain_iron",   Blocks.IRON_BLOCK);
-    public static final Block BLOCK_CHAIN_GOLD  = new BlockChain(MODID,       "block_chain_gold",   Blocks.GOLD_BLOCK);
+    // Emitter Blocks
+    public static final RegistryObject<Block> BLOCK_EMITTER_WHITE      = register("block_emitter_white",      new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_ORANGE     = register("block_emitter_orange",     new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_MAGENTA    = register("block_emitter_magenta",    new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_LIGHT_BLUE = register("block_emitter_light_blue", new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_YELLOW     = register("block_emitter_yellow",     new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_LIME       = register("block_emitter_lime",       new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_PINK       = register("block_emitter_pink",       new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_GRAY       = register("block_emitter_gray",       new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_LIGHT_GRAY = register("block_emitter_light_gray", new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_CYAN       = register("block_emitter_cyan",       new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_PURPLE     = register("block_emitter_purple",     new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_BLUE       = register("block_emitter_blue",       new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_BROWN      = register("block_emitter_brown",      new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_GREEN      = register("block_emitter_green",      new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_RED        = register("block_emitter_red",        new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
+    public static final RegistryObject<Block> BLOCK_EMITTER_BLACK      = register("block_emitter_black",      new BlockEmitter(Blocks.OBSERVER), ItemGroup.REDSTONE);
 
-    public static final Block GOYLE_DOG_STONE    = new BlockGargoyle(MODID, "goyle_dog_stone",    Blocks.STONE);
-    public static final Block GOYLE_DOG_GRANITE  = new BlockGargoyle(MODID, "goyle_dog_granite",  Blocks.GRANITE);
-    public static final Block GOYLE_DOG_DIORITE  = new BlockGargoyle(MODID, "goyle_dog_diorite",  Blocks.DIORITE);
-    public static final Block GOYLE_DOG_ANDESITE = new BlockGargoyle(MODID, "goyle_dog_andesite", Blocks.ANDESITE);
-    public static final Block GOYLE_DOG_END      = new BlockGargoyle(MODID, "goyle_dog_end",      Blocks.END_STONE);
+    // Light Blocks
+    public static final RegistryObject<Block> BLOCK_LIGHT_WHITE      = register("block_light_white",      new BlockLight(Blocks.WHITE_STAINED_GLASS,      DyeColor.WHITE));
+    public static final RegistryObject<Block> BLOCK_LIGHT_ORANGE     = register("block_light_orange",     new BlockLight(Blocks.ORANGE_STAINED_GLASS,     DyeColor.ORANGE));
+    public static final RegistryObject<Block> BLOCK_LIGHT_MAGENTA    = register("block_light_magenta",    new BlockLight(Blocks.MAGENTA_STAINED_GLASS,    DyeColor.MAGENTA));
+    public static final RegistryObject<Block> BLOCK_LIGHT_LIGHT_BLUE = register("block_light_light_blue", new BlockLight(Blocks.LIGHT_BLUE_STAINED_GLASS, DyeColor.LIGHT_BLUE));
+    public static final RegistryObject<Block> BLOCK_LIGHT_YELLOW     = register("block_light_yellow",     new BlockLight(Blocks.YELLOW_STAINED_GLASS,     DyeColor.YELLOW));
+    public static final RegistryObject<Block> BLOCK_LIGHT_LIME       = register("block_light_lime",       new BlockLight(Blocks.LIME_STAINED_GLASS,       DyeColor.LIME));
+    public static final RegistryObject<Block> BLOCK_LIGHT_PINK       = register("block_light_pink",       new BlockLight(Blocks.PINK_STAINED_GLASS,       DyeColor.PINK));
+    public static final RegistryObject<Block> BLOCK_LIGHT_GRAY       = register("block_light_gray",       new BlockLight(Blocks.GRAY_STAINED_GLASS,       DyeColor.GRAY));
+    public static final RegistryObject<Block> BLOCK_LIGHT_LIGHT_GRAY = register("block_light_light_gray", new BlockLight(Blocks.LIGHT_GRAY_STAINED_GLASS, DyeColor.LIGHT_GRAY));
+    public static final RegistryObject<Block> BLOCK_LIGHT_CYAN       = register("block_light_cyan",       new BlockLight(Blocks.CYAN_STAINED_GLASS,       DyeColor.CYAN));
+    public static final RegistryObject<Block> BLOCK_LIGHT_PURPLE     = register("block_light_purple",     new BlockLight(Blocks.PURPLE_STAINED_GLASS,     DyeColor.PURPLE));
+    public static final RegistryObject<Block> BLOCK_LIGHT_BLUE       = register("block_light_blue",       new BlockLight(Blocks.BLUE_STAINED_GLASS,       DyeColor.BLUE));
+    public static final RegistryObject<Block> BLOCK_LIGHT_BROWN      = register("block_light_brown",      new BlockLight(Blocks.BROWN_STAINED_GLASS,      DyeColor.BROWN));
+    public static final RegistryObject<Block> BLOCK_LIGHT_GREEN      = register("block_light_green",      new BlockLight(Blocks.GREEN_STAINED_GLASS,      DyeColor.GREEN));
+    public static final RegistryObject<Block> BLOCK_LIGHT_RED        = register("block_light_red",        new BlockLight(Blocks.RED_STAINED_GLASS,        DyeColor.RED));
+    public static final RegistryObject<Block> BLOCK_LIGHT_BLACK      = register("block_light_black",      new BlockLight(Blocks.BLACK_STAINED_GLASS,      DyeColor.BLACK));
 
-    public static final Block BLOCK_EMITTER_WHITE     = new BlockEmitter(MODID, "block_emitter_white",     Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_ORANGE    = new BlockEmitter(MODID, "block_emitter_orange",    Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_MAGENTA   = new BlockEmitter(MODID, "block_emitter_magenta",   Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_LIGHTBLUE = new BlockEmitter(MODID, "block_emitter_lightblue", Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_YELLOW    = new BlockEmitter(MODID, "block_emitter_yellow",    Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_LIME      = new BlockEmitter(MODID, "block_emitter_lime",      Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_PINK      = new BlockEmitter(MODID, "block_emitter_pink",      Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_GRAY      = new BlockEmitter(MODID, "block_emitter_gray",      Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_SILVER    = new BlockEmitter(MODID, "block_emitter_silver",    Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_CYAN      = new BlockEmitter(MODID, "block_emitter_cyan",      Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_PURPLE    = new BlockEmitter(MODID, "block_emitter_purple",    Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_BLUE      = new BlockEmitter(MODID, "block_emitter_blue",      Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_BROWN     = new BlockEmitter(MODID, "block_emitter_brown",     Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_GREEN     = new BlockEmitter(MODID, "block_emitter_green",     Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_RED       = new BlockEmitter(MODID, "block_emitter_red",       Blocks.OBSERVER);
-    public static final Block BLOCK_EMITTER_BLACK     = new BlockEmitter(MODID, "block_emitter_black",     Blocks.OBSERVER);
 
-    public static final Block BLOCK_LIGHT_WHITE     = new BlockLight(MODID, "block_light_white",     Blocks.WHITE_STAINED_GLASS, DyeColor.WHITE);
-    public static final Block BLOCK_LIGHT_ORANGE    = new BlockLight(MODID, "block_light_orange",    Blocks.ORANGE_STAINED_GLASS, DyeColor.ORANGE);
-    public static final Block BLOCK_LIGHT_MAGENTA   = new BlockLight(MODID, "block_light_magenta",   Blocks.MAGENTA_STAINED_GLASS, DyeColor.MAGENTA);
-    public static final Block BLOCK_LIGHT_LIGHTBLUE = new BlockLight(MODID, "block_light_lightblue", Blocks.LIGHT_BLUE_STAINED_GLASS, DyeColor.LIGHT_BLUE);
-    public static final Block BLOCK_LIGHT_YELLOW    = new BlockLight(MODID, "block_light_yellow",    Blocks.YELLOW_STAINED_GLASS, DyeColor.YELLOW);
-    public static final Block BLOCK_LIGHT_LIME      = new BlockLight(MODID, "block_light_lime",      Blocks.LIME_STAINED_GLASS, DyeColor.LIME);
-    public static final Block BLOCK_LIGHT_PINK      = new BlockLight(MODID, "block_light_pink",      Blocks.PINK_STAINED_GLASS, DyeColor.PINK);
-    public static final Block BLOCK_LIGHT_GRAY      = new BlockLight(MODID, "block_light_gray",      Blocks.GRAY_STAINED_GLASS, DyeColor.GRAY);
-    public static final Block BLOCK_LIGHT_SILVER    = new BlockLight(MODID, "block_light_silver",    Blocks.LIGHT_GRAY_STAINED_GLASS, DyeColor.LIGHT_GRAY);
-    public static final Block BLOCK_LIGHT_CYAN      = new BlockLight(MODID, "block_light_cyan",      Blocks.CYAN_STAINED_GLASS, DyeColor.CYAN);
-    public static final Block BLOCK_LIGHT_PURPLE    = new BlockLight(MODID, "block_light_purple",    Blocks.PURPLE_STAINED_GLASS, DyeColor.PURPLE);
-    public static final Block BLOCK_LIGHT_BLUE      = new BlockLight(MODID, "block_light_blue",      Blocks.BLUE_STAINED_GLASS, DyeColor.BLUE);
-    public static final Block BLOCK_LIGHT_BROWN     = new BlockLight(MODID, "block_light_brown",     Blocks.BROWN_STAINED_GLASS, DyeColor.BROWN);
-    public static final Block BLOCK_LIGHT_GREEN     = new BlockLight(MODID, "block_light_green",     Blocks.GREEN_STAINED_GLASS, DyeColor.GREEN);
-    public static final Block BLOCK_LIGHT_RED       = new BlockLight(MODID, "block_light_red",       Blocks.RED_STAINED_GLASS, DyeColor.RED);
-    public static final Block BLOCK_LIGHT_BLACK     = new BlockLight(MODID, "block_light_black",     Blocks.BLACK_STAINED_GLASS, DyeColor.BLACK);
-    /**Register all stuff, pre is true during preInit and false during Init**/
-    public static void registerStuff(){
 
-        // Stone
-        //Register.registerBlock(SLABS_STONE_STONE,         ItemGroup.BUILDING_BLOCKS);
 
-        Register.registerBlock(WALLS_STONE_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_COBBLE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_COBBLE_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(STAIR_STONE_SMOOTH,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_STONE_SMOOTH,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_SMOOTH,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_BRICK_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_STONE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_STONE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_STONE_BRICK_CRACKED, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_STONE_BRICK_CRACKED,         ItemGroup.DECORATIONS);
+    //----------------------------------------REGISTER----------------------------------------//
 
-        // Granite
-        Register.registerBlock(PILAR_GRANITE_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_GRANITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_GRANITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_GRANITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_GRANITE_COBBLE,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_GRANITE_COBBLE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_GRANITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_GRANITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_GRANITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_GRANITE_COBBLE_MOSS,   ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_GRANITE_COBBLE_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(WALLS_GRANITE_SMOOTH,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_GRANITE_SMOOTH,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_GRANITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_GRANITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_GRANITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_GRANITE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_GRANITE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_GRANITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_GRANITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_GRANITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_GRANITE_BRICK_MOSS,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_GRANITE_BRICK_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_GRANITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_GRANITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_GRANITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_GRANITE_BRICK_CRACKED, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_GRANITE_BRICK_CRACKED,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_GRANITE_BRICK_CARVED,  ItemGroup.BUILDING_BLOCKS);
+    static void register(){
+        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    }
 
-        // Diorite
-        Register.registerBlock(PILAR_DIORITE_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_DIORITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_DIORITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_DIORITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_DIORITE_COBBLE,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_DIORITE_COBBLE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_DIORITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_DIORITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_DIORITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_DIORITE_COBBLE_MOSS,   ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_DIORITE_COBBLE_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(WALLS_DIORITE_SMOOTH,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_DIORITE_SMOOTH,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_DIORITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_DIORITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_DIORITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_DIORITE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_DIORITE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_DIORITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_DIORITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_DIORITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_DIORITE_BRICK_MOSS,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_DIORITE_BRICK_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_DIORITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_DIORITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_DIORITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_DIORITE_BRICK_CRACKED, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_DIORITE_BRICK_CRACKED,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_DIORITE_BRICK_CARVED,  ItemGroup.BUILDING_BLOCKS);
+    private static RegistryObject<Block> register(String name, Block block){
+        return register(name, block, null);
+    }
 
-        // Andesite
-        Register.registerBlock(PILAR_ANDESITE_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_ANDESITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_ANDESITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_ANDESITE_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_ANDESITE_COBBLE,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_ANDESITE_COBBLE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_ANDESITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_ANDESITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_ANDESITE_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_ANDESITE_COBBLE_MOSS,   ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_ANDESITE_COBBLE_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(WALLS_ANDESITE_SMOOTH,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_ANDESITE_SMOOTH,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_ANDESITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_ANDESITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_ANDESITE_BRICK,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_ANDESITE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_ANDESITE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_ANDESITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_ANDESITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_ANDESITE_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_ANDESITE_BRICK_MOSS,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_ANDESITE_BRICK_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_ANDESITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_ANDESITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_ANDESITE_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_ANDESITE_BRICK_CRACKED, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_ANDESITE_BRICK_CRACKED,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_ANDESITE_BRICK_CARVED,  ItemGroup.BUILDING_BLOCKS);
+    private static RegistryObject<Block> register(String name, Block block, ItemGroup itemGroup){
+        if(itemGroup != null){ ITEMS.register(name, () -> new BlockItem(block, (new Item.Properties()).group(itemGroup))); }
+        return BLOCKS.register(name, () -> block);
+    }
 
-        // Prismarine
-        Register.registerBlock(PILAR_PRISMARINE_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(WALLS_PRISMARINE_BRICK, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_PRISMARINE_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(WALLS_PRISMARINE_DARK,  ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_PRISMARINE_DARK,         ItemGroup.DECORATIONS);
+    private static RegistryObject<Item> register(String name, Item item){
+        return ITEMS.register(name, () -> item);
+    }
 
-        // End Stone
-        Register.registerBlock(SLABS_END_STONE,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_END_STONE,         ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_END_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_END_STONE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_END_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_END_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_END_COBBLE,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_END_COBBLE,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_END_COBBLE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_END_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_END_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_END_COBBLE_MOSS,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_END_COBBLE_MOSS,   ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_END_COBBLE_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_END_SMOOTH,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_END_SMOOTH,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_END_SMOOTH,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_END_SMOOTH,        ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_END_SMOOTH,         ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_END_BRICK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_END_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_END_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_END_BRICK_MOSS,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_END_BRICK_MOSS,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_END_BRICK_MOSS,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_END_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(SLABS_END_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_END_BRICK_CRACKED, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_END_BRICK_CRACKED, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_END_BRICK_CRACKED,         ItemGroup.DECORATIONS);
-        Register.registerBlock(BLOCK_END_BRICK_CARVED,  ItemGroup.BUILDING_BLOCKS);
 
-        // Concrete
-        Register.registerBlock(SLABS_CONCRETE_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_WHITE,     ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_WHITE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_ORANGE,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_ORANGE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_MAGENTA,   ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_MAGENTA,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_LIGHTBLUE, ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_LIGHTBLUE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_YELLOW,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_YELLOW,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_LIME,      ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_LIME,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_PINK,      ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_PINK,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_GRAY,      ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_GRAY,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_SILVER,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_SILVER,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_CYAN,      ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_CYAN,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_PURPLE,    ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_PURPLE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_BLUE,      ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_BLUE,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_BROWN,     ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_BROWN,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_GREEN,     ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_GREEN,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_RED,       ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_RED,         ItemGroup.DECORATIONS);
-        Register.registerBlock(SLABS_CONCRETE_BLACK,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(STAIR_CONCRETE_BLACK,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(WALLS_CONCRETE_BLACK,     ItemGroup.DECORATIONS);
-        Register.registerBlock(PILAR_CONCRETE_BLACK,         ItemGroup.DECORATIONS);
 
-        // Timber Basic
-        Register.registerBlock(BLOCK_TIMBER_BASIC_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_BASIC_BLACK,     ItemGroup.BUILDING_BLOCKS);
 
-        // Timber Horizontal
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_HORIZONTAL_BLACK,     ItemGroup.BUILDING_BLOCKS);
+    //----------------------------------------SETUP----------------------------------------//
 
-        // Timber Vertical
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_VERTICAL_BLACK,     ItemGroup.BUILDING_BLOCKS);
+    static void setup(FMLCommonSetupEvent event){
 
-        // Timber Plus
-        Register.registerBlock(BLOCK_TIMBER_PLUS_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_PLUS_BLACK,     ItemGroup.BUILDING_BLOCKS);
+    }
 
-        // Timber Diagonal Left
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_LEFT_BLACK,     ItemGroup.BUILDING_BLOCKS);
+    @OnlyIn(Dist.CLIENT)
+    static void setup(FMLClientSetupEvent event){
 
-        // Timber Diagonal Right
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_DIAG_RIGHT_BLACK,     ItemGroup.BUILDING_BLOCKS);
-
-        // Timber Cross
-        Register.registerBlock(BLOCK_TIMBER_CROSS_WHITE,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_ORANGE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_MAGENTA,   ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_LIGHTBLUE, ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_YELLOW,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_LIME,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_PINK,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_GRAY,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_SILVER,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_CYAN,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_PURPLE,    ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_BLUE,      ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_BROWN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_GREEN,     ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_RED,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_TIMBER_CROSS_BLACK,     ItemGroup.BUILDING_BLOCKS);
-
-        // Other
-        Register.registerBlock(BLOCK_SCAFFOLDING,       ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_CHAIN_IRON,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_CHAIN_GOLD,        ItemGroup.BUILDING_BLOCKS);
-        Register.registerBlock(BLOCK_EMITTER_WHITE,     ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_ORANGE,    ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_MAGENTA,   ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_LIGHTBLUE, ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_YELLOW,    ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_LIME,      ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_PINK,      ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_GRAY,      ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_SILVER,    ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_CYAN,      ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_PURPLE,    ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_BLUE,      ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_BROWN,     ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_GREEN,     ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_RED,       ItemGroup.REDSTONE);
-        Register.registerBlock(BLOCK_EMITTER_BLACK,     ItemGroup.REDSTONE);
-        Register.registerBlock(GOYLE_DOG_STONE,         ItemGroup.REDSTONE);
-        Register.registerBlock(GOYLE_DOG_GRANITE,       ItemGroup.REDSTONE);
-        Register.registerBlock(GOYLE_DOG_DIORITE,       ItemGroup.REDSTONE);
-        Register.registerBlock(GOYLE_DOG_ANDESITE,      ItemGroup.REDSTONE);
-        Register.registerBlock(GOYLE_DOG_END,           ItemGroup.REDSTONE);
-
-        // Timber Cross
-        Register.registerBlock(BLOCK_LIGHT_WHITE);
-        Register.registerBlock(BLOCK_LIGHT_ORANGE);
-        Register.registerBlock(BLOCK_LIGHT_MAGENTA);
-        Register.registerBlock(BLOCK_LIGHT_LIGHTBLUE);
-        Register.registerBlock(BLOCK_LIGHT_YELLOW);
-        Register.registerBlock(BLOCK_LIGHT_LIME);
-        Register.registerBlock(BLOCK_LIGHT_PINK);
-        Register.registerBlock(BLOCK_LIGHT_GRAY);
-        Register.registerBlock(BLOCK_LIGHT_SILVER);
-        Register.registerBlock(BLOCK_LIGHT_CYAN);
-        Register.registerBlock(BLOCK_LIGHT_PURPLE);
-        Register.registerBlock(BLOCK_LIGHT_BLUE);
-        Register.registerBlock(BLOCK_LIGHT_BROWN);
-        Register.registerBlock(BLOCK_LIGHT_GREEN);
-        Register.registerBlock(BLOCK_LIGHT_RED);
-        Register.registerBlock(BLOCK_LIGHT_BLACK);
     }
 
 }

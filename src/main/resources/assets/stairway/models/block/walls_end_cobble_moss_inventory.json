@@ -1,6 +1,6 @@
 {
     "parent": "block/wall_inventory",
     "textures": {
-        "wall": "stairway:blocks/end_cobble_moss"
+        "wall": "stairway:block/end_cobble_moss"
     }
 }

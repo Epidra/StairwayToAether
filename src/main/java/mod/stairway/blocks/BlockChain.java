@@ -1,6 +1,5 @@
 package mod.stairway.blocks;
 
-import mod.shared.blocks.BlockBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
@@ -16,7 +15,6 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -44,21 +42,41 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
-    public BlockChain(String modid, String name, Block block) {
-        super(modid, name, block);
+    public BlockChain(Block block) {
+        super(block);
         this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, Direction.Axis.Y).with(OFFSET, Boolean.valueOf(false)).with(WATERLOGGED, Boolean.valueOf(false)));
     }
 
 
 
-    //----------------------------------------RENDER----------------------------------------//
 
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
+    //----------------------------------------PLACEMENT----------------------------------------//
+
+    @Nullable
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return this.getDefaultState().with(AXIS, context.getFace().getAxis()).with(OFFSET, isOffset(context.getPos()));
     }
+
+    /** Called by ItemBlocks after a block is set in the world, to allow post-place logic */
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        worldIn.setBlockState(pos, state.with(OFFSET, isOffset(pos)), 2);
+    }
+
+    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.get(WATERLOGGED)) {
+            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+        }
+        return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    }
+
+
+
+
+    //----------------------------------------RENDER----------------------------------------//
 
     @Deprecated
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -76,10 +94,6 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
         }
     }
 
-    @Deprecated
-    public boolean isSolid(BlockState state) {
-        return true;
-    }
 
 
 
@@ -111,16 +125,6 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
         builder.add(AXIS, OFFSET, WATERLOGGED);
     }
 
-    @Nullable
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(AXIS, context.getFace().getAxis()).with(OFFSET, isOffset(context.getPos()));
-    }
-
-    /** Called by ItemBlocks after a block is set in the world, to allow post-place logic */
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        worldIn.setBlockState(pos, state.with(OFFSET, isOffset(pos)), 2);
-    }
-
     private boolean isOffset(BlockPos pos) {
         int counter = 0;
         if(Math.abs(pos.getX()) % 2 == 1) counter++;
@@ -128,8 +132,6 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
         if(Math.abs(pos.getZ()) % 2 == 1) counter++;
         return counter % 2 == 1;
     }
-
-    //--------------------------------
 
     public IFluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
@@ -141,20 +143,6 @@ public class BlockChain extends BlockBlock implements IWaterLoggable {
 
     public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
         return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
-    }
-
-    /**
-     * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.
-     * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
-     * returns its solidified counterpart.
-     * Note that this method should ideally consider only the specific face passed in.
-     */
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (stateIn.get(WATERLOGGED)) {
-            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-        }
-
-        return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
     public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {

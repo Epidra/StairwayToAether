@@ -1,6 +1,6 @@
 {
     "parent": "block/template_wall_side",
     "textures": {
-        "wall": "stairway:blocks/diorite_cobble"
+        "wall": "stairway:block/diorite_cobble"
     }
 }

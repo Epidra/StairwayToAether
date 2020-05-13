@@ -1,11 +1,7 @@
 package mod.stairway.blocks;
 
-import mod.shared.blocks.BlockBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
@@ -23,8 +19,6 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class BlockGargoyle extends BlockBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -35,35 +29,32 @@ public class BlockGargoyle extends BlockBlock {
     public static final VoxelShape AABB2 = Block.makeCuboidShape(0, 0, 4, 15, 16, 12);
     public static final VoxelShape AABB3 = Block.makeCuboidShape(4, 0, 0, 12, 16, 15);
 
-    public BlockGargoyle(String modid, String name, Block block) {
-        super(modid, name, block);
+
+
+
+    //----------------------------------------CONSTRUCTOR----------------------------------------//
+
+    public BlockGargoyle(Block block) {
+        super(block);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(EYES, Integer.valueOf(0)));
     }
 
-    public boolean canProvidePower(BlockState state) {
-        return state.get(EYES) > 0;
+
+
+
+    //----------------------------------------PLACEMENT----------------------------------------//
+
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 
-    public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
-        int eyes = blockState.get(EYES);
-        if(eyes == 1 || eyes == 3){
-            return 6;
-        }
-        if(eyes == 2 || eyes == 4){
-            return 15;
-        }
-        if(eyes == 5){
-            return 10;
-        }
-        return 0;
-    }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(FACING, EYES);
-    }
+
+
+    //----------------------------------------INTERACTION----------------------------------------//
 
     public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit){
-        if (world.isRemote) {
+        if (world.isRemote || hand == Hand.OFF_HAND) {
             return true;
         }
         if(hand == Hand.MAIN_HAND){
@@ -104,6 +95,33 @@ public class BlockGargoyle extends BlockBlock {
         return true;
     }
 
+
+
+
+    //----------------------------------------SUPPORT----------------------------------------//
+
+    public boolean canProvidePower(BlockState state) {
+        return state.get(EYES) > 0;
+    }
+
+    public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+        int eyes = blockState.get(EYES);
+        if(eyes == 1 || eyes == 3){
+            return 6;
+        }
+        if(eyes == 2 || eyes == 4){
+            return 15;
+        }
+        if(eyes == 5){
+            return 10;
+        }
+        return 0;
+    }
+
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(FACING, EYES);
+    }
+
     public BlockState rotate(BlockState state, Rotation rot) {
         return state.with(FACING, rot.rotate(state.get(FACING)));
     }
@@ -112,32 +130,8 @@ public class BlockGargoyle extends BlockBlock {
         return state.rotate(mirrorIn.toRotation(state.get(FACING)));
     }
 
-    public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
-        //if (state.get(POWERED)) {
-        //    worldIn.setBlockState(pos, state.with(POWERED, Boolean.valueOf(false)), 2);
-        //} else {
-        //    worldIn.setBlockState(pos, state.with(POWERED, Boolean.valueOf(true)), 2);
-        //    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 2);
-        //}
-//
-        //this.updateNeighborsInFront(worldIn, pos, state);
-    }
-
     public int getStrongPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         return blockState.getWeakPower(blockAccess, pos, side);
-    }
-
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
-    }
-
-    @Deprecated
-    public boolean isSolid(BlockState state) {
-        return false;
-    }
-
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @Deprecated
@@ -152,6 +146,5 @@ public class BlockGargoyle extends BlockBlock {
                 return VoxelShapes.fullCube();
         }
     }
-
 
 }

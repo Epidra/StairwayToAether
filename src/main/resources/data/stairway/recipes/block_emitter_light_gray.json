@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "block_emitter",
+  "pattern": [
+    "#C#",
+    "#Q#",
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:light_gray_dye"
+    }
+  },
+  "result": {
+    "item": "stairway:block_emitter_light_gray",
+    "count": 1
+  }
+}

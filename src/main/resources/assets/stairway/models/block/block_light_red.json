@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/block_light",
     "textures": {
-        "upper":    "stairway:blocks/light_red_upper",
-        "outer":    "stairway:blocks/light_red_outer",
-        "lower":    "stairway:blocks/light_red_lower",
-        "particle": "stairway:blocks/light_red_outer"
+        "upper":    "stairway:block/light_red_upper",
+        "outer":    "stairway:block/light_red_outer",
+        "lower":    "stairway:block/light_red_lower",
+        "particle": "stairway:block/light_red_outer"
     }
 }

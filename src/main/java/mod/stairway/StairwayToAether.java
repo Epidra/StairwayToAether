@@ -32,49 +32,29 @@ public class StairwayToAether {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
     public StairwayToAether() {
         MinecraftForge.EVENT_BUS.register(this);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doServerStuff);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupCommon);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
         StairwayConfig.init();
+        StairKeeper.register();
     }
 
 
 
-    //----------------------------------------SETUP_EVENTS----------------------------------------//
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_WHITE,     RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_ORANGE,    RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_MAGENTA,   RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIGHTBLUE, RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_YELLOW,    RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIME,      RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_PINK,      RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_GRAY,      RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_SILVER,    RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_CYAN,      RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_PURPLE,    RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLUE,      RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BROWN,     RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_GREEN,     RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_RED,       RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLACK,     RenderType.translucent());
-    }
+    //----------------------------------------SETUP----------------------------------------//
 
-    private void doServerStuff(final FMLCommonSetupEvent event){
+    private void setupCommon(final FMLCommonSetupEvent event){
         StairwayConfig.load();
+        StairKeeper.setup(event);
     }
 
-    /** Register Event */
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            StairKeeper.registerStuff();
-        }
+    private void setupClient(final FMLClientSetupEvent event) {
+        StairKeeper.setup(event);
     }
 }

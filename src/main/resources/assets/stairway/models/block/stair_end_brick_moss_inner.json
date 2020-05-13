@@ -1,8 +1,8 @@
 {
     "parent": "block/inner_stairs",
     "textures": {
-        "bottom": "stairway:blocks/end_brick_moss",
-        "top":    "stairway:blocks/end_brick_moss",
-        "side":   "stairway:blocks/end_brick_moss"
+        "bottom": "stairway:block/end_brick_moss",
+        "top":    "stairway:block/end_brick_moss",
+        "side":   "stairway:block/end_brick_moss"
     }
 }

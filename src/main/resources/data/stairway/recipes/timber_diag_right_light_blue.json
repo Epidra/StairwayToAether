@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "timber_diag_right",
+  "pattern": [
+    "XXI",
+    "XIX",
+	" XX"
+  ],
+  "key": {
+    "X": {
+      "tag": "stairway:timber_light_blue"
+    },
+	"I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "stairway:timber_diag_right_light_blue",
+    "count": 6
+  }
+}

@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_upper_small",
     "textures": {
-        "top":      "stairway:blocks/diorite_cobble_moss",
-        "side":     "stairway:blocks/diorite_cobble_moss",
-        "bottom":   "stairway:blocks/diorite_cobble_moss",
-        "particle": "stairway:blocks/diorite_cobble_moss"
+        "top":      "stairway:block/diorite_cobble_moss",
+        "side":     "stairway:block/diorite_cobble_moss",
+        "bottom":   "stairway:block/diorite_cobble_moss",
+        "particle": "stairway:block/diorite_cobble_moss"
     }
 }

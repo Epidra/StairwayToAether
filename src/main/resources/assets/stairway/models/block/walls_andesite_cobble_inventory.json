@@ -1,6 +1,6 @@
 {
     "parent": "block/wall_inventory",
     "textures": {
-        "wall": "stairway:blocks/andesite_cobble"
+        "wall": "stairway:block/andesite_cobble"
     }
 }

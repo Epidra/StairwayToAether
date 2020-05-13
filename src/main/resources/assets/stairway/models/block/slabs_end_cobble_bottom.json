@@ -1,10 +1,10 @@
 {
     "parent": "block/half_slab",
     "textures": {
-        "bottom": "stairway:blocks/end_cobble",
-        "top":    "stairway:blocks/end_cobble",
-        "side":   "stairway:blocks/end_cobble",
-        "particle": "stairway:blocks/end_cobble"
+        "bottom": "stairway:block/end_cobble",
+        "top":    "stairway:block/end_cobble",
+        "side":   "stairway:block/end_cobble",
+        "particle": "stairway:block/end_cobble"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

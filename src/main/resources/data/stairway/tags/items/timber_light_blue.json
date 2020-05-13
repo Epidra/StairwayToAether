@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:light_blue_terracotta",
+    "stairway:timber_basic_light_blue",
+    "stairway:timber_diag_left_light_blue",
+    "stairway:timber_diag_right_light_blue",
+    "stairway:timber_horizontal_light_blue",
+    "stairway:timber_vertical_light_blue",
+    "stairway:timber_cross_light_blue",
+    "stairway:timber_plus_light_blue"
+  ]
+}

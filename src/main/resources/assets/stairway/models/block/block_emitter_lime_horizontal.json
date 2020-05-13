@@ -2,7 +2,7 @@
     "parent": "block/orientable",
     "textures": {
         "top":   "block/furnace_top",
-        "front": "stairway:blocks/emitter_horizontal_lime",
+        "front": "stairway:block/emitter_horizontal_lime",
         "side":  "block/furnace_side"
     }
 }

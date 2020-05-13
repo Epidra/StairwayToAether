@@ -1,7 +1,7 @@
 {
     "parent": "block/orientable_vertical",
     "textures": {
-        "front": "stairway:blocks/emitter_vertical_purple",
+        "front": "stairway:block/emitter_vertical_purple",
         "side": "block/furnace_top"
     }
 }

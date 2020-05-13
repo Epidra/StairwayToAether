@@ -1,9 +1,9 @@
 {
     "parent": "stairway:template/pilar_upper_big",
     "textures": {
-        "top":      "stairway:blocks/andesite_cobble",
-        "side":     "stairway:blocks/andesite_cobble",
-        "bottom":   "stairway:blocks/andesite_cobble",
-        "particle": "stairway:blocks/andesite_cobble"
+        "top":      "stairway:block/andesite_cobble",
+        "side":     "stairway:block/andesite_cobble",
+        "bottom":   "stairway:block/andesite_cobble",
+        "particle": "stairway:block/andesite_cobble"
     }
 }

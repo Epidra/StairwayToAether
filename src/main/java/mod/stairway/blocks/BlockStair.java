@@ -5,10 +5,16 @@ import net.minecraft.block.StairsBlock;
 
 public class BlockStair extends StairsBlock {
 
+    // ...
+
+
+
+
+    //----------------------------------------CONSTRUCTOR----------------------------------------//
+
     /** Default Constructor */
-    public BlockStair(String modid, String name, Block block) {
+    public BlockStair(Block block) {
         super(block.getDefaultState(), Properties.from(block));
-        this.setRegistryName(modid, name);
     }
 
 }

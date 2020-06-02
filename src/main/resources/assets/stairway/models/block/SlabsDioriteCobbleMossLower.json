@@ -1,0 +1,21 @@
+{
+    "textures": {
+        "bottom":   "stairway:blocks/DioriteCobbleMoss",
+        "top":      "stairway:blocks/DioriteCobbleMoss",
+        "side":     "stairway:blocks/DioriteCobbleMoss",
+        "particle": "stairway:blocks/DioriteCobbleMoss"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 8, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

@@ -1,7 +1,0 @@
-{
-    "parent": "stairway:template/timber_diag_right",
-    "textures": {
-        "clay":     "minecraft:block/black_terracotta",
-        "particle": "minecraft:block/black_terracotta"
-    }
-}

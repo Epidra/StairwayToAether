@@ -1,0 +1,21 @@
+{
+    "textures": {
+        "bottom":   "stairway:blocks/GraniteBrickMoss",
+        "top":      "stairway:blocks/GraniteBrickMoss",
+        "side":     "stairway:blocks/GraniteBrickMoss",
+        "particle": "stairway:blocks/GraniteBrickMoss"
+    },
+    "elements": [
+        {   "from": [ 0, 8, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

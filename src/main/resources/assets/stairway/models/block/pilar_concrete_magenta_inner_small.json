@@ -1,9 +1,0 @@
-{
-    "parent": "stairway:template/pilar_inner_small",
-    "textures": {
-        "top":      "minecraft:block/magenta_concrete",
-        "side":     "minecraft:block/magenta_concrete",
-        "bottom":   "minecraft:block/magenta_concrete",
-        "particle": "minecraft:block/magenta_concrete"
-    }
-}

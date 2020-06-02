@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "stonebrick_cracked" },
+        "variant=true":    { "model": "stonebrick_cracked" }
+    }
+}

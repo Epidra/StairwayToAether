@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:polished_granite"
-  },
-  "result": "stairway:walls_granite_smooth",
-  "count": 1
-}

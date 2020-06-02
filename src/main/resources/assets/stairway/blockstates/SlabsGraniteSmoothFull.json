@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "granite_smooth" },
+        "variant=true":    { "model": "granite_smooth" }
+    }
+}

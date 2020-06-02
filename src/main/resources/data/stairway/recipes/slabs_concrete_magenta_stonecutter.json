@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:magenta_concrete"
-  },
-  "result": "stairway:slabs_concrete_magenta",
-  "count": 2
-}

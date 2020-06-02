@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "stairway:blocks/GraniteBrickCracked",
+        "top":    "stairway:blocks/GraniteBrickCracked",
+        "side":   "stairway:blocks/GraniteBrickCracked"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "prismarine_dark" },
+        "variant=true":    { "model": "prismarine_dark" }
+    }
+}

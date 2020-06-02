@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "stairway:block_granite_cobble"
-  },
-  "result": "stairway:walls_granite_cobble",
-  "count": 1
-}

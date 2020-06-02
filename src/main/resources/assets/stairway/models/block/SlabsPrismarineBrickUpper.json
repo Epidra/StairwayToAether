@@ -1,0 +1,21 @@
+{
+    "textures": {
+        "bottom":   "blocks/prismarine_bricks",
+        "top":      "blocks/prismarine_bricks",
+        "side":     "blocks/prismarine_bricks",
+        "particle": "blocks/prismarine_bricks"
+    },
+    "elements": [
+        {   "from": [ 0, 8, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side"},
+                "south": { "texture": "#side"},
+                "west":  { "texture": "#side"},
+                "east":  { "texture": "#side"}
+            }
+        }
+    ]
+}

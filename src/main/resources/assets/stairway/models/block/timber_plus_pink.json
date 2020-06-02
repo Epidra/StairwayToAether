@@ -1,7 +1,0 @@
-{
-    "parent": "stairway:template/timber_plus",
-    "textures": {
-        "clay":     "minecraft:block/pink_terracotta",
-        "particle": "minecraft:block/pink_terracotta"
-    }
-}

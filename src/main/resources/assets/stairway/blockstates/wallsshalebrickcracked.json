@@ -1,0 +1,19 @@
+{
+    "multipart": [
+        {   "when": { "up": "true" },
+            "apply": { "model": "stairway:WallsShaleBrickCrackedPost" }
+        },
+        {   "when": { "north": "true" },
+            "apply": { "model": "stairway:WallsShaleBrickCrackedSide", "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "stairway:WallsShaleBrickCrackedSide", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "stairway:WallsShaleBrickCrackedSide", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "stairway:WallsShaleBrickCrackedSide", "y": 270, "uvlock": true }
+        }
+    ]
+}

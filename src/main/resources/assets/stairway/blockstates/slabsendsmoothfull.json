@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "stairway:BlockEndSmooth" },
+        "variant=true":    { "model": "stairway:BlockEndSmooth" }
+    }
+}

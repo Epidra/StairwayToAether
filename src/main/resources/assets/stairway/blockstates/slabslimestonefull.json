@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "biomesoplenty:limestone" },
+        "variant=true":    { "model": "biomesoplenty:limestone" }
+    }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "stairway:block_granite_brick_moss"
-  },
-  "result": "stairway:slabs_granite_brick_moss",
-  "count": 2
-}

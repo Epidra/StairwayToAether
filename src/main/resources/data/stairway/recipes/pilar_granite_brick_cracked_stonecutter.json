@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-      "item": "stairway:block_granite_brick_cracked"
-  },
-  "result": "stairway:pilar_granite_brick_cracked",
-    "count": 1
-}

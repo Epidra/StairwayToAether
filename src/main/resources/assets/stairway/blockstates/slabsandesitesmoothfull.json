@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "andesite_smooth" },
+        "variant=true":    { "model": "andesite_smooth" }
+    }
+}

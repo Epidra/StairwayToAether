@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "half=bottom,variant=false": { "model": "stairway:SlabsCragSmoothLower" },
+        "half=top,variant=false":    { "model": "stairway:SlabsCragSmoothUpper" },
+        "half=bottom,variant=true":  { "model": "stairway:SlabsCragSmoothLower" },
+        "half=top,variant=true":     { "model": "stairway:SlabsCragSmoothUpper" }
+    }
+}

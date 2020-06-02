@@ -1,9 +1,0 @@
-{
-  "type": "smelting",
-  "ingredient": {
-    "item": "minecraft:end_stone"
-  },
-  "result": "stairway:block_end_smooth",
-  "experience": 0.15,
-  "cookingtime": 200
-}

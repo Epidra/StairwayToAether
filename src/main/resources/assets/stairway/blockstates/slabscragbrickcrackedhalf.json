@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "half=bottom,variant=false": { "model": "stairway:SlabsCragBrickCrackedLower" },
+        "half=top,variant=false":    { "model": "stairway:SlabsCragBrickCrackedUpper" },
+        "half=bottom,variant=true":  { "model": "stairway:SlabsCragBrickCrackedLower" },
+        "half=top,variant=true":     { "model": "stairway:SlabsCragBrickCrackedUpper" }
+    }
+}

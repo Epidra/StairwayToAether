@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "half=bottom,variant=false": { "model": "stairway:SlabsEndStoneLower" },
+        "half=top,variant=false":    { "model": "stairway:SlabsEndStoneUpper" },
+        "half=bottom,variant=true":  { "model": "stairway:SlabsEndStoneLower" },
+        "half=top,variant=true":     { "model": "stairway:SlabsEndStoneUpper" }
+    }
+}

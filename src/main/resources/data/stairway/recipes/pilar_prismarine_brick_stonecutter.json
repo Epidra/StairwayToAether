@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-      "item": "minecraft:prismarine_bricks"
-  },
-  "result": "stairway:pilar_prismarine_brick",
-    "count": 1
-}

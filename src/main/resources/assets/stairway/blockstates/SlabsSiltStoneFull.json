@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "biomesoplenty:siltstone" },
+        "variant=true":    { "model": "biomesoplenty:siltstone" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "granite" },
+        "variant=true":    { "model": "granite" }
+    }
+}

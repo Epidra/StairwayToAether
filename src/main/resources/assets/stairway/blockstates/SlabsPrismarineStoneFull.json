@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "prismarine_rough" },
+        "variant=true":    { "model": "prismarine_rough" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "stonebrick_mossy" },
+        "variant=true":    { "model": "stonebrick_mossy" }
+    }
+}

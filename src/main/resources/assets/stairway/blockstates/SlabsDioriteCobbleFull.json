@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "stairway:BlockDioriteCobble" },
+        "variant=true":    { "model": "stairway:BlockDioriteCobble" }
+    }
+}

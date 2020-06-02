@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "end_bricks" },
+        "variant=true":    { "model": "end_bricks" }
+    }
+}

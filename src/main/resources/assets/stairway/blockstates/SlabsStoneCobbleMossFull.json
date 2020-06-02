@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "mossy_cobblestone" },
+        "variant=true":    { "model": "mossy_cobblestone" }
+    }
+}

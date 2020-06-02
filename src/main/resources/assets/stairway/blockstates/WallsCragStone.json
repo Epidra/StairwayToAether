@@ -1,0 +1,19 @@
+{
+    "multipart": [
+        {   "when": { "up": "true" },
+            "apply": { "model": "stairway:WallsCragStonePost" }
+        },
+        {   "when": { "north": "true" },
+            "apply": { "model": "stairway:WallsCragStoneSide", "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "stairway:WallsCragStoneSide", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "stairway:WallsCragStoneSide", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "stairway:WallsCragStoneSide", "y": 270, "uvlock": true }
+        }
+    ]
+}

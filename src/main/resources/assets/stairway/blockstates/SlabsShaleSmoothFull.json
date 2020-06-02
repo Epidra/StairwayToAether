@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "biomesoplenty:polished_shale" },
+        "variant=true":    { "model": "biomesoplenty:polished_shale" }
+    }
+}

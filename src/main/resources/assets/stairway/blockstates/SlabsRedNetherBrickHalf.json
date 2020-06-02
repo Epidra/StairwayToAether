@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "half=bottom,variant=false": { "model": "stairway:SlabsRedNetherBrickLower" },
+        "half=top,variant=false":    { "model": "stairway:SlabsRedNetherBrickUpper" },
+        "half=bottom,variant=true":  { "model": "stairway:SlabsRedNetherBrickLower" },
+        "half=top,variant=true":     { "model": "stairway:SlabsRedNetherBrickUpper" }
+    }
+}

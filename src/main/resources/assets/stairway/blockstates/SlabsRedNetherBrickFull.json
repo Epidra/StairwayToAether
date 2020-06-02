@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "red_nether_brick" },
+        "variant=true":    { "model": "red_nether_brick" }
+    }
+}

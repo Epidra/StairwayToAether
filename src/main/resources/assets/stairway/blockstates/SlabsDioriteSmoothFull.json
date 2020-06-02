@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "diorite_smooth" },
+        "variant=true":    { "model": "diorite_smooth" }
+    }
+}

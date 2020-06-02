@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "biomesoplenty:crag_rock" },
+        "variant=true":    { "model": "biomesoplenty:crag_rock" }
+    }
+}

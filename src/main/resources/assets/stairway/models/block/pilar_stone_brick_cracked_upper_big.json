@@ -1,9 +1,0 @@
-{
-    "parent": "stairway:template/pilar_upper_big",
-    "textures": {
-        "top":      "minecraft:block/cracked_stone_bricks",
-        "side":     "minecraft:block/cracked_stone_bricks",
-        "bottom":   "minecraft:block/cracked_stone_bricks",
-        "particle": "minecraft:block/cracked_stone_bricks"
-    }
-}

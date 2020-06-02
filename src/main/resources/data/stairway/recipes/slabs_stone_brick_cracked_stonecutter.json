@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:cracked_stone_bricks"
-  },
-  "result": "stairway:slabs_stone_brick_cracked",
-  "count": 2
-}

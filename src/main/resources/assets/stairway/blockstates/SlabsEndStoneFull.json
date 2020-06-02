@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "end_stone" },
+        "variant=true":    { "model": "end_stone" }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "stairway:blocks/GraniteBrick",
+        "top":    "stairway:blocks/GraniteBrick",
+        "side":   "stairway:blocks/GraniteBrick"
+    }
+}

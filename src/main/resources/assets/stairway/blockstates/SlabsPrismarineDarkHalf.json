@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=false": { "model": "stairway:SlabsPrismarineDarkLower" },
+        "half=top,variant=false":    { "model": "stairway:SlabsPrismarineDarkUpper" }
+    }
+}

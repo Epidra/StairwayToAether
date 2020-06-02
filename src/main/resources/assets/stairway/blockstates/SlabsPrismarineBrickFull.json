@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "prismarine_bricks" },
+        "variant=true":    { "model": "prismarine_bricks" }
+    }
+}

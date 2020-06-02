@@ -1,0 +1,19 @@
+{
+    "multipart": [
+        {   "when": { "up": "true" },
+            "apply": { "model": "stairway:WallsDioriteCobblePost" }
+        },
+        {   "when": { "north": "true" },
+            "apply": { "model": "stairway:WallsDioriteCobbleSide", "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "stairway:WallsDioriteCobbleSide", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "stairway:WallsDioriteCobbleSide", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "stairway:WallsDioriteCobbleSide", "y": 270, "uvlock": true }
+        }
+    ]
+}

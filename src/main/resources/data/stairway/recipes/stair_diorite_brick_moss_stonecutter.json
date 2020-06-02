@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "stairway:block_diorite_brick_moss"
-  },
-  "result": "stairway:stair_diorite_brick_moss",
-  "count": 1
-}

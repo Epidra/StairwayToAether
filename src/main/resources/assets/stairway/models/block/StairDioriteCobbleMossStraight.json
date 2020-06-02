@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "stairway:blocks/DioriteCobbleMoss",
+        "top":    "stairway:blocks/DioriteCobbleMoss",
+        "side":   "stairway:blocks/DioriteCobbleMoss"
+    }
+}

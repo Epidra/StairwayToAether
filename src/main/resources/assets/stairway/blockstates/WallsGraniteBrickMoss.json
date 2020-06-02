@@ -1,0 +1,19 @@
+{
+    "multipart": [
+        {   "when": { "up": "true" },
+            "apply": { "model": "stairway:WallsGraniteBrickMossPost" }
+        },
+        {   "when": { "north": "true" },
+            "apply": { "model": "stairway:WallsGraniteBrickMossSide", "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "stairway:WallsGraniteBrickMossSide", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "stairway:WallsGraniteBrickMossSide", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "stairway:WallsGraniteBrickMossSide", "y": 270, "uvlock": true }
+        }
+    ]
+}

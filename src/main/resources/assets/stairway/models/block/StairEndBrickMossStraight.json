@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "stairway:blocks/EndBrickMoss",
+        "top":    "stairway:blocks/EndBrickMoss",
+        "side":   "stairway:blocks/EndBrickMoss"
+    }
+}

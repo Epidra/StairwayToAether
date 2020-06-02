@@ -1,9 +1,0 @@
-{
-  "type": "smelting",
-  "ingredient": {
-    "item": "stairway:block_granite_brick_moss"
-  },
-  "result": "stairway:block_granite_brick_cracked",
-  "experience": 0.15,
-  "cookingtime": 200
-}

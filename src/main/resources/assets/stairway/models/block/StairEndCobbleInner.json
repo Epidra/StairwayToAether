@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "stairway:blocks/EndCobble",
+        "top":    "stairway:blocks/EndCobble",
+        "side":   "stairway:blocks/EndCobble"
+    }
+}

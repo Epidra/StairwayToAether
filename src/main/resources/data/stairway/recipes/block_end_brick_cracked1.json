@@ -1,9 +1,0 @@
-{
-  "type": "smelting",
-  "ingredient": {
-    "item": "minecraft:end_stone_bricks"
-  },
-  "result": "stairway:block_end_brick_cracked",
-  "experience": 0.15,
-  "cookingtime": 200
-}

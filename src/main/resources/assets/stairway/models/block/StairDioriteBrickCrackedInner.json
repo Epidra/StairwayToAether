@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "stairway:blocks/DioriteBrickCracked",
+        "top":    "stairway:blocks/DioriteBrickCracked",
+        "side":   "stairway:blocks/DioriteBrickCracked"
+    }
+}

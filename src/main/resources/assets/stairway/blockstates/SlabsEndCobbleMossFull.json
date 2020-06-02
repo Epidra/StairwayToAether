@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=false":   { "model": "stairway:BlockEndCobbleMoss" },
+        "variant=true":    { "model": "stairway:BlockEndCobbleMoss" }
+    }
+}

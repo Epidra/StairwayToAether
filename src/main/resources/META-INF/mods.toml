@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[31,)" #mandatory (26 is current forge version)
+loaderVersion="[32,)" #mandatory
 issueTrackerURL="https://github.com/Epidra/StairwayToAether/issues"
 [[mods]]
 modId="stairway"
@@ -15,14 +15,8 @@ And all the different Cobble and Brick variants for the currently available ston
 So what you get is a whopping amount of over 300 new building blocks.
 '''
 [[dependencies.stairway]]
-    modId="forge"
-    mandatory=true
-    versionRange="[31,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.stairway]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.1]"
     ordering="NONE"
     side="BOTH"

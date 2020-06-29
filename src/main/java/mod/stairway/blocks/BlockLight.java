@@ -27,7 +27,7 @@ public class BlockLight extends StainedGlassBlock {
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     public BlockLight(Block block, DyeColor dyeColor) {
-        super(dyeColor, Properties.from(block).lightValue(4).hardnessAndResistance(2000));
+        super(dyeColor, Properties.from(block).hardnessAndResistance(2000));
     }
 
 

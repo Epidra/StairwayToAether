@@ -16,8 +16,8 @@ public class BlockBlock extends Block {
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Contructor */
-    public BlockBlock(Material material, MaterialColor materialcolor, float hardness, float resistance, SoundType sound, int light) {
-        super(Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound).lightValue(light));
+    public BlockBlock(Material material, MaterialColor materialcolor, float hardness, float resistance, SoundType sound) {
+        super(Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound));
     }
 
     /** Contructor with predefined BlockProperty */
@@ -28,7 +28,7 @@ public class BlockBlock extends Block {
 
     /** Contructor with doesNotBlockMovement */
     public BlockBlock(Material material, MaterialColor materialcolor, float hardness, float resistance, SoundType sound, int light, boolean blockMovement) {
-        super(Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound).lightValue(light).doesNotBlockMovement());
+        super(Properties.create(material, materialcolor).hardnessAndResistance(hardness, resistance).sound(sound).doesNotBlockMovement());
     }
 
     /** Contructor with already created Properties */

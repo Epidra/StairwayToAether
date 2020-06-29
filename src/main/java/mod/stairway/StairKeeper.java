@@ -24,8 +24,8 @@ import static mod.stairway.StairwayToAether.MODID;
 
 public class StairKeeper {
 
-    private static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, MODID);
-    private static final DeferredRegister<Item>  ITEMS  = new DeferredRegister<>(ForgeRegistries.ITEMS,  MODID);
+    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    private static final DeferredRegister<Item>  ITEMS  = DeferredRegister.create(ForgeRegistries.ITEMS,  MODID);
 
 
 
@@ -497,22 +497,22 @@ public class StairKeeper {
     @OnlyIn(Dist.CLIENT)
     static void setup(FMLClientSetupEvent event){
         DeferredWorkQueue.runLater(() -> {
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_WHITE.get(),      RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_ORANGE.get(),     RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_MAGENTA.get(),    RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIGHT_BLUE.get(), RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_YELLOW.get(),     RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIME.get(),       RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_PINK.get(),       RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_GRAY.get(),       RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIGHT_GRAY.get(), RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_CYAN.get(),       RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_PURPLE.get(),     RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLUE.get(),       RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BROWN.get(),      RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_GREEN.get(),      RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_RED.get(),        RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLACK.get(),      RenderType.translucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_WHITE.get(),      RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_ORANGE.get(),     RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_MAGENTA.get(),    RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIGHT_BLUE.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_YELLOW.get(),     RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIME.get(),       RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_PINK.get(),       RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_GRAY.get(),       RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIGHT_GRAY.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_CYAN.get(),       RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_PURPLE.get(),     RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLUE.get(),       RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BROWN.get(),      RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_GREEN.get(),      RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_RED.get(),        RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLACK.get(),      RenderType.getTranslucent());
         });
     }
 

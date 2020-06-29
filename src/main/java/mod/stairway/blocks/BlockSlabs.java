@@ -4,8 +4,8 @@ import mod.stairway.StairwayConfig;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
@@ -59,7 +59,7 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
         if (blockstate.getBlock() == this) {
             return blockstate.with(TYPE, EnumBlockHalf.FULL).with(WATERLOGGED, Boolean.valueOf(false));
         } else {
-            IFluidState ifluidstate = context.getWorld().getFluidState(blockpos);
+            FluidState ifluidstate = context.getWorld().getFluidState(blockpos);
             BlockState blockstate1 = this.getDefaultState().with(TYPE, EnumBlockHalf.BOTTOM).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
             Direction direction = context.getFace();
 
@@ -126,11 +126,11 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
         }
     }
 
-    public IFluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
     }
 
-    public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+    public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, FluidState fluidStateIn) {
         return state.get(TYPE) != EnumBlockHalf.FULL ? IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn) : false;
     }
 
@@ -175,9 +175,9 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
             return this.name;
         }
 
-        public String getName(){
+        public String func_176610_l(){
             return this.name;
-        }
+        } // old: String getName()
 
         public static EnumBlockHalf getFacing(BlockPos pos, LivingEntity placer){
             if (Math.abs(placer.getPosX() - (double)((float)pos.getX() + 0.5F)) < 2.0D && Math.abs(placer.getPosZ() - (double)((float)pos.getZ() + 0.5F)) < 2.0D){
@@ -195,7 +195,6 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
             if(placer.getHorizontalFacing() == Direction.SOUTH) return SOUTH;
             return FULL;
         }
-
     }
 
 }

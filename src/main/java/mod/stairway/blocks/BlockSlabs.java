@@ -175,7 +175,7 @@ public class BlockSlabs extends BlockBlock implements IWaterLoggable {
             return this.name;
         }
 
-        public String func_176610_l(){
+        public String getString(){
             return this.name;
         } // old: String getName()
 

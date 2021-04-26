@@ -27,7 +27,7 @@ public class BlockLight extends StainedGlassBlock {
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     public BlockLight(Block block, DyeColor dyeColor) {
-        super(dyeColor, Properties.from(block).hardnessAndResistance(2000));
+        super(dyeColor, Properties.copy(block).strength(2000));
     }
 
 
@@ -37,12 +37,12 @@ public class BlockLight extends StainedGlassBlock {
 
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getNearestLookingDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
     }
 
     /** Called by ItemBlocks after a block is set in the world, to allow post-place logic */
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        worldIn.setBlockState(pos, state, 2);
+    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        worldIn.setBlock(pos, state, 2);
     }
 
 
@@ -51,14 +51,14 @@ public class BlockLight extends StainedGlassBlock {
     //----------------------------------------SUPPORT----------------------------------------//
 
     public BlockState rotate(BlockState state, Rotation rot) {
-        return state.with(FACING, rot.rotate(state.get(FACING)));
+        return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+        return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 

@@ -14,7 +14,7 @@ public class BlockStair extends StairsBlock {
 
     /** Default Constructor */
     public BlockStair(Block block) {
-        super(block.getDefaultState(), Properties.from(block));
+        super(block.defaultBlockState(), Properties.copy(block));
     }
 
 }

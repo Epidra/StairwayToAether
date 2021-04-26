@@ -14,7 +14,7 @@ public class BlockWalls extends WallBlock {
 
     /** Default Constructor */
     public BlockWalls(Block block) {
-        super(Properties.from(block));
+        super(Properties.copy(block));
     }
 
 }

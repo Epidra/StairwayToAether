@@ -4,15 +4,7 @@
         "type=bottom,waterlogged=true":  { "model": "stairway:block/slabs_concrete_white_bottom" },
         "type=top,waterlogged=false":    { "model": "stairway:block/slabs_concrete_white_top"    },
         "type=top,waterlogged=true":     { "model": "stairway:block/slabs_concrete_white_top"    },
-        "type=north,waterlogged=false":  { "model": "stairway:block/slabs_concrete_white_top"     , "x": 90,           "uvlock": true },
-        "type=north,waterlogged=true":   { "model": "stairway:block/slabs_concrete_white_top"     , "x": 90,           "uvlock": true },
-        "type=south,waterlogged=false":  { "model": "stairway:block/slabs_concrete_white_bottom"  , "x": 90,           "uvlock": true },
-        "type=south,waterlogged=true":   { "model": "stairway:block/slabs_concrete_white_bottom"  , "x": 90,           "uvlock": true },
-        "type=east,waterlogged=false":   { "model": "stairway:block/slabs_concrete_white_top"     , "x": 90, "y" : 90, "uvlock": true },
-        "type=east,waterlogged=true":    { "model": "stairway:block/slabs_concrete_white_top"     , "x": 90, "y" : 90, "uvlock": true },
-        "type=west,waterlogged=false":   { "model": "stairway:block/slabs_concrete_white_bottom"  , "x": 90, "y" : 90, "uvlock": true },
-        "type=west,waterlogged=true":    { "model": "stairway:block/slabs_concrete_white_bottom"  , "x": 90, "y" : 90, "uvlock": true },
-        "type=full,waterlogged=false":   { "model": "block/white_concrete"        },
-        "type=full,waterlogged=true":    { "model": "block/white_concrete"        }
+        "type=double,waterlogged=false": { "model": "block/white_concrete"                       },
+        "type=double,waterlogged=true":  { "model": "block/white_concrete"                       }
     }
 }

@@ -40,7 +40,6 @@ public class StairwayToAether {
         MinecraftForge.EVENT_BUS.register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupCommon);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
-        StairwayConfig.init();
         StairKeeper.register();
     }
 
@@ -50,7 +49,6 @@ public class StairwayToAether {
     //----------------------------------------SETUP----------------------------------------//
 
     private void setupCommon(final FMLCommonSetupEvent event){
-        StairwayConfig.load();
         StairKeeper.setup(event);
     }
 

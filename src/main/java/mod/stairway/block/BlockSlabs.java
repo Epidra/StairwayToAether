@@ -1,6 +1,7 @@
-package mod.stairway.blocks;
+package mod.stairway.block;
 
-import net.minecraft.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 
 public class BlockSlabs extends SlabBlock {
 

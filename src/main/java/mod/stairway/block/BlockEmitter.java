@@ -1,21 +1,21 @@
-package mod.stairway.blocks;
+package mod.stairway.block;
 
-import mod.lucky77.blocks.MachinaCube;
-import mod.lucky77.tileentities.TileBase;
+import mod.lucky77.block.MachinaCube;
+import mod.lucky77.blockentity.BlockEntityBase;
 import mod.stairway.StairKeeper;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -39,18 +39,18 @@ public class BlockEmitter extends MachinaCube {
 
     //----------------------------------------PLACEMENT----------------------------------------//
 
-    public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+    public void setPlacedBy(Level world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         int power = world.getBestNeighborSignal(pos);
         Direction facing = state.getValue(FACING);
         setLightBlocks(state, world, pos, power, facing);
     }
 
-    public void onRemove(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         Direction facing = state.getValue(FACING);
         setLightBlocks(state, worldIn, pos, 0, facing);
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
     }
 
@@ -60,7 +60,7 @@ public class BlockEmitter extends MachinaCube {
     //----------------------------------------INTERACTION----------------------------------------//
 
     @Override
-    public void interact(World world, BlockPos pos, PlayerEntity player, TileBase tile) {
+    public void interact(Level world, BlockPos pos, Player player, BlockEntityBase tile) {
         if(player.getMainHandItem().getItem() == Items.BLACK_DYE){      world.setBlock(pos, StairKeeper.BLOCK_EMITTER_BLACK.get().defaultBlockState().setValue(     FACING, world.getBlockState(pos).getValue(FACING)), 2);  }
         if(player.getMainHandItem().getItem() == Items.BLUE_DYE){       world.setBlock(pos, StairKeeper.BLOCK_EMITTER_BLUE.get().defaultBlockState().setValue(      FACING, world.getBlockState(pos).getValue(FACING)), 2);  }
         if(player.getMainHandItem().getItem() == Items.BROWN_DYE){      world.setBlock(pos, StairKeeper.BLOCK_EMITTER_BROWN.get().defaultBlockState().setValue(     FACING, world.getBlockState(pos).getValue(FACING)), 2);  }
@@ -85,17 +85,17 @@ public class BlockEmitter extends MachinaCube {
     //----------------------------------------UPDATE----------------------------------------//
 
     /** How many world ticks before ticking */
-    public int tickRate(IWorldReader worldIn) {
-        return 1;
-    }
+    //public int tickRate(LevelReader worldIn) {
+    //    return 1;
+    //}
 
-    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
         int power = worldIn.getBestNeighborSignal(pos);
         Direction facing = state.getValue(FACING);
         setLightBlocks(state, worldIn, pos, power, facing);
     }
 
-    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
         int power = world.getBestNeighborSignal(pos);
         Direction facing = state.getValue(FACING);
         setLightBlocks(state, world, pos, power, facing);
@@ -106,12 +106,12 @@ public class BlockEmitter extends MachinaCube {
 
     //----------------------------------------SUPPORT----------------------------------------//
 
-    @Override
-    public boolean hasTileEntity(BlockState state) {
-        return false;
-    }
+    //@Override
+    //public boolean hasTileEntity(BlockState state) {
+    //    return false;
+    //}
 
-    private void setLightBlocks(BlockState state, World world, BlockPos pos, int power, Direction facing){
+    private void setLightBlocks(BlockState state, Level world, BlockPos pos, int power, Direction facing){
         for(int i = 1; i < 17; i++){
             BlockPos blockpos = getOffset(facing, pos, i);
             if(world.isEmptyBlock(blockpos)){

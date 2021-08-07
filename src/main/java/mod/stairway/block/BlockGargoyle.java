@@ -1,22 +1,22 @@
-package mod.stairway.blocks;
+package mod.stairway.block;
 
-import mod.lucky77.blocks.MachinaBase;
-import mod.lucky77.tileentities.TileBase;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
+import mod.lucky77.block.MachinaBase;
+import mod.lucky77.blockentity.BlockEntityBase;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BlockGargoyle extends MachinaBase {
 
@@ -50,7 +50,7 @@ public class BlockGargoyle extends MachinaBase {
     //----------------------------------------INTERACTION----------------------------------------//
 
     @Override
-    public void interact(World world, BlockPos pos, PlayerEntity player, TileBase tile) {
+    public void interact(Level world, BlockPos pos, Player player, BlockEntityBase tile) {
         BlockState state = world.getBlockState(pos);
         int power = state.getValue(EYES);
         if(player.getMainHandItem().getItem() == Items.DIAMOND){
@@ -73,15 +73,15 @@ public class BlockGargoyle extends MachinaBase {
             }
         } else if(player.getMainHandItem().isEmpty()){
             if(power == 1 || power == 2){
-                player.inventory.add(new ItemStack(Items.DIAMOND, 1));
+                player.getInventory().add(new ItemStack(Items.DIAMOND, 1));
                 world.setBlockAndUpdate(pos, state.setValue(EYES, power-1));
             }
             if(power == 3 || power == 4){
-                player.inventory.add(new ItemStack(Items.EMERALD, 1));
+                player.getInventory().add(new ItemStack(Items.EMERALD, 1));
                 world.setBlockAndUpdate(pos, state.setValue(EYES, power == 3 ? 0 : 3));
             }
             if(power == 5){
-                player.inventory.add(new ItemStack(Items.EMERALD, 1));
+                player.getInventory().add(new ItemStack(Items.EMERALD, 1));
                 world.setBlockAndUpdate(pos, state.setValue(EYES, 1));
             }
         }
@@ -92,16 +92,16 @@ public class BlockGargoyle extends MachinaBase {
 
     //----------------------------------------SUPPORT----------------------------------------//
 
-    @Override
-    public boolean hasTileEntity(BlockState state) {
-        return false;
-    }
+    //@Override
+    //public boolean hasTileEntity(BlockState state) {
+    //    return false;
+    //}
 
     public boolean isSignalSource(BlockState state) {
         return state.getValue(EYES) > 0;
     }
 
-    public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+    public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
         int eyes = blockState.getValue(EYES);
         if(eyes == 1 || eyes == 3){
             return 6;
@@ -115,16 +115,16 @@ public class BlockGargoyle extends MachinaBase {
         return 0;
     }
 
-    public int getDirectSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+    public int getDirectSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
         return blockState.getSignal(blockAccess, pos, side);
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, EYES);
     }
 
     @Deprecated
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         Direction enumfacing = state.getValue(FACING);
         switch(enumfacing) {
             case NORTH: return AABB1;
@@ -132,7 +132,7 @@ public class BlockGargoyle extends MachinaBase {
             case EAST:  return AABB2;
             case WEST:  return AABB0;
             default:
-                return VoxelShapes.block();
+                return Shapes.block();
         }
     }
 

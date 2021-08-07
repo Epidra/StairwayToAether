@@ -1,37 +1,43 @@
-package mod.stairway.blocks;
+package mod.stairway.block;
 
-import mod.lucky77.blocks.BlockBase;
-import mod.lucky77.tileentities.TileBase;
+import mod.lucky77.block.BlockBase;
+import mod.lucky77.blockentity.BlockEntityBase;
 import mod.stairway.StairKeeper;
-import net.minecraft.block.*;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.pathfinding.PathType;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class BlockScaffolding extends BlockBase implements IWaterLoggable {
+public class BlockScaffolding extends BlockBase implements SimpleWaterloggedBlock {
 
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
-    public static final net.minecraft.state.BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public static final VoxelShape AABB_A = Block.box(5, 0, 5, 11, 16, 11);
     public static final VoxelShape AABB_B = Block.box(5, 0, 5, 11, 16, 16);
@@ -62,23 +68,23 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
     }
 
     @Override
-    public void interact(World world, BlockPos pos, PlayerEntity player, TileBase tile) {
+    public void interact(Level world, BlockPos pos, Player player, BlockEntityBase tile) {
 
     }
 
 
     //----------------------------------------RENDER----------------------------------------//
 
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
+    //public BlockRenderType getRenderType(BlockState state) {
+    //    return BlockRenderType.MODEL;
+    //}
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Deprecated
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         int color = state.getValue(ROTATION);
         Direction      direc = state.getValue(FACING);
 
@@ -136,11 +142,11 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
 
     //----------------------------------------PLACEMENT----------------------------------------//
 
-    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack){
+    public void setPlacedBy(Level worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack){
         searchNeighbour(worldIn, pos);
     }
 
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (stateIn.getValue(WATERLOGGED)) {
             worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
         }
@@ -153,7 +159,7 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
     //----------------------------------------UPDATE----------------------------------------//
 
     @Deprecated
-    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
         searchNeighbour(world, pos);
     }
 
@@ -170,15 +176,15 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(ROTATION, FACING, WATERLOGGED);
     }
 
-    public boolean isLadder(BlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, LivingEntity entity) {
+    public boolean isLadder(BlockState state, LevelReader world, BlockPos pos, LivingEntity entity){
         return true;
     }
 
-    public void searchNeighbour(World world, BlockPos pos){
+    public void searchNeighbour(Level world, BlockPos pos){
         boolean nn = !world.isEmptyBlock(pos.north()       );
         boolean ne = !world.isEmptyBlock(pos.north().east());
         boolean ee = !world.isEmptyBlock(pos.        east());
@@ -249,7 +255,7 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
         // '''
     }
 
-    private void updateNeighbours(World world, BlockPos pos){
+    private void updateNeighbours(Level world, BlockPos pos){
         if(world.getBlockState(pos.north()).getBlock() == StairKeeper.BLOCK_SCAFFOLDING.get()) searchNeighbour(world, pos.north());
         if(world.getBlockState(pos.east ()).getBlock() == StairKeeper.BLOCK_SCAFFOLDING.get()) searchNeighbour(world, pos.east ());
         if(world.getBlockState(pos.south()).getBlock() == StairKeeper.BLOCK_SCAFFOLDING.get()) searchNeighbour(world, pos.south());
@@ -262,25 +268,25 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
         return p_204507_1_.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(p_204507_1_);
     }
 
-    public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-        if (type == PathType.WATER) return worldIn.getFluidState(pos).is(FluidTags.WATER);
+    public boolean isPathfindable(BlockGetter level, BlockPos pos, PathComputationType type) {
+        if (type == PathComputationType.WATER) return level.getFluidState(pos).is(FluidTags.WATER);
         return false;
     }
 
-    private static boolean never(BlockState p_235436_0_, IBlockReader p_235436_1_, BlockPos p_235436_2_) {
+    private static boolean never(BlockState p_235436_0_, BlockGetter p_235436_1_, BlockPos p_235436_2_) {
         return false;
     }
 
-    public VoxelShape getVisualShape(BlockState p_230322_1_, IBlockReader p_230322_2_, BlockPos p_230322_3_, ISelectionContext p_230322_4_) {
-        return VoxelShapes.empty();
+    public VoxelShape getVisualShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+        return Shapes.empty();
     }
 
     @OnlyIn(Dist.CLIENT)
-    public float getShadeBrightness(BlockState p_220080_1_, IBlockReader p_220080_2_, BlockPos p_220080_3_) {
+    public float getShadeBrightness(BlockState p_220080_1_, BlockGetter p_220080_2_, BlockPos p_220080_3_) {
         return 1.0F;
     }
 
-    public boolean propagatesSkylightDown(BlockState p_200123_1_, IBlockReader p_200123_2_, BlockPos p_200123_3_) {
+    public boolean propagatesSkylightDown(BlockState p_200123_1_, BlockGetter p_200123_2_, BlockPos p_200123_3_) {
         return true;
     }
 

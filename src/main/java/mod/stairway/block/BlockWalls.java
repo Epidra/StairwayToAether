@@ -1,7 +1,7 @@
-package mod.stairway.blocks;
+package mod.stairway.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.WallBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WallBlock;
 
 public class BlockWalls extends WallBlock {
 

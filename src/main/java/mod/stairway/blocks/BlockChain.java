@@ -45,6 +45,7 @@ public class BlockChain extends BlockBase implements IWaterLoggable {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
@@ -53,10 +54,8 @@ public class BlockChain extends BlockBase implements IWaterLoggable {
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.Y).setValue(OFFSET, false).setValue(WATERLOGGED, false));
     }
 
-    @Override
-    public void interact(World world, BlockPos pos, PlayerEntity player, TileBase tile) {
 
-    }
+
 
 
     //----------------------------------------PLACEMENT----------------------------------------//
@@ -81,6 +80,18 @@ public class BlockChain extends BlockBase implements IWaterLoggable {
 
 
 
+
+    //----------------------------------------INTERACTION----------------------------------------//
+
+    @Override
+    public void interact(World world, BlockPos pos, PlayerEntity player, TileBase tile) {
+
+    }
+
+
+
+
+
     //----------------------------------------RENDER----------------------------------------//
 
     @Deprecated
@@ -94,6 +105,7 @@ public class BlockChain extends BlockBase implements IWaterLoggable {
             default: return VoxelShapes.block();
         }
     }
+
 
 
 
@@ -138,5 +150,7 @@ public class BlockChain extends BlockBase implements IWaterLoggable {
         if (type == PathType.WATER) return worldIn.getFluidState(pos).is(FluidTags.WATER);
         return false;
     }
+
+
 
 }

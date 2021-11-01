@@ -10,11 +10,14 @@ public class BlockWalls extends WallBlock {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
     public BlockWalls(Block block) {
         super(Properties.copy(block));
     }
+
+
 
 }

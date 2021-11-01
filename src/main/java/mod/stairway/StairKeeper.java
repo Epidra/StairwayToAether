@@ -31,6 +31,7 @@ public class StairKeeper {
 
 
 
+
     // Stone
     //                                        BLOCK_STONE_STONE
     //                                        SLABS_STONE_STONE
@@ -466,6 +467,7 @@ public class StairKeeper {
 
 
 
+
     //----------------------------------------REGISTER----------------------------------------//
 
     static void register(){
@@ -485,6 +487,7 @@ public class StairKeeper {
     private static RegistryObject<Item> register(String name, Item item){
         return ITEMS.register(name, () -> item);
     }
+
 
 
 
@@ -516,5 +519,7 @@ public class StairKeeper {
             RenderTypeLookup.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLACK.get(),      RenderType.translucent());
         });
     }
+
+
 
 }

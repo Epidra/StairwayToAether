@@ -27,12 +27,14 @@ public class BlockEmitter extends MachinaCube {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
     public BlockEmitter(Block block) {
         super(block);
     }
+
 
 
 
@@ -53,6 +55,7 @@ public class BlockEmitter extends MachinaCube {
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
     }
+
 
 
 
@@ -82,12 +85,8 @@ public class BlockEmitter extends MachinaCube {
 
 
 
-    //----------------------------------------UPDATE----------------------------------------//
 
-    /** How many world ticks before ticking */
-    public int tickRate(IWorldReader worldIn) {
-        return 1;
-    }
+    //----------------------------------------UPDATE----------------------------------------//
 
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         int power = worldIn.getBestNeighborSignal(pos);
@@ -100,6 +99,7 @@ public class BlockEmitter extends MachinaCube {
         Direction facing = state.getValue(FACING);
         setLightBlocks(state, world, pos, power, facing);
     }
+
 
 
 
@@ -163,5 +163,7 @@ public class BlockEmitter extends MachinaCube {
         if(state.getBlock() == StairKeeper.BLOCK_EMITTER_YELLOW.get())     return StairKeeper.BLOCK_LIGHT_YELLOW.get().defaultBlockState();
         return StairKeeper.BLOCK_LIGHT_BLACK.get().defaultBlockState();
     }
+
+
 
 }

@@ -53,6 +53,7 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
@@ -61,20 +62,57 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(ROTATION, 0).setValue(WATERLOGGED, false));
     }
 
+
+
+
+
+    //----------------------------------------PLACEMENT----------------------------------------//
+
+    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack){
+        searchNeighbour(worldIn, pos);
+    }
+
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.getValue(WATERLOGGED)) {
+            worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
+        }
+        return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    }
+
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+
+
+
+
+    //----------------------------------------INTERACTION----------------------------------------//
+
     @Override
     public void interact(World world, BlockPos pos, PlayerEntity player, TileBase tile) {
 
     }
 
 
+
+
+
+    //----------------------------------------UPDATE----------------------------------------//
+
+    @Deprecated
+    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+        searchNeighbour(world, pos);
+    }
+
+
+
+
+
     //----------------------------------------RENDER----------------------------------------//
 
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Deprecated
@@ -131,31 +169,6 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
         return AABB_A;
     }
 
-
-
-
-    //----------------------------------------PLACEMENT----------------------------------------//
-
-    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack){
-        searchNeighbour(worldIn, pos);
-    }
-
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (stateIn.getValue(WATERLOGGED)) {
-            worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
-        }
-        return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-    }
-
-
-
-
-    //----------------------------------------UPDATE----------------------------------------//
-
-    @Deprecated
-    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-        searchNeighbour(world, pos);
-    }
 
 
 
@@ -288,5 +301,7 @@ public class BlockScaffolding extends BlockBase implements IWaterLoggable {
     public boolean skipRendering(BlockState p_200122_1_, BlockState p_200122_2_, Direction p_200122_3_) {
         return p_200122_2_.is(this) ? true : super.skipRendering(p_200122_1_, p_200122_2_, p_200122_3_);
     }
+
+
 
 }

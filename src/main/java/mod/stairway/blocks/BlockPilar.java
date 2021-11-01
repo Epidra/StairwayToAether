@@ -64,6 +64,7 @@ public class BlockPilar extends BlockBase implements IWaterLoggable {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
@@ -78,30 +79,6 @@ public class BlockPilar extends BlockBase implements IWaterLoggable {
         );
     }
 
-
-
-
-    //----------------------------------------RENDER----------------------------------------//
-
-    public BlockRenderType getRenderShape(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
-    @Deprecated
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        Direction.Axis enumfacing = state.getValue(AXIS);
-        int connection = state.getValue(CONNECTION);
-        switch(enumfacing) {
-            case X:
-                return connection == 4 ? AABB_X4 : connection == 3 ? AABB_X3 : connection == 2 ? AABB_X2 : connection == 1 ? AABB_X1 : AABB_X0;
-            case Y:
-                return connection == 4 ? AABB_Y4 : connection == 3 ? AABB_Y3 : connection == 2 ? AABB_Y2 : connection == 1 ? AABB_Y1 : AABB_Y0;
-            case Z:
-                return connection == 4 ? AABB_Z4 : connection == 3 ? AABB_Z3 : connection == 2 ? AABB_Z2 : connection == 1 ? AABB_Z1 : AABB_Z0;
-            default:
-                return VoxelShapes.block();
-        }
-    }
 
 
 
@@ -145,12 +122,14 @@ public class BlockPilar extends BlockBase implements IWaterLoggable {
 
 
 
+
     //----------------------------------------INTERACTION----------------------------------------//
 
     @Override
     public void interact(World world, BlockPos pos, PlayerEntity player, TileBase tile) {
 
     }
+
 
 
 
@@ -170,6 +149,33 @@ public class BlockPilar extends BlockBase implements IWaterLoggable {
         }
         updateNeighbours(world, pos);
     }
+
+
+
+
+
+    //----------------------------------------RENDER----------------------------------------//
+
+    public BlockRenderType getRenderShape(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
+    @Deprecated
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        Direction.Axis enumfacing = state.getValue(AXIS);
+        int connection = state.getValue(CONNECTION);
+        switch(enumfacing) {
+            case X:
+                return connection == 4 ? AABB_X4 : connection == 3 ? AABB_X3 : connection == 2 ? AABB_X2 : connection == 1 ? AABB_X1 : AABB_X0;
+            case Y:
+                return connection == 4 ? AABB_Y4 : connection == 3 ? AABB_Y3 : connection == 2 ? AABB_Y2 : connection == 1 ? AABB_Y1 : AABB_Y0;
+            case Z:
+                return connection == 4 ? AABB_Z4 : connection == 3 ? AABB_Z3 : connection == 2 ? AABB_Z2 : connection == 1 ? AABB_Z1 : AABB_Z0;
+            default:
+                return VoxelShapes.block();
+        }
+    }
+
 
 
 
@@ -256,5 +262,7 @@ public class BlockPilar extends BlockBase implements IWaterLoggable {
         if (type == PathType.WATER) return worldIn.getFluidState(pos).is(FluidTags.WATER);
         return false;
     }
+
+
 
 }

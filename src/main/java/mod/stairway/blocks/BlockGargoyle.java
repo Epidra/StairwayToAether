@@ -30,6 +30,7 @@ public class BlockGargoyle extends MachinaBase {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     public BlockGargoyle(Block block) {
@@ -40,9 +41,11 @@ public class BlockGargoyle extends MachinaBase {
 
 
 
+
     //----------------------------------------PLACEMENT----------------------------------------//
 
     // ...
+
 
 
 
@@ -86,6 +89,7 @@ public class BlockGargoyle extends MachinaBase {
             }
         }
     }
+
 
 
 
@@ -135,5 +139,7 @@ public class BlockGargoyle extends MachinaBase {
                 return VoxelShapes.block();
         }
     }
+
+
 
 }

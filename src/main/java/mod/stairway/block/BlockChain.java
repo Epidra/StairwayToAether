@@ -46,6 +46,7 @@ public class BlockChain extends BlockBase implements SimpleWaterloggedBlock {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     /** Default Constructor */
@@ -54,10 +55,8 @@ public class BlockChain extends BlockBase implements SimpleWaterloggedBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.Y).setValue(OFFSET, false).setValue(WATERLOGGED, false));
     }
 
-    @Override
-    public void interact(Level world, BlockPos pos, Player player, BlockEntityBase tile) {
 
-    }
+
 
 
     //----------------------------------------PLACEMENT----------------------------------------//
@@ -82,6 +81,18 @@ public class BlockChain extends BlockBase implements SimpleWaterloggedBlock {
 
 
 
+
+    //----------------------------------------INTERACT----------------------------------------//
+
+    @Override
+    public void interact(Level world, BlockPos pos, Player player, BlockEntityBase tile) {
+
+    }
+
+
+
+
+
     //----------------------------------------RENDER----------------------------------------//
 
     @Deprecated
@@ -95,6 +106,7 @@ public class BlockChain extends BlockBase implements SimpleWaterloggedBlock {
             default: return Shapes.block();
         }
     }
+
 
 
 
@@ -139,5 +151,7 @@ public class BlockChain extends BlockBase implements SimpleWaterloggedBlock {
         if (type == PathComputationType.WATER) return level.getFluidState(pos).is(FluidTags.WATER);
         return false;
     }
+
+
 
 }

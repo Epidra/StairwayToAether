@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -27,6 +26,7 @@ public class StairKeeper {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     private static final DeferredRegister<Item>  ITEMS  = DeferredRegister.create(ForgeRegistries.ITEMS,  MODID);
+
 
 
 
@@ -466,6 +466,7 @@ public class StairKeeper {
 
 
 
+
     //----------------------------------------REGISTER----------------------------------------//
 
     static void register(){
@@ -485,6 +486,7 @@ public class StairKeeper {
     private static RegistryObject<Item> register(String name, Item item){
         return ITEMS.register(name, () -> item);
     }
+
 
 
 
@@ -516,5 +518,7 @@ public class StairKeeper {
             ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLACK.get(),      RenderType.translucent());
         //});
     }
+
+
 
 }

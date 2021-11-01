@@ -30,6 +30,7 @@ public class BlockGargoyle extends MachinaBase {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     public BlockGargoyle(Block block) {
@@ -40,9 +41,11 @@ public class BlockGargoyle extends MachinaBase {
 
 
 
+
     //----------------------------------------PLACEMENT----------------------------------------//
 
     // ...
+
 
 
 
@@ -90,12 +93,8 @@ public class BlockGargoyle extends MachinaBase {
 
 
 
-    //----------------------------------------SUPPORT----------------------------------------//
 
-    //@Override
-    //public boolean hasTileEntity(BlockState state) {
-    //    return false;
-    //}
+    //----------------------------------------SUPPORT----------------------------------------//
 
     public boolean isSignalSource(BlockState state) {
         return state.getValue(EYES) > 0;
@@ -135,5 +134,7 @@ public class BlockGargoyle extends MachinaBase {
                 return Shapes.block();
         }
     }
+
+
 
 }

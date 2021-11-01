@@ -24,11 +24,13 @@ public class BlockLight extends StainedGlassBlock {
 
 
 
+
     //----------------------------------------CONSTRUCTOR----------------------------------------//
 
     public BlockLight(Block block, DyeColor dyeColor) {
         super(dyeColor, Properties.copy(block).strength(2000));
     }
+
 
 
 
@@ -48,6 +50,7 @@ public class BlockLight extends StainedGlassBlock {
 
 
 
+
     //----------------------------------------SUPPORT----------------------------------------//
 
     public BlockState rotate(BlockState state, Rotation rot) {
@@ -61,5 +64,7 @@ public class BlockLight extends StainedGlassBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
+
+
 
 }

@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_small",
+    "textures": {
+        "top":      "stairway:block/andesite_bricks_basic",
+        "side":     "stairway:block/andesite_bricks_basic",
+        "bottom":   "stairway:block/andesite_bricks_basic",
+        "particle": "stairway:block/andesite_bricks_basic"
+    }
+}

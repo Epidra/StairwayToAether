@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "block_granite_stones",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_granite_cobble_basic"
+    }
+  },
+  "result": {
+    "item": "minecraft:granite",
+    "count": 4
+  }
+}

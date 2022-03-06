@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_lime_stained_hardened_clay": {
+    "has_lime_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:lime_terracotta"
+            "items": ["minecraft:lime_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_lime_stained_hardened_clay"
+      "has_lime_terracotta"
     ]
   ]
 }

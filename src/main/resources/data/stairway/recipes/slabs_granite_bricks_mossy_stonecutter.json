@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "stairway:block_granite_bricks_mossy"
+  },
+  "result": "stairway:slabs_granite_bricks_mossy",
+  "count": 2
+}

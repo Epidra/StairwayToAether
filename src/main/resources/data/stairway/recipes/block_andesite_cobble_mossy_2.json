@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block_andesite_cobble_mossy",
+  "ingredients": [
+    {
+      "item": "stairway:block_andesite_cobble_basic"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
+  ],
+  "result": {
+    "item": "stairway:block_andesite_cobble_mossy",
+    "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/statue_dog",
+    "textures": {
+        "stone":    "stairway:block/endstone_smooth",
+        "gem1":     "minecraft:block/emerald_block",
+        "gem2":     "minecraft:block/emerald_block",
+        "particle": "stairway:block/endstone_smooth"
+    }
+}

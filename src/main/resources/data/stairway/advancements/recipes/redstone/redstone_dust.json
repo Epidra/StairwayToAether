@@ -2,20 +2,29 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:goyle_dog_stone",
-      "stairway:goyle_dog_granite",
-      "stairway:goyle_dog_diorite",
-      "stairway:goyle_dog_andesite",
-      "stairway:goyle_dog_end"
+      "stairway:statue_dog_stone",
+      "stairway:statue_dog_granite",
+      "stairway:statue_dog_diorite",
+      "stairway:statue_dog_andesite",
+      "stairway:statue_dog_endstone",
+      "stairway:statue_dog_blackstone",
+      "stairway:statue_dog_deepslate",
+      "stairway:statue_chicken_stone",
+      "stairway:statue_chicken_granite",
+      "stairway:statue_chicken_diorite",
+      "stairway:statue_chicken_andesite",
+      "stairway:statue_chicken_endstone",
+      "stairway:statue_chicken_blackstone",
+      "stairway:statue_chicken_deepslate"
     ]
   },
   "criteria": {
-    "has_quartz": {
+    "has_redstone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:redstone"
+            "items": ["minecraft:redstone"]
           }
         ]
       }
@@ -23,7 +32,7 @@
   },
   "requirements": [
     [
-      "has_quartz"
+      "has_redstone"
     ]
   ]
 }

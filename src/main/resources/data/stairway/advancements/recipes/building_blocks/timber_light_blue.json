@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_lightblue_stained_hardened_clay": {
+    "has_light_blue_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:light_blue_terracotta"
+            "items": ["minecraft:light_blue_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_lightblue_stained_hardened_clay"
+      "has_light_blue_terracotta"
     ]
   ]
 }

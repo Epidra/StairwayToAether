@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "block_blackstone_bricks_crack",
+  "ingredient": {
+    "item": "stairway:block_blackstone_bricks_mossy"
+  },
+  "result": "minecraft:cracked_polished_blackstone_bricks",
+  "experience": 0.15,
+  "cookingtime": 200
+}

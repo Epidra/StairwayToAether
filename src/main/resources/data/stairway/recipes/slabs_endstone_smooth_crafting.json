@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_endstone",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_endstone_smooth"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_endstone_smooth",
+    "count": 6
+  }
+}

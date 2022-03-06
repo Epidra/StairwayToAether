@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_endstone_cobble_basic_crafting",
+      "stairway:walls_endstone_cobble_basic_stonecutter",
+      "stairway:pilar_endstone_cobble_basic_crafting",
+      "stairway:pilar_endstone_cobble_basic_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_end": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_endstone_cobble_basic"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_end"
+    ]
+  ]
+}

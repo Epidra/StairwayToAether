@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+      "item": "stairway:block_andesite_bricks_basic"
+  },
+  "result": "stairway:pilar_andesite_bricks_basic",
+    "count": 1
+}

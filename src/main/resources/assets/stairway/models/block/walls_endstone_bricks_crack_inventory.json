@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_inventory",
+    "textures": {
+        "wall": "stairway:block/endstone_bricks_crack"
+    }
+}

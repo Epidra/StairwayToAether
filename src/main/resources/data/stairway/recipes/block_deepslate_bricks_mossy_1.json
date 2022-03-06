@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "block_deepslate_bricks_mossy",
+    "ingredients": [
+        {
+            "item": "minecraft:deepslate_bricks"
+        },
+        {
+            "item": "minecraft:vine"
+        }
+    ],
+    "result": {
+        "item": "stairway:block_deepslate_bricks_mossy",
+        "count": 1
+    }
+}

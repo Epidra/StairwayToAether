@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_diorite_bricks_basic_crafting",
+      "stairway:walls_diorite_bricks_basic_stonecutter",
+      "stairway:pilar_diorite_bricks_basic_crafting",
+      "stairway:pilar_diorite_bricks_basic_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_diorite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_diorite_bricks_basic"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite"
+    ]
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_deepslate_bricks_mossy_1",
+      "stairway:block_deepslate_bricks_mossy_2"
+    ]
+  },
+  "criteria": {
+    "has_deepslate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:deepslate_bricks"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate"
+    ]
+  ]
+}

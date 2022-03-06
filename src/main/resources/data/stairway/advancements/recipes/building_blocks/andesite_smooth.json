@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:block_andesite_brick1"
+      "stairway:block_andesite_bricks_basic_1"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:polished_andesite"
+            "items": ["minecraft:polished_andesite"]
           }
         ]
       }

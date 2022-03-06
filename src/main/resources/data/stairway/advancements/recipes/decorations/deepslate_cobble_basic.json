@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:pilar_deepslate_cobble_basic_crafting",
+      "stairway:pilar_deepslate_cobble_basic_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_deepslate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:cobbled_deepslate"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_granite_bricks_basic_crafting",
+      "stairway:walls_granite_bricks_basic_stonecutter",
+      "stairway:pilar_granite_bricks_basic_crafting",
+      "stairway:pilar_granite_bricks_basic_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_granite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_granite_bricks_basic"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite"
+    ]
+  ]
+}

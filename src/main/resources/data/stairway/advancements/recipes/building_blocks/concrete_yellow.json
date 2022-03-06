@@ -2,8 +2,8 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:slabs_concrete_yellow",
-      "stairway:stair_concrete_yellow",
+      "stairway:slabs_concrete_yellow_crafting",
+      "stairway:stair_concrete_yellow_crafting",
       "stairway:slabs_concrete_yellow_stonecutter",
       "stairway:stair_concrete_yellow_stonecutter"
     ]
@@ -14,7 +14,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:yellow_concrete"
+            "items": ["minecraft:yellow_concrete"]
           }
         ]
       }

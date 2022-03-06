@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_magenta_stained_hardened_clay": {
+    "has_magenta_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:magenta_terracotta"
+            "items": ["minecraft:magenta_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_magenta_stained_hardened_clay"
+      "has_magenta_terracotta"
     ]
   ]
 }

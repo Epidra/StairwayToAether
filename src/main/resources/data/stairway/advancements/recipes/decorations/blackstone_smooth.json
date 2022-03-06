@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:pilar_blackstone_smooth_crafting",
+      "stairway:pilar_blackstone_smooth_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_blackstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:polished_blackstone"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blackstone"
+    ]
+  ]
+}

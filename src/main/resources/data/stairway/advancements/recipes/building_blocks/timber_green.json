@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_green_stained_hardened_clay": {
+    "has_green_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:green_terracotta"
+            "items": ["minecraft:green_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_green_stained_hardened_clay"
+      "has_green_terracotta"
     ]
   ]
 }

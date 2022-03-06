@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_blackstone_bricks_mossy_1",
+      "stairway:block_blackstone_bricks_mossy_2"
+    ]
+  },
+  "criteria": {
+    "has_blackstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:polished_blackstone_bricks"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blackstone"
+    ]
+  ]
+}

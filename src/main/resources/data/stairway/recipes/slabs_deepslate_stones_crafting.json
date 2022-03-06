@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "slabs_deepslate",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:deepslate"
+        }
+    },
+    "result": {
+        "item": "stairway:slabs_deepslate_stones",
+        "count": 6
+    }
+}

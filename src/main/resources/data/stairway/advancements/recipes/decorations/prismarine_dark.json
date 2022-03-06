@@ -2,9 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:walls_prismarine_dark",
+      "stairway:walls_prismarine_dark_crafting",
       "stairway:walls_prismarine_dark_stonecutter",
-      "stairway:pilar_prismarine_dark",
+      "stairway:pilar_prismarine_dark_crafting",
       "stairway:pilar_prismarine_dark_stonecutter"
     ]
   },
@@ -14,7 +14,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:dark_prismarine"
+            "items": ["minecraft:dark_prismarine"]
           }
         ]
       }

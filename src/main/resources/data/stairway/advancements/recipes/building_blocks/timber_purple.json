@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_purple_stained_hardened_clay": {
+    "has_purple_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:purple_terracotta"
+            "items": ["minecraft:purple_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_purple_stained_hardened_clay"
+      "has_purple_terracotta"
     ]
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_diorite_stones_1",
+      "stairway:block_diorite_cobble_mossy_1",
+      "stairway:block_diorite_cobble_mossy_2",
+      "stairway:slabs_diorite_cobble_basic_crafting",
+      "stairway:stair_diorite_cobble_basic_crafting",
+      "stairway:slabs_diorite_cobble_basic_stonecutter",
+      "stairway:stair_diorite_cobble_basic_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_diorite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_diorite_cobble_basic"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite"
+    ]
+  ]
+}

@@ -2,9 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:walls_prismarine_brick",
+      "stairway:walls_prismarine_brick_crafting",
       "stairway:walls_prismarine_brick_stonecutter",
-      "stairway:pilar_prismarine_brick",
+      "stairway:pilar_prismarine_brick_crafting",
       "stairway:pilar_prismarine_brick_stonecutter"
     ]
   },
@@ -14,7 +14,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:prismarine_bricks"
+            "items": ["minecraft:prismarine_bricks"]
           }
         ]
       }

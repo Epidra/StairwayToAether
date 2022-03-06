@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "statue_chicken",
+    "pattern": [
+        "B",
+        "R",
+        "#"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:feather"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "#": {
+            "item": "minecraft:smooth_stone"
+        }
+    },
+    "result": {
+        "item": "stairway:statue_chicken_stone",
+        "count": 1
+    }
+}

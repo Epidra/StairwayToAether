@@ -2,11 +2,11 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:block_end_brick1",
-      "stairway:slabs_end_smooth",
-      "stairway:stair_end_smooth",
-      "stairway:slabs_end_smooth_stonecutter",
-      "stairway:stair_end_smooth_stonecutter"
+      "stairway:block_endstone_bricks_basic_1",
+      "stairway:slabs_endstone_smooth_crafting",
+      "stairway:stair_endstone_smooth_crafting",
+      "stairway:slabs_endstone_smooth_stonecutter",
+      "stairway:stair_endstone_smooth_stonecutter"
     ]
   },
   "criteria": {
@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "item": "stairway:block_end_smooth"
+            "items": ["stairway:block_endstone_smooth"]
           }
         ]
       }

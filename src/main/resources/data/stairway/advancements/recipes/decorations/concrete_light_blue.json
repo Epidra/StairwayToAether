@@ -2,9 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:walls_concrete_light_blue",
+      "stairway:walls_concrete_light_blue_crafting",
       "stairway:walls_concrete_light_blue_stonecutter",
-      "stairway:pilar_concrete_light_blue",
+      "stairway:pilar_concrete_light_blue_crafting",
       "stairway:pilar_concrete_light_blue_stonecutter"
     ]
   },
@@ -14,7 +14,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:light_blue_concrete"
+            "items": ["minecraft:light_blue_concrete"]
           }
         ]
       }

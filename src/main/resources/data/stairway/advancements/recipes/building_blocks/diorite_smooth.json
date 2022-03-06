@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:block_diorite_brick1"
+      "stairway:block_diorite_bricks_basic_1"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:polished_diorite"
+            "items": ["minecraft:polished_diorite"]
           }
         ]
       }

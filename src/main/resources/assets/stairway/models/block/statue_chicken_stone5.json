@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/statue_chicken",
+    "textures": {
+        "stone":    "minecraft:block/smooth_stone",
+        "gem1":     "minecraft:block/diamond_block",
+        "gem2":     "minecraft:block/emerald_block",
+        "particle": "minecraft:block/smooth_stone"
+    }
+}

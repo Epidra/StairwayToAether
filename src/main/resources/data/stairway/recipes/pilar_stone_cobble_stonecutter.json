@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-      "item": "minecraft:cobblestone"
-  },
-  "result": "stairway:pilar_stone_cobble",
-    "count": 1
-}

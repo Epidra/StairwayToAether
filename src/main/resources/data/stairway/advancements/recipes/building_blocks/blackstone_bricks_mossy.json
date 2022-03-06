@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_blackstone_bricks_crack",
+      "stairway:slabs_blackstone_bricks_mossy_crafting",
+      "stairway:stair_blackstone_bricks_mossy_crafting",
+      "stairway:slabs_blackstone_bricks_mossy_stonecutter",
+      "stairway:stair_blackstone_bricks_mossy_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_blackstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_blackstone_bricks_mossy"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blackstone"
+    ]
+  ]
+}

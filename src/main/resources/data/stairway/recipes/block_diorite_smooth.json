@@ -1,9 +1,0 @@
-{
-  "type": "smelting",
-  "ingredient": {
-    "item": "minecraft:diorite"
-  },
-  "result": "minecraft:polished_diorite",
-  "experience": 0.15,
-  "cookingtime": 200
-}

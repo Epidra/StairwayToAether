@@ -2,9 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:walls_concrete_pink",
+      "stairway:walls_concrete_pink_crafting",
       "stairway:walls_concrete_pink_stonecutter",
-      "stairway:pilar_concrete_pink",
+      "stairway:pilar_concrete_pink_crafting",
       "stairway:pilar_concrete_pink_stonecutter"
     ]
   },
@@ -14,7 +14,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:pink_concrete"
+            "items": ["minecraft:pink_concrete"]
           }
         ]
       }

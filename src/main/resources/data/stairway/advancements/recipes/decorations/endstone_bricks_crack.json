@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_endstone_bricks_crack_crafting",
+      "stairway:walls_endstone_bricks_crack_stonecutter",
+      "stairway:pilar_endstone_bricks_crack_crafting",
+      "stairway:pilar_endstone_bricks_crack_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_end": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_endstone_bricks_crack"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_end"
+    ]
+  ]
+}

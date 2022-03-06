@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "slabs_blackstone",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "stairway:block_blackstone_cobble_mossy"
+        }
+    },
+    "result": {
+        "item": "stairway:slabs_blackstone_cobble_mossy",
+        "count": 6
+    }
+}

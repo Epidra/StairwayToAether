@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_granite_cobble_mossy_crafting",
+      "stairway:walls_granite_cobble_mossy_stonecutter",
+      "stairway:pilar_granite_cobble_mossy_crafting",
+      "stairway:pilar_granite_cobble_mossy_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_granite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_granite_cobble_mossy"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite"
+    ]
+  ]
+}

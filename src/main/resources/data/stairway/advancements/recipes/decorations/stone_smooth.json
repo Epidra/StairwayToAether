@@ -2,9 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:walls_stone_smooth",
+      "stairway:walls_stone_smooth_crafting",
       "stairway:walls_stone_smooth_stonecutter",
-      "stairway:pilar_stone_smooth",
+      "stairway:pilar_stone_smooth_crafting",
       "stairway:pilar_stone_smooth_stonecutter"
     ]
   },
@@ -14,7 +14,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:smooth_stone"
+            "items": ["minecraft:smooth_stone"]
           }
         ]
       }

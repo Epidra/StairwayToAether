@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "stairway:block_blackstone_bricks_mossy"
+    },
+    "result": "stairway:pilar_blackstone_bricks_mossy",
+    "count": 1
+}

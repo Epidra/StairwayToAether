@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_inner_big",
+    "textures": {
+        "top":      "stairway:block/endstone_cobble_mossy",
+        "side":     "stairway:block/endstone_cobble_mossy",
+        "bottom":   "stairway:block/endstone_cobble_mossy",
+        "particle": "stairway:block/endstone_cobble_mossy"
+    }
+}

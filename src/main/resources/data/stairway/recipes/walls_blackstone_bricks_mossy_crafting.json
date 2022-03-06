@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "walls_blackstone",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_blackstone_bricks_mossy"
+    }
+  },
+  "result": {
+    "item": "stairway:walls_blackstone_bricks_mossy",
+    "count": 6
+  }
+}

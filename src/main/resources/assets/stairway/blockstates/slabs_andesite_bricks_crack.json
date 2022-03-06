@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "type=bottom,waterlogged=false": { "model": "stairway:block/slabs_andesite_bricks_crack_bottom" },
+        "type=bottom,waterlogged=true":  { "model": "stairway:block/slabs_andesite_bricks_crack_bottom" },
+        "type=top,waterlogged=false":    { "model": "stairway:block/slabs_andesite_bricks_crack_top"    },
+        "type=top,waterlogged=true":     { "model": "stairway:block/slabs_andesite_bricks_crack_top"    },
+        "type=double,waterlogged=false": { "model": "stairway:block/block_andesite_bricks_crack"        },
+        "type=double,waterlogged=true":  { "model": "stairway:block/block_andesite_bricks_crack"        }
+    }
+}

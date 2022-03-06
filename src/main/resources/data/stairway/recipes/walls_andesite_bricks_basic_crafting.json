@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "walls_andesite",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_andesite_bricks_basic"
+    }
+  },
+  "result": {
+    "item": "stairway:walls_andesite_bricks_basic",
+    "count": 6
+  }
+}

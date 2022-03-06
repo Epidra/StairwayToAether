@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_small",
+    "textures": {
+        "top":      "stairway:block/endstone_bricks_mossy",
+        "side":     "stairway:block/endstone_bricks_mossy",
+        "bottom":   "stairway:block/endstone_bricks_mossy",
+        "particle": "stairway:block/endstone_bricks_mossy"
+    }
+}

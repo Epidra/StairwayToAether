@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_diorite",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_diorite_bricks_mossy"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_diorite_bricks_mossy",
+    "count": 6
+  }
+}

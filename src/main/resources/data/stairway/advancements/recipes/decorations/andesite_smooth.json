@@ -2,9 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "stairway:walls_andesite_smooth",
+      "stairway:walls_andesite_smooth_crafting",
       "stairway:walls_andesite_smooth_stonecutter",
-      "stairway:pilar_andesite_smooth",
+      "stairway:pilar_andesite_smooth_crafting",
       "stairway:pilar_andesite_smooth_stonecutter"
     ]
   },
@@ -14,7 +14,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:polished_andesite"
+            "items": ["minecraft:polished_andesite"]
           }
         ]
       }

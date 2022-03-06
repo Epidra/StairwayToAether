@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:slabs_deepslate_bricks_crack_crafting",
+      "stairway:stair_deepslate_bricks_crack_crafting",
+      "stairway:slabs_deepslate_bricks_crack_stonecutter",
+      "stairway:stair_deepslate_bricks_crack_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_deepslate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:cracked_deepslate_bricks"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate"
+    ]
+  ]
+}

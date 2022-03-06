@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_gray_stained_hardened_clay": {
+    "has_gray_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:gray_terracotta"
+            "items": ["minecraft:gray_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_gray_stained_hardened_clay"
+      "has_gray_terracotta"
     ]
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pilar_endstone",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_endstone_cobble_basic"
+    }
+  },
+  "result": {
+    "item": "stairway:pilar_endstone_cobble_basic",
+    "count": 3
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "type=bottom,waterlogged=false": { "model": "stairway:block/slabs_granite_cobble_mossy_bottom" },
+        "type=bottom,waterlogged=true":  { "model": "stairway:block/slabs_granite_cobble_mossy_bottom" },
+        "type=top,waterlogged=false":    { "model": "stairway:block/slabs_granite_cobble_mossy_top"    },
+        "type=top,waterlogged=true":     { "model": "stairway:block/slabs_granite_cobble_mossy_top"    },
+        "type=double,waterlogged=false": { "model": "stairway:block/block_granite_cobble_mossy"        },
+        "type=double,waterlogged=true":  { "model": "stairway:block/block_granite_cobble_mossy"        }
+    }
+}

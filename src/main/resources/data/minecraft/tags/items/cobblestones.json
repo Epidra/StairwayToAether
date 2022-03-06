@@ -3,13 +3,17 @@
   "values": [
     "minecraft:cobblestone",
     "minecraft:mossy_cobblestone",
-    "stairway:block_granite_cobble",
-    "stairway:block_granite_cobble_moss",
-    "stairway:block_diorite_cobble",
-    "stairway:block_diorite_cobble_moss",
-    "stairway:block_andesite_cobble",
-    "stairway:block_andesite_cobble_moss",
-    "stairway:block_end_cobble",
-    "stairway:block_end_cobble_moss"
+    "minecraft:blackstone",
+    "minecraft:cobbled_deepslate",
+    "stairway:block_granite_cobble_basic",
+    "stairway:block_granite_cobble_mossy",
+    "stairway:block_diorite_cobble_basic",
+    "stairway:block_diorite_cobble_mossy",
+    "stairway:block_andesite_cobble_basic",
+    "stairway:block_andesite_cobble_mossy",
+    "stairway:block_endstone_cobble_basic",
+    "stairway:block_endstone_cobble_mossy",
+    "stairway:block_blackstone_cobble_mossy",
+    "stairway:block_deepslate_cobble_mossy"
   ]
 }

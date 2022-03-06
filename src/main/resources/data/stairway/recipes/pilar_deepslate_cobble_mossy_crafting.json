@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "pilar_deepslate",
+    "pattern": [
+        "#",
+        "#",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "stairway:block_deepslate_cobble_mossy"
+        }
+    },
+    "result": {
+        "item": "stairway:pilar_deepslate_cobble_mossy",
+        "count": 3
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "block_endstone_bricks_crack",
+  "ingredient": {
+    "item": "minecraft:end_stone_bricks"
+  },
+  "result": "stairway:block_endstone_bricks_crack",
+  "experience": 0.15,
+  "cookingtime": 200
+}

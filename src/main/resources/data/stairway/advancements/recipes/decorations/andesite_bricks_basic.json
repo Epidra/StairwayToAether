@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_andesite_bricks_basic_crafting",
+      "stairway:walls_andesite_bricks_basic_stonecutter",
+      "stairway:pilar_andesite_bricks_basic_crafting",
+      "stairway:pilar_andesite_bricks_basic_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_andesite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_andesite_bricks_basic"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite"
+    ]
+  ]
+}

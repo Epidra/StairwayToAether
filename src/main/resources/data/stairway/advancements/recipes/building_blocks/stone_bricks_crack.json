@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:slabs_stone_bricks_crack_crafting",
+      "stairway:stair_stone_bricks_crack_crafting",
+      "stairway:slabs_stone_bricks_crack_stonecutter",
+      "stairway:stair_stone_bricks_crack_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:cracked_stone_bricks"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone"
+    ]
+  ]
+}

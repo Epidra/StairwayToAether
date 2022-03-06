@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:walls_deepslate_bricks_mossy_crafting",
+      "stairway:walls_deepslate_bricks_mossy_stonecutter",
+      "stairway:pilar_deepslate_bricks_mossy_crafting",
+      "stairway:pilar_deepslate_bricks_mossy_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_deepslate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_deepslate_bricks_mossy"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate"
+    ]
+  ]
+}

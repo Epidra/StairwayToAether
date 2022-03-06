@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "stairway:block_endstone_cobble_mossy"
+  },
+  "result": "stairway:walls_endstone_cobble_mossy",
+  "count": 1
+}

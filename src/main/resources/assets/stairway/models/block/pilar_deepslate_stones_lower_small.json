@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_small",
+    "textures": {
+        "top":      "minecraft:block/deepslate",
+        "side":     "minecraft:block/deepslate",
+        "bottom":   "minecraft:block/deepslate",
+        "particle": "minecraft:block/deepslate"
+    }
+}

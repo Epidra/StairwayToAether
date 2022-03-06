@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_inner_big",
+    "textures": {
+        "top":      "minecraft:block/cobbled_deepslate",
+        "side":     "minecraft:block/cobbled_deepslate",
+        "bottom":   "minecraft:block/cobbled_deepslate",
+        "particle": "minecraft:block/cobbled_deepslate"
+    }
+}

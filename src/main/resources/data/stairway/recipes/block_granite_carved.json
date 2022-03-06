@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:slabs_granite_bricks_basic"
+    }
+  },
+  "result": {
+    "item": "stairway:block_granite_carved",
+    "count": 1
+  }
+}

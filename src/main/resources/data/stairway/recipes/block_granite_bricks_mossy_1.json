@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block_granite_bricks_mossy",
+  "ingredients": [
+    {
+      "item": "stairway:block_granite_bricks_basic"
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ],
+  "result": {
+    "item": "stairway:block_granite_bricks_mossy",
+    "count": 1
+  }
+}

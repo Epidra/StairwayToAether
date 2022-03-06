@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-    "group": "chainblock",
+    "group": "block_chain",
   "pattern": [
     "#",
     "#",

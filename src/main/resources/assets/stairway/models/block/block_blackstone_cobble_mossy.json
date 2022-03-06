@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/cube_column",
+    "textures": {
+        "end": "stairway:block/blackstone_cobble_mossy_top",
+        "side": "stairway:block/blackstone_cobble_mossy"
+    }
+}

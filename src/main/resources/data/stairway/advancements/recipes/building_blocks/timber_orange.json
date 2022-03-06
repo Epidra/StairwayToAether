@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_orange_stained_hardened_clay": {
+    "has_orange_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:orange_terracotta"
+            "items": ["minecraft:orange_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_orange_stained_hardened_clay"
+      "has_orange_terracotta"
     ]
   ]
 }

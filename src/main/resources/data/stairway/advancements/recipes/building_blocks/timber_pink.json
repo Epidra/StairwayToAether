@@ -12,12 +12,12 @@
     ]
   },
   "criteria": {
-    "has_pink_stained_hardened_clay": {
+    "has_pink_terracotta": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:pink_terracotta"
+            "items": ["minecraft:pink_terracotta"]
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_pink_stained_hardened_clay"
+      "has_pink_terracotta"
     ]
   ]
 }

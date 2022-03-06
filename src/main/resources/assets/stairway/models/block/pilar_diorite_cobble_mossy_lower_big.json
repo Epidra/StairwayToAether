@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_lower_big",
+    "textures": {
+        "top":      "stairway:block/diorite_cobble_mossy",
+        "side":     "stairway:block/diorite_cobble_mossy",
+        "bottom":   "stairway:block/diorite_cobble_mossy",
+        "particle": "stairway:block/diorite_cobble_mossy"
+    }
+}

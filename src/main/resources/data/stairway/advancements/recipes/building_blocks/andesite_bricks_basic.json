@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_andesite_carved",
+      "stairway:block_andesite_bricks_mossy_1",
+      "stairway:block_andesite_bricks_mossy_2",
+      "stairway:block_andesite_bricks_crack_1",
+      "stairway:slabs_andesite_bricks_basic_crafting",
+      "stairway:stair_andesite_bricks_basic_crafting",
+      "stairway:slabs_andesite_bricks_basic_stonecutter",
+      "stairway:stair_andesite_bricks_basic_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_andesite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_andesite_bricks_basic"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite"
+    ]
+  ]
+}

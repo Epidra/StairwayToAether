@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_andesite",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_andesite_bricks_mossy"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_andesite_bricks_mossy",
+    "count": 6
+  }
+}

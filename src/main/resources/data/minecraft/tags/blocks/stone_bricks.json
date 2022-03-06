@@ -1,21 +1,17 @@
 {
   "replace": false,
   "values": [
-    "stairway:block_granite_brick",
-    "stairway:block_granite_brick_moss",
-    "stairway:block_granite_brick_cracked",
-    "stairway:block_granite_brick_carved",
-    "stairway:block_diorite_brick",
-    "stairway:block_diorite_brick_moss",
-    "stairway:block_diorite_brick_cracked",
-    "stairway:block_diorite_brick_carved",
-    "stairway:block_andesite_brick",
-    "stairway:block_andesite_brick_moss",
-    "stairway:block_andesite_brick_cracked",
-    "stairway:block_andesite_brick_carved",
+    "stairway:block_granite_bricks_basic",
+    "stairway:block_granite_bricks_mossy",
+    "stairway:block_granite_bricks_crack",
+    "stairway:block_diorite_bricks_basic",
+    "stairway:block_diorite_bricks_mossy",
+    "stairway:block_diorite_bricks_crack",
+    "stairway:block_andesite_bricks_basic",
+    "stairway:block_andesite_bricks_mossy",
+    "stairway:block_andesite_bricks_crack",
     "minecraft:end_stone_bricks",
-    "stairway:block_end_brick_moss",
-    "stairway:block_end_brick_cracked",
-    "stairway:block_end_brick_carved"
+    "stairway:block_endstone_bricks_mossy",
+    "stairway:block_endstone_bricks_crack"
   ]
 }

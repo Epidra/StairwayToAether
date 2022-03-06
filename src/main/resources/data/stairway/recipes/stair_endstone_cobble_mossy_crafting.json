@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "stair_endstone",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_endstone_cobble_mossy"
+    }
+  },
+  "result": {
+    "item": "stairway:stair_endstone_cobble_mossy",
+    "count": 4
+  }
+}

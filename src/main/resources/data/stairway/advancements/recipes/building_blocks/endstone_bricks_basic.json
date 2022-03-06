@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_endstone_carved",
+      "stairway:block_endstone_bricks_mossy_1",
+      "stairway:block_endstone_bricks_mossy_2",
+      "stairway:block_endstone_bricks_crack_1"
+    ]
+  },
+  "criteria": {
+    "has_end": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:end_stone_bricks"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_end"
+    ]
+  ]
+}

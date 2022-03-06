@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "slabs_deepslate",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "stairway:block_deepslate_cobble_mossy"
+        }
+    },
+    "result": {
+        "item": "stairway:slabs_deepslate_cobble_mossy",
+        "count": 6
+    }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "stairway:block_end_smooth"
-  },
-  "result": "stairway:walls_end_smooth",
-  "count": 1
-}

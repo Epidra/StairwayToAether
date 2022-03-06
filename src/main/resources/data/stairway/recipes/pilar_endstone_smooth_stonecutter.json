@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+      "item": "stairway:block_endstone_smooth"
+  },
+  "result": "stairway:pilar_endstone_smooth",
+    "count": 1
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/statue_dog",
+    "textures": {
+        "stone":    "minecraft:block/polished_andesite",
+        "gem1":     "minecraft:block/diamond_block",
+        "gem2":     "minecraft:block/coal_block",
+        "particle": "minecraft:block/polished_andesite"
+    }
+}

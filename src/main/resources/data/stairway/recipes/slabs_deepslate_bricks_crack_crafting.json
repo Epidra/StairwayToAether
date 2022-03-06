@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "slabs_deepslate",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:cracked_deepslate_bricks"
+        }
+    },
+    "result": {
+        "item": "stairway:slabs_deepslate_bricks_crack",
+        "count": 6
+    }
+}

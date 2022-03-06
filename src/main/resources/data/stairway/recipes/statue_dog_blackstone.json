@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "statue_dog",
+    "pattern": [
+        "B",
+        "R",
+        "#"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:bone"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "#": {
+            "item": "minecraft:polished_blackstone"
+        }
+    },
+    "result": {
+        "item": "stairway:statue_dog_blackstone",
+        "count": 1
+    }
+}

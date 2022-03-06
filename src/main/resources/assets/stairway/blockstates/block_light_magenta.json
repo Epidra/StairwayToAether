@@ -2,9 +2,9 @@
     "variants": {
         "facing=down":  { "model": "stairway:block/block_light_magenta", "x":  90 },
         "facing=up":    { "model": "stairway:block/block_light_magenta", "x": 270 },
-        "facing=north": { "model": "stairway:block/block_light_magenta" },
+        "facing=north": { "model": "stairway:block/block_light_magenta"           },
         "facing=south": { "model": "stairway:block/block_light_magenta", "y": 180 },
         "facing=west":  { "model": "stairway:block/block_light_magenta", "y": 270 },
-        "facing=east":  { "model": "stairway:block/block_light_magenta", "y": 90 }
+        "facing=east":  { "model": "stairway:block/block_light_magenta", "y":  90 }
     }
 }

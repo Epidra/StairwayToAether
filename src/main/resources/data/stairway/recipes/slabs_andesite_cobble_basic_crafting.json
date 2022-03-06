@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_andesite",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_andesite_cobble_basic"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_andesite_cobble_basic",
+    "count": 6
+  }
+}

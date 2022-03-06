@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "block_andesite_bricks_crack",
+  "ingredient": {
+    "item": "stairway:block_andesite_bricks_basic"
+  },
+  "result": "stairway:block_andesite_bricks_crack",
+  "experience": 0.15,
+  "cookingtime": 200
+}

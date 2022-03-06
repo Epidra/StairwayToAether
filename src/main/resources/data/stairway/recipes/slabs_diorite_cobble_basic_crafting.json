@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "group": "slabs_diorite",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "stairway:block_diorite_cobble_basic"
+    }
+  },
+  "result": {
+    "item": "stairway:slabs_diorite_cobble_basic",
+    "count": 6
+  }
+}

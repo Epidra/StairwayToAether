@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "stairway:block/andesite_bricks_basic"
+    }
+}

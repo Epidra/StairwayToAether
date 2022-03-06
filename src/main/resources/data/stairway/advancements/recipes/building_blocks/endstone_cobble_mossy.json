@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "stairway:block_endstone_stone_2",
+      "stairway:slabs_endstone_cobble_mossy_crafting",
+      "stairway:stair_endstone_cobble_mossy_crafting",
+      "stairway:slabs_endstone_cobble_mossy_stonecutter",
+      "stairway:stair_endstone_cobble_mossy_stonecutter"
+    ]
+  },
+  "criteria": {
+    "has_end": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["stairway:block_endstone_cobble_mossy"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_end"
+    ]
+  ]
+}

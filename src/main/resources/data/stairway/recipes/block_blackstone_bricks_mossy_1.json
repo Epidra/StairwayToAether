@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "block_blackstone_bricks_mossy",
+    "ingredients": [
+        {
+            "item": "minecraft:polished_blackstone_bricks"
+        },
+        {
+            "item": "minecraft:vine"
+        }
+    ],
+    "result": {
+        "item": "stairway:block_blackstone_bricks_mossy",
+        "count": 1
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "stairway:template/pilar_outer_small",
+    "textures": {
+        "top":      "stairway:block/deepslate_bricks_mossy",
+        "side":     "stairway:block/deepslate_bricks_mossy",
+        "bottom":   "stairway:block/deepslate_bricks_mossy",
+        "particle": "stairway:block/deepslate_bricks_mossy"
+    }
+}

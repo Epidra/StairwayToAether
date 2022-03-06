@@ -1,0 +1,6 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "stairway:block/blackstone_cobble_mossy"
+  }
+}

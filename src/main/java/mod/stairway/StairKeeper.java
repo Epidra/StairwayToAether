@@ -594,24 +594,7 @@ public class StairKeeper {
 
     @OnlyIn(Dist.CLIENT)
     static void setup(FMLClientSetupEvent event){
-        //DeferredWorkQueue.runLater(() -> {
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_WHITE.get(),      RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_ORANGE.get(),     RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_MAGENTA.get(),    RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIGHT_BLUE.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_YELLOW.get(),     RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIME.get(),       RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_PINK.get(),       RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_GRAY.get(),       RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_LIGHT_GRAY.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_CYAN.get(),       RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_PURPLE.get(),     RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLUE.get(),       RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_BROWN.get(),      RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_GREEN.get(),      RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_RED.get(),        RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLACK.get(),      RenderType.translucent());
-        //});
+
     }
 
 

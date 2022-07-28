@@ -1,5 +1,6 @@
 {
     "parent": "stairway:template/block_light",
+    "render_type": "translucent",
     "textures": {
         "upper":    "stairway:block/light_pink_upper",
         "outer":    "stairway:block/light_pink_outer",

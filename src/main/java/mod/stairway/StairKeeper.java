@@ -594,7 +594,7 @@ public class StairKeeper {
 
     @OnlyIn(Dist.CLIENT)
     static void setup(FMLClientSetupEvent event){
-        //DeferredWorkQueue.runLater(() -> {
+        event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_WHITE.get(),      RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_ORANGE.get(),     RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_MAGENTA.get(),    RenderType.translucent());
@@ -611,7 +611,7 @@ public class StairKeeper {
             ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_GREEN.get(),      RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_RED.get(),        RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(StairKeeper.BLOCK_LIGHT_BLACK.get(),      RenderType.translucent());
-        //});
+        });
     }
 
 

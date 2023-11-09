@@ -6,7 +6,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -48,8 +48,8 @@ public class StairwayToAether {
         StairKeeper.setup(event);
     }
 
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == CreativeModeTabs.BUILDING_BLOCKS) {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey().equals(CreativeModeTabs.BUILDING_BLOCKS)) {
             event.accept(StairKeeper.WALLS_STONE_STONES);
             event.accept(StairKeeper.PILAR_STONE_STONES);
             event.accept(StairKeeper.STAIR_STONE_SMOOTH);
@@ -405,7 +405,7 @@ public class StairwayToAether {
             event.accept(StairKeeper.BLOCK_CHAIN_IRON);
             event.accept(StairKeeper.BLOCK_CHAIN_GOLD);
         }
-        if (event.getTab() == CreativeModeTabs.REDSTONE_BLOCKS){
+        if (event.getTabKey().equals(CreativeModeTabs.REDSTONE_BLOCKS)){
             event.accept(StairKeeper.STATUE_DOG_STONE          );
             event.accept(StairKeeper.STATUE_DOG_GRANITE        );
             event.accept(StairKeeper.STATUE_DOG_DIORITE        );

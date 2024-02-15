@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "axis=y,inverted=true,waterlogged=false":  { "model": "stairway:block/block_chain_mythril1"                   },
+        "axis=z,inverted=true,waterlogged=false":  { "model": "stairway:block/block_chain_mythril1", "x": 90          },
+        "axis=x,inverted=true,waterlogged=false":  { "model": "stairway:block/block_chain_mythril1", "x": 90, "y": 90 },
+        "axis=y,inverted=false,waterlogged=false": { "model": "stairway:block/block_chain_mythril2"                   },
+        "axis=z,inverted=false,waterlogged=false": { "model": "stairway:block/block_chain_mythril2", "x": 90          },
+        "axis=x,inverted=false,waterlogged=false": { "model": "stairway:block/block_chain_mythril2", "x": 90, "y": 90 },
+        "axis=y,inverted=true,waterlogged=true":   { "model": "stairway:block/block_chain_mythril1"                   },
+        "axis=z,inverted=true,waterlogged=true":   { "model": "stairway:block/block_chain_mythril1", "x": 90          },
+        "axis=x,inverted=true,waterlogged=true":   { "model": "stairway:block/block_chain_mythril1", "x": 90, "y": 90 },
+        "axis=y,inverted=false,waterlogged=true":  { "model": "stairway:block/block_chain_mythril2"                   },
+        "axis=z,inverted=false,waterlogged=true":  { "model": "stairway:block/block_chain_mythril2", "x": 90          },
+        "axis=x,inverted=false,waterlogged=true":  { "model": "stairway:block/block_chain_mythril2", "x": 90, "y": 90 }
+    }
+}

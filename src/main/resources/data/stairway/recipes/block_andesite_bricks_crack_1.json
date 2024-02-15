@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "category": "blocks",
   "group": "block_andesite_bricks_crack",
   "ingredient": {
     "item": "stairway:block_andesite_bricks_basic"

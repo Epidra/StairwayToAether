@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "building",
   "group": "block_andesite_cobble_mossy",
   "ingredients": [
     {

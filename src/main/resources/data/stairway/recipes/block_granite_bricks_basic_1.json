@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
     "group": "block_granite_bricks_basic",
   "pattern": [
     "##",

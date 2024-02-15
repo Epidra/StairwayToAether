@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "category": "blocks",
   "group": "block_granite_bricks_crack",
   "ingredient": {
     "item": "stairway:block_granite_bricks_mossy"

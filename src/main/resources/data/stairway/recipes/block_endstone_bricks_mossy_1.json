@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "building",
   "group": "block_endstone_bricks_mossy",
   "ingredients": [
     {

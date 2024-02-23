@@ -4,7 +4,7 @@ license="All rights reserved"
 issueTrackerURL="https://github.com/Epidra/StairwayToAether/issues"
 [[mods]]
 modId="stairway"
-version="17.0"
+version="18.0"
 displayName="StairwayToAether"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/stairway-to-aether"
 logoFile="logo.png"
@@ -22,8 +22,14 @@ So what you get is a whopping amount of over 300 new building blocks.
     ordering="NONE"
     side="BOTH"
 [[dependencies.stairway]]
+modId="acecraft"
+mandatory=false
+versionRange="[3.0,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.stairway]]
     modId="lucky77"
     mandatory=true
-    versionRange="[2.0,)"
+    versionRange="[3.0,)"
     ordering="NONE"
     side="BOTH"

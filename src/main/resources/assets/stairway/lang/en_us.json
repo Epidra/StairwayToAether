@@ -301,6 +301,12 @@
   "block.stairway.block_chain_iron": "Iron Chain",
   "block.stairway.block_chain_gold": "Golden Chain",
   "block.stairway.block_chain_copper": "Copper Chain",
+  "block.stairway.block_chain_tin": "Tin Chain",
+  "block.stairway.block_chain_mythril": "Mythril Chain",
+  "block.stairway.block_chain_gilium": "Gilium Chain",
+  "block.stairway.block_chain_bronze": "Bronze Chain",
+  "block.stairway.block_chain_orichalcum": "Orichalcum Chain",
+  "block.stairway.block_chain_adamantium": "Adamantium Chain",
 
   "block.stairway.pilar_stone_stones": "Stone Pillar",
   "block.stairway.pilar_stone_smooth": "Smooth Stone Pillar",
@@ -426,56 +432,5 @@
   "block.stairway.statue_chicken_andesite": "Andesite Chicken Statue",
   "block.stairway.statue_chicken_endstone": "End Stone Chicken Statue",
   "block.stairway.statue_chicken_blackstone": "Blackstone Chicken Statue",
-  "block.stairway.statue_chicken_deepslate": "Deepslate Chicken Statue",
-
-  "setting_0": "INFINITE TOKEN STORAGE",
-  "setting_1": "INFINITE REWARD STORAGE",
-  "setting_2": "DROP ITEMS ON BREAK",
-  "setting_3": "INDESTRUCTABLE BLOCK",
-  "setting_4": "ALTERNATE SCORING",
-
-  "rulename_1_0_0": "Black Jack",
-
-  "rulename_2_0_0": "Poker",
-
-  "rulename_3_0_0": "Roulette",
-
-  "rulename_4_0_0": "Solitaire",
-
-  "rulename_5_0_0": "Pyramid",
-
-  "rulename_6_0_0": "MauMau",
-
-  "rulename_7_0_0": "MineFLIP",
-
-  "rulename_8_0_0": "Halma",
-
-  "rulename_9_0_0": "Snake",
-
-  "rulename_10_0_0": "Tetris",
-  "rulename_10_0_1": "Columns",
-  "rulename_10_0_2": "PuyoPuyo",
-  "rulename_10_1_0": "Large Field",
-  "rulename_10_1_1": "Small Field",
-  "rulename_10_2_0": "2 Pieces",
-  "rulename_10_2_1": "3 Pieces",
-  "rulename_10_2_2": "4 Pieces",
-  "rulename_10_3_0": "HOLD Button",
-  "rulename_10_3_1": "---",
-
-  "rulename_11_0_0": "Sokoban",
-
-  "rulename_12_0_0": "2048",
-  "rulename_12_0_1": "Mystic Square",
-  "rulename_12_1_0": "UNDO Button",
-  "rulename_12_1_1": "---",
-
-  "rule_color_0": "RED",
-  "rule_color_1": "BLUE",
-  "rule_color_2": "YELLOW",
-  "rule_color_3": "GREEN",
-  "rule_color_4": "ORANGE",
-  "rule_color_5": "VIOLET"
-
-
+  "block.stairway.statue_chicken_deepslate": "Deepslate Chicken Statue"
 }

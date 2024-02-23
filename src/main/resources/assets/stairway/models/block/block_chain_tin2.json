@@ -1,8 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "stairway:block/block_tin",
-        "particle": "stairway:block/block_tin"
+        "0": "acecraft:block/block_tin",
+        "particle": "acecraft:block/block_tin"
     },
     "elements": [
         {

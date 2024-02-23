@@ -1,8 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "stairway:block/block_mythril",
-        "particle": "stairway:block/block_mythril"
+        "0": "acecraft:block/block_mythril",
+        "particle": "acecraft:block/block_mythril"
     },
     "elements": [
         {

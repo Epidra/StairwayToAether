@@ -1,8 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "stairway:block/block_gilium",
-        "particle": "stairway:block/block_gilium"
+        "0": "acecraft:block/block_gilium",
+        "particle": "acecraft:block/block_gilium"
     },
     "elements": [
         {

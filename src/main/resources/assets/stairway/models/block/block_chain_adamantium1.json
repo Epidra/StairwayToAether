@@ -1,8 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "stairway:block/block_adamantium",
-        "particle": "stairway:block/block_adamantium"
+        "0": "acecraft:block/block_adamantium",
+        "particle": "acecraft:block/block_adamantium"
     },
     "elements": [
         {

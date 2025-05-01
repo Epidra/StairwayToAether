@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "stairway:block_endstone_cobble_basic"
-  },
-  "result": "stairway:stair_endstone_cobble_basic",
-  "count": 1
-}

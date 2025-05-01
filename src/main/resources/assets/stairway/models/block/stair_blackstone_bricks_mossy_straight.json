@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "stairway:block/blackstone_bricks_mossy",
-        "top":    "stairway:block/blackstone_bricks_mossy",
-        "side":   "stairway:block/blackstone_bricks_mossy"
-    }
-}

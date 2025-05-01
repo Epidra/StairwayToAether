@@ -1,8 +1,0 @@
-{
-    "parent": "minecraft:block/slab",
-    "textures": {
-        "bottom": "stairway:block/deepslate_bricks_mossy",
-        "top":    "stairway:block/deepslate_bricks_mossy",
-        "side":   "stairway:block/deepslate_bricks_mossy"
-    }
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:light_gray_concrete"
-  },
-  "result": "stairway:slabs_concrete_light_gray",
-  "count": 2
-}

@@ -1,8 +1,0 @@
-{
-    "parent": "minecraft:block/slab",
-    "textures": {
-        "bottom": "stairway:block/endstone_smooth",
-        "top":    "stairway:block/endstone_smooth",
-        "side":   "stairway:block/endstone_smooth"
-    }
-}

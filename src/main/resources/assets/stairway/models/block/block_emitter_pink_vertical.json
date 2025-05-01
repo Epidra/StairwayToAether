@@ -1,7 +1,0 @@
-{
-    "parent": "block/orientable_vertical",
-    "textures": {
-        "front": "stairway:block/emitter_vertical_pink",
-        "side": "block/furnace_top"
-    }
-}

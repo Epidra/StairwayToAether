@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "stairway:block/diorite_bricks_mossy",
-        "top":    "stairway:block/diorite_bricks_mossy",
-        "side":   "stairway:block/diorite_bricks_mossy"
-    }
-}

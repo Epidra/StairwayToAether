@@ -1,8 +1,0 @@
-{
-    "type": "minecraft:stonecutting",
-    "ingredient": {
-        "item": "minecraft:deepslate_bricks"
-    },
-    "result": "stairway:pilar_deepslate_bricks_basic",
-    "count": 1
-}

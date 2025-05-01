@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "stairway:block/endstone_cobble_mossy",
-        "top":    "stairway:block/endstone_cobble_mossy",
-        "side":   "stairway:block/endstone_cobble_mossy"
-    }
-}
